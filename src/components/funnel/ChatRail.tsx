@@ -79,11 +79,13 @@ export const ChatRail: React.FC<{ onComplete: (a: Answers, c: Contact) => void; 
     setBusy(false);
   };
 
-  // Auto-scroll
+  // Auto-scroll to the bottom (chips included) whenever content changes
   useEffect(() => {
     const el = scrollRef.current;
-    if (el) el.scrollTop = el.scrollHeight;
-  }, [log]);
+    if (!el) return;
+    requestAnimationFrame(() => { el.scrollTop = el.scrollHeight; });
+  }, [log, phase, step, busy]);
+
 
   // Intro
   useEffect(() => {
@@ -293,13 +295,19 @@ export const ChatRail: React.FC<{ onComplete: (a: Answers, c: Contact) => void; 
         )}
 
         {(phase === "intro" || phase === "quiz" || phase === "contact-intro" || phase === "done") && (
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center",
-            fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.14em",
+          <div style={{ display: "flex", justifyContent: "center", alignItems: "center",
+            fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.16em",
             color: "var(--fg-3)", textTransform: "uppercase", padding: "4px 6px" }}>
-            <span>€ 0 · senza carta</span>
-            <span>{phase === "quiz" ? `${step + 1} / ${QUIZ.length}` : phase === "done" ? "completato" : "in corso"}</span>
+            <span>
+              {phase === "quiz"
+                ? `Domanda ${step + 1} di ${QUIZ.length} · ${QUIZ[step].label}`
+                : phase === "done" ? "Completato"
+                : phase === "contact-intro" ? "Quasi fatto"
+                : "In corso"}
+            </span>
           </div>
         )}
+
       </div>
     </div>
   );
