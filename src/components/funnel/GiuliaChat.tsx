@@ -163,7 +163,7 @@ export const GiuliaChat: React.FC<{ onStart: () => void }> = ({ onStart }) => {
                 color: "var(--fg-2, #284060)", padding: 6, borderRadius: 8,
                 display: "flex", alignItems: "center", justifyContent: "center",
               }}
-            ><Icon name="x" size={18}/></button>
+            ><span style={{ fontSize: 20, lineHeight: 1, fontWeight: 300 }}>×</span></button>
           </div>
 
           {/* Messages */}
