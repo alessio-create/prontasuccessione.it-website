@@ -709,9 +709,17 @@ export const Landing = ({ onStart, onChatComplete }: {
           </div>
         </div>
       </section>
+        </main>
+
+        <aside className="ps-rail-wrap" id="ps-chat-rail" aria-label="Conversazione con Giulia">
+          <div className="ps-rail-inner">
+            <ChatRail onComplete={onChatComplete}/>
+          </div>
+        </aside>
+      </div>
 
       <SiteFooterSlim/>
-      <GiuliaChat onStart={onStart}/>
+
     </div>
   );
 };
