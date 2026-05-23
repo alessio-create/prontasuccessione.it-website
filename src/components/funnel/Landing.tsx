@@ -573,7 +573,7 @@ export const Landing = ({ onStart }: { onStart: () => void }) => {
 
           <div style={{ textAlign: "center", marginTop: 48 }}>
             <button className="btn primary lg" onClick={onStart}>
-              Verifica idoneità <Icon name="arrow-right" size={16}/>
+              Mettici alla prova <Icon name="arrow-right" size={16}/>
             </button>
           </div>
         </div>
