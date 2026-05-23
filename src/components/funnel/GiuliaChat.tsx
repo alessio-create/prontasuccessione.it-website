@@ -108,6 +108,25 @@ export const GiuliaChat: React.FC<{ onStart: () => void }> = ({ onStart }) => {
         }
       `}</style>
 
+      {/* Tooltip after first scroll */}
+      {!open && showTip && (
+        <div
+          className="chat-tip"
+          role="button"
+          tabIndex={0}
+          onClick={() => { setOpen(true); setTipDismissed(true); }}
+          onKeyDown={(e) => { if (e.key === "Enter") { setOpen(true); setTipDismissed(true); } }}
+        >
+          <button
+            type="button"
+            className="close"
+            aria-label="Chiudi"
+            onClick={(e) => { e.stopPropagation(); setShowTip(false); setTipDismissed(true); }}
+          >×</button>
+          Hai bisogno di aiuto? Inizia subito il quiz con Giulia →
+        </div>
+      )}
+
       {/* Floating bubble */}
       {!open && (
         <button
