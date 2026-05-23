@@ -225,8 +225,8 @@ const AUDIENCES = [
 ];
 
 const FAQS: { q: string; a: string; meta?: [string, string]; defaultOpen?: boolean }[] = [
-  { q: "Quanto dura davvero il quiz?", a: "Due minuti, in media. Sono cinque domande chiuse: niente dati personali finché non vedi il risultato.",
-    meta: ["≈ 2 min", "5 domande"], defaultOpen: true },
+  { q: "Quanto dura davvero il quiz?", a: "Pochissimi istanti. In 30 secondi ti diciamo cosa serve, quanto costa e quando è pronta la tua pratica.",
+    meta: ["≈ 30 sec", "5 domande"], defaultOpen: true },
   { q: "È gratis? C'è qualche impegno?", a: "Completamente gratis, nessun pagamento, nessun obbligo, nessuna carta di credito. Ti diamo solo un orientamento iniziale.",
     meta: ["€ 0", "Senza carta"] },
   { q: "Cosa succede dopo le risposte?", a: "A video ricevi subito stima della tariffa, tempistica realistica, lista dei documenti. Se vuoi, prenoti una chiamata gratuita di trenta minuti.",
