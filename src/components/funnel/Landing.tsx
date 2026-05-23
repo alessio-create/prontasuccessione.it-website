@@ -378,7 +378,7 @@ export const Landing = ({ onStart }: { onStart: () => void }) => {
 
           <div className="row gap-3 wrap" style={{ alignItems: "center", justifyContent: "center", marginTop: 36 }}>
             <button className="btn primary lg" onClick={onStart}>
-              Inizia il quiz · 2 minuti <Icon name="arrow-right" size={16}/>
+              Inizia il quiz · 30 secondi <Icon name="arrow-right" size={16}/>
             </button>
             <span style={{ fontSize: 12, color: "var(--fg-3)" }}>
               Gratis · senza carta · risposta immediata
