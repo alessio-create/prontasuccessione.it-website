@@ -563,8 +563,9 @@ export const Landing = ({ onStart, onChatComplete }: {
                   Pile di moduli, e ne manca sempre uno.
                 </p>
                 <p className="italic-serif mt-3" style={{ fontSize: 16, lineHeight: 1.65, color: "var(--fg-2)" }}>
-                  Modello SUC, volture catastali, autocertificazioni, deleghe degli altri eredi. Basta che manchi un allegato e l'ufficio rimanda indietro tutto.
+                  Manca un allegato, l'ufficio ti rimanda indietro tutto.
                 </p>
+
               </div>
             </div>
 
