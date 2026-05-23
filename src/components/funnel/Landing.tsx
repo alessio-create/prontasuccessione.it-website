@@ -707,8 +707,8 @@ export const Landing = ({ onStart, onChatComplete }: {
             </h2>
             <p style={{ marginTop: 22, fontFamily: "var(--font-display)", fontStyle: "italic",
               fontSize: 19, color: "var(--fg-2)", maxWidth: 560, margin: "22px auto 0", lineHeight: 1.55 }}>
-              Verifica in 30 secondi se la tua pratica è gestibile online.
               Tariffa, tempi e documenti — prima ancora di iniziare.
+
             </p>
           </div>
 
