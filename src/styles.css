@@ -255,6 +255,72 @@ p { margin: 0; color: var(--fg-2); text-wrap: pretty; }
 @keyframes fade-up { from { opacity:0; transform: translateY(8px); } to { opacity:1; transform:none; } }
 .fade-up { animation: fade-up var(--dur-3) var(--ease-emphasis) both; }
 
+/* Editorial illustration animations */
+.draw { stroke-dasharray: var(--dl, 600); stroke-dashoffset: var(--dl, 600); }
+.reveal.in .draw, .in .draw { animation: draw-in 1.6s var(--ease-emphasis) forwards; }
+.in .draw.d1 { animation-delay: .15s; } .in .draw.d2 { animation-delay: .45s; }
+.in .draw.d3 { animation-delay: .75s; } .in .draw.d4 { animation-delay: 1.05s; }
+@keyframes draw-in { to { stroke-dashoffset: 0; } }
+
+.float-y { animation: float-y 6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes float-y { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+
+.spin-slow { animation: spin-slow 36s linear infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+
+.tick-pulse { animation: tick-pulse 4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes tick-pulse { 0%,100% { transform: scale(1); opacity:.85; } 50% { transform: scale(1.08); opacity:1; } }
+
+/* Top promo bar */
+.promo-bar { background: var(--ink-900); color: var(--paper-100); padding: 9px 24px;
+  border-bottom: 1px solid var(--ink-900); overflow:hidden; position:relative;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+.promo-track { display:flex; gap:48px; width:max-content; animation: tk-scroll 60s linear infinite;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing:0.14em; text-transform:uppercase; }
+.promo-track > span { display:inline-flex; align-items:center; gap:14px; color: var(--paper-200); white-space:nowrap; }
+.promo-track .accent { color: var(--paper-50); }
+.promo-track .dot { width:5px; height:5px; border-radius:999px; background: var(--seal-600); }
+
+/* Premium chip / spec */
+.spec { display:inline-flex; align-items:center; gap:8px; padding: 8px 14px 8px 12px;
+  background: var(--paper-50); border:1px solid var(--border-2); border-radius: 999px;
+  font-family: var(--font-sans); font-size: 12px; color: var(--fg-1); font-weight: 500; letter-spacing: 0; }
+.spec .dot { width:6px; height:6px; border-radius:999px; background: var(--teal-700); flex-shrink:0; }
+.spec.warm .dot { background: var(--seal-600); }
+.spec.ink .dot { background: var(--ink-900); }
+.spec em { font-family: var(--font-serif); font-style: italic; color: var(--fg-2); font-weight:400; }
+
+/* Step card premium */
+.step-card { position:relative; padding: 28px 24px 26px; background: var(--paper-50);
+  border:1px solid var(--border-2); border-radius: 6px; overflow:hidden;
+  transition: transform var(--dur-3) var(--ease-emphasis), box-shadow var(--dur-3) var(--ease-emphasis), border-color var(--dur-2); }
+.step-card::before { content:""; position:absolute; inset:0; pointer-events:none;
+  background: radial-gradient(120% 80% at 0% 0%, rgba(31,86,79,0.05), transparent 60%); }
+.step-card:hover { transform: translateY(-3px); border-color: var(--teal-300);
+  box-shadow: 0 18px 40px -28px rgba(18,35,57,0.35); }
+.step-card .n { font-family: var(--font-serif); font-style: italic; font-size: 32px;
+  color: var(--teal-700); line-height: 1; letter-spacing: -0.02em; }
+.step-card .arrow { position:absolute; right:-16px; top:50%; transform: translateY(-50%);
+  width: 32px; height: 32px; border-radius:999px; background: var(--paper-100);
+  border:1px solid var(--border-2); color: var(--teal-700);
+  display:flex; align-items:center; justify-content:center; z-index:2; }
+
+/* Audience card */
+.aud-card { padding: 28px 24px; background: var(--paper-50); border: 1px solid var(--border-2);
+  border-radius: 6px; position:relative; overflow:hidden;
+  transition: border-color var(--dur-2), background var(--dur-2), transform var(--dur-3) var(--ease-emphasis); }
+.aud-card:hover { border-color: var(--ink-900); transform: translateY(-2px); }
+.aud-card .ill { width:64px; height:64px; margin-bottom: 18px; color: var(--teal-700); }
+
+/* Final CTA — appointment card */
+.cta-card { background: var(--paper-50); border: 1.5px solid var(--ink-900); border-radius: 8px;
+  position:relative; overflow:hidden; box-shadow: 0 30px 80px -40px rgba(18,35,57,0.35); }
+.cta-card .perf { position:absolute; left:0; right:0; height:18px;
+  background-image: radial-gradient(circle at 9px 9px, var(--bg-page) 5px, transparent 5.5px);
+  background-size: 18px 18px; background-repeat: repeat-x; }
+.cta-card .perf.top { top:-9px; } .cta-card .perf.bot { bottom:-9px; }
+
 /* Utility */
 .row { display:flex; } .col { display:flex; flex-direction:column; }
 .gap-1{gap:4px}.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}.gap-5{gap:20px}.gap-6{gap:24px}.gap-8{gap:32px}.gap-10{gap:40px}.gap-12{gap:48px}
