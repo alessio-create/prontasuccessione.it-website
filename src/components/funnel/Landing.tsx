@@ -488,9 +488,9 @@ export const Landing = ({ onStart }: { onStart: () => void }) => {
           </div>
 
           <div style={{ flex: "1.1 1 360px", display: "flex", flexDirection: "column", gap: 96 }}>
-            <div ref={drift1.ref} className="reveal reveal-d1 row gap-8 wrap" style={{ alignItems: "center" }}>
-              <div style={{ flex: "0 0 200px", maxWidth: 220 }}><FigStack drift={drift1.y}/></div>
-              <div style={{ flex: "1 1 240px" }}>
+            <div ref={drift1.ref} className="row gap-8 wrap" style={{ alignItems: "center" }}>
+              <div className="reveal slide-l" style={{ flex: "0 0 200px", maxWidth: 220 }}><FigStack drift={drift1.y}/></div>
+              <div className="reveal slide-r reveal-d1" style={{ flex: "1 1 240px" }}>
                 <span className="mono" style={{ fontSize: 11, letterSpacing: "0.22em", color: "var(--seal-600)" }}>FIG. 01</span>
                 <p className="serif mt-2" style={{ fontSize: 26, fontWeight: 600, letterSpacing: "-0.018em",
                   lineHeight: 1.15, color: "var(--fg-1)" }}>
@@ -502,9 +502,9 @@ export const Landing = ({ onStart }: { onStart: () => void }) => {
               </div>
             </div>
 
-            <div ref={drift2.ref} className="reveal reveal-d2 row gap-8 wrap" style={{ alignItems: "center", flexDirection: "row-reverse" }}>
-              <div style={{ flex: "0 0 200px", maxWidth: 220 }}><FigClock drift={drift2.y}/></div>
-              <div style={{ flex: "1 1 240px" }}>
+            <div ref={drift2.ref} className="row gap-8 wrap" style={{ alignItems: "center", flexDirection: "row-reverse" }}>
+              <div className="reveal slide-r" style={{ flex: "0 0 200px", maxWidth: 220 }}><FigClock drift={drift2.y}/></div>
+              <div className="reveal slide-l reveal-d1" style={{ flex: "1 1 240px" }}>
                 <span className="mono" style={{ fontSize: 11, letterSpacing: "0.22em", color: "var(--seal-600)" }}>FIG. 02</span>
                 <p className="serif mt-2" style={{ fontSize: 26, fontWeight: 600, letterSpacing: "-0.018em",
                   lineHeight: 1.15, color: "var(--fg-1)" }}>
@@ -516,9 +516,9 @@ export const Landing = ({ onStart }: { onStart: () => void }) => {
               </div>
             </div>
 
-            <div ref={drift3.ref} className="reveal reveal-d3 row gap-8 wrap" style={{ alignItems: "center" }}>
-              <div style={{ flex: "0 0 200px", maxWidth: 220 }}><FigDesk drift={drift3.y}/></div>
-              <div style={{ flex: "1 1 240px" }}>
+            <div ref={drift3.ref} className="row gap-8 wrap" style={{ alignItems: "center" }}>
+              <div className="reveal slide-l" style={{ flex: "0 0 200px", maxWidth: 220 }}><FigDesk drift={drift3.y}/></div>
+              <div className="reveal slide-r reveal-d1" style={{ flex: "1 1 240px" }}>
                 <span className="mono" style={{ fontSize: 11, letterSpacing: "0.22em", color: "var(--seal-600)" }}>FIG. 03</span>
                 <p className="serif mt-2" style={{ fontSize: 26, fontWeight: 600, letterSpacing: "-0.018em",
                   lineHeight: 1.15, color: "var(--fg-1)" }}>
