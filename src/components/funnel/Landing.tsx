@@ -491,7 +491,8 @@ export const Landing = ({ onStart }: { onStart: () => void }) => {
           </div>
 
           <div style={{ flex: "1.1 1 360px", display: "flex", flexDirection: "column", gap: 96 }}>
-            <div ref={drift1.ref} className="row gap-8 wrap" style={{ alignItems: "center" }}>
+            <div ref={(el) => { (drift1.ref as any).current = el; (row1 as any).current = el; }}
+                 className="row gap-8 wrap" style={{ alignItems: "center" }}>
               <div className="reveal slide-l" style={{ flex: "0 0 200px", maxWidth: 220 }}><FigStack drift={drift1.y}/></div>
               <div className="reveal slide-r reveal-d1" style={{ flex: "1 1 240px" }}>
                 <span className="mono" style={{ fontSize: 11, letterSpacing: "0.22em", color: "var(--seal-600)" }}>FIG. 01</span>
@@ -505,7 +506,8 @@ export const Landing = ({ onStart }: { onStart: () => void }) => {
               </div>
             </div>
 
-            <div ref={drift2.ref} className="row gap-8 wrap" style={{ alignItems: "center", flexDirection: "row-reverse" }}>
+            <div ref={(el) => { (drift2.ref as any).current = el; (row2 as any).current = el; }}
+                 className="row gap-8 wrap" style={{ alignItems: "center", flexDirection: "row-reverse" }}>
               <div className="reveal slide-r" style={{ flex: "0 0 200px", maxWidth: 220 }}><FigClock drift={drift2.y}/></div>
               <div className="reveal slide-l reveal-d1" style={{ flex: "1 1 240px" }}>
                 <span className="mono" style={{ fontSize: 11, letterSpacing: "0.22em", color: "var(--seal-600)" }}>FIG. 02</span>
@@ -519,7 +521,8 @@ export const Landing = ({ onStart }: { onStart: () => void }) => {
               </div>
             </div>
 
-            <div ref={drift3.ref} className="row gap-8 wrap" style={{ alignItems: "center" }}>
+            <div ref={(el) => { (drift3.ref as any).current = el; (row3 as any).current = el; }}
+                 className="row gap-8 wrap" style={{ alignItems: "center" }}>
               <div className="reveal slide-l" style={{ flex: "0 0 200px", maxWidth: 220 }}><FigDesk drift={drift3.y}/></div>
               <div className="reveal slide-r reveal-d1" style={{ flex: "1 1 240px" }}>
                 <span className="mono" style={{ fontSize: 11, letterSpacing: "0.22em", color: "var(--seal-600)" }}>FIG. 03</span>
