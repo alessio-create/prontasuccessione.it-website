@@ -77,7 +77,7 @@ export const SiteFooter = () => (
       <div>
         <Logo onDark/>
         <p style={{ fontSize: 13, color: "var(--ink-200)", maxWidth: 320, marginTop: 16, lineHeight: 1.55 }}>
-          La dichiarazione di successione, fatta bene. Ti accompagniamo dall'inizio fino all'invio all'Agenzia delle Entrate.
+          Dichiarazione di successione in 48 ore, completamente online. Ti accompagniamo dall'inizio fino all'invio all'Agenzia delle Entrate.
         </p>
       </div>
       <div>
