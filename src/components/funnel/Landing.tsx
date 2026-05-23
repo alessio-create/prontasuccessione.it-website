@@ -541,7 +541,7 @@ export const Landing = ({ onStart, onChatComplete }: {
               Stai già attraversando<br/><em style={{ color: "var(--seal-600)" }}>abbastanza.</em>
             </h2>
             <p className="italic-serif mt-5" style={{ fontSize: 17, lineHeight: 1.65, maxWidth: 460, color: "var(--fg-2)" }}>
-              Tre figure, una storia che riconosci. Scorri.
+              Tre figure, una storia che riconosci.
             </p>
             <div className="divider mt-8 mb-6"/>
             <blockquote style={{ borderLeft: "3px solid var(--teal-700)", paddingLeft: 22, maxWidth: 460, margin: 0 }}>
