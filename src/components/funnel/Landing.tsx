@@ -137,35 +137,53 @@ const FigDesk: React.FC<{ drift?: number }> = ({ drift = 0 }) => (
   </svg>
 );
 
-/* ─────────────────────────────────────────── Hero monogram (clean, animated) */
+/* ─────────────────────────────────────────── SOLUTION illustration (custom, drifts) */
 
-const HeroMark: React.FC<{ drift?: number }> = ({ drift = 0 }) => (
-  <svg viewBox="0 0 360 360" style={{ width: "100%", height: "auto", display: "block" }} aria-hidden="true">
-    {/* concentric rings, slow drift */}
-    <g transform={`translate(180 180) translate(0 ${drift * 0.6})`}>
-      <circle r="156" fill="none" stroke="#fbf6ec" strokeOpacity="0.18" strokeWidth="1" strokeDasharray="2 9"/>
-      <g className="spin-slow" style={{ transformOrigin: "center" }}>
-        <circle r="138" fill="none" stroke="#fbf6ec" strokeOpacity="0.22" strokeWidth="1" strokeDasharray="1 14"/>
-      </g>
-      <circle r="118" fill="none" stroke="#fbf6ec" strokeOpacity="0.12" strokeWidth="1"/>
+const FigSolution: React.FC<{ drift?: number }> = ({ drift = 0 }) => (
+  <svg viewBox="0 0 360 380" style={{ width: "100%", height: "auto", display: "block" }} aria-hidden="true">
+    {/* back paper */}
+    <g style={{ transform: `translateY(${r3(drift * 0.4)}px) rotate(-4deg)`, transformOrigin: "180px 200px" }}>
+      <rect x="58" y="56" width="200" height="260" fill="#f4ecdc" stroke="#122339" strokeWidth="1" opacity="0.85"/>
     </g>
-    {/* center seal */}
-    <g transform={`translate(180 180) translate(0 ${drift * -0.4})`} className="tick-pulse">
-      <circle r="92" fill="#1a7672"/>
-      <circle r="84" fill="none" stroke="#fbf6ec" strokeOpacity="0.45" strokeWidth="0.8"/>
-      <g className="spin-slow">
-        <path id="hero-arc-2" d="M -68 0 A 68 68 0 1 1 68 0 A 68 68 0 1 1 -68 0" fill="none"/>
-        <text fontFamily="JetBrains Mono, monospace" fontSize="8" letterSpacing="3.5" fill="#fbf6ec" fillOpacity="0.7">
-          <textPath href="#hero-arc-2" startOffset="0">PRONTASUCCESSIONE · 48H · ONLINE · </textPath>
-        </text>
+    {/* main folder */}
+    <g style={{ transform: `translateY(${r3(drift * -0.5)}px)`, transformOrigin: "180px 200px" }}>
+      <rect x="72" y="44" width="216" height="276" fill="#fbf6ec" stroke="#122339" strokeWidth="1.4"/>
+      <rect x="72" y="44" width="216" height="34" fill="#1a7672"/>
+      <text x="86" y="66" fontFamily="JetBrains Mono, monospace" fontSize="9" letterSpacing="2.2" fill="#fbf6ec">
+        DICHIARAZIONE · SUC · 2026
+      </text>
+      <g transform="translate(244 122) rotate(-12)">
+        <circle r="34" fill="none" stroke="#8a3a24" strokeWidth="1.6" opacity="0.9"/>
+        <circle r="28" fill="none" stroke="#8a3a24" strokeWidth="0.6" opacity="0.7"/>
+        <text textAnchor="middle" y="-4" fontFamily="JetBrains Mono, monospace" fontSize="7" letterSpacing="1.6" fill="#8a3a24">APPROVATA</text>
+        <text textAnchor="middle" y="10" fontFamily="Fraunces, Georgia, serif" fontStyle="italic" fontSize="14" fill="#8a3a24" fontWeight="700">48h</text>
       </g>
-      <text textAnchor="middle" y="-6" fontFamily="Source Serif 4, Georgia, serif" fontStyle="italic" fontSize="18" fill="#fbf6ec">in</text>
-      <text textAnchor="middle" y="28" fontFamily="Source Serif 4, Georgia, serif" fontWeight="600" fontSize="40" fill="#fbf6ec">48h</text>
+      {[110, 138, 166, 194, 222].map((y, i) => (
+        <g key={i}>
+          <rect x="92" y={y} width="14" height="14" fill="none" stroke="#1a7672" strokeWidth="1.4"/>
+          <path className={`draw d${(i % 4) + 1}`} style={{ ["--dl" as any]: 24 }}
+            d={`M 94 ${y + 7} L 99 ${y + 12} L 104 ${y + 3}`}
+            fill="none" stroke="#1a7672" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+          <line x1="116" y1={y + 7} x2={116 + (i % 2 ? 110 : 90)} y2={y + 7} stroke="#122339" strokeWidth="0.6" opacity="0.45"/>
+          <line x1="116" y1={y + 12} x2={116 + (i % 2 ? 70 : 100)} y2={y + 12} stroke="#122339" strokeWidth="0.6" opacity="0.3"/>
+        </g>
+      ))}
+      <g transform="translate(92 258)">
+        <text fontFamily="JetBrains Mono, monospace" fontSize="7" letterSpacing="1.4" fill="#284060" opacity="0.7">FIRMA DIGITALE</text>
+        <path className="draw d3" style={{ ["--dl" as any]: 180 }}
+          d="M0 20 C 14 6, 28 30, 44 14 S 78 26, 96 12 S 130 22, 160 10"
+          fill="none" stroke="#122339" strokeWidth="1.6" strokeLinecap="round"/>
+        <line x1="0" y1="38" x2="184" y2="38" stroke="#122339" strokeWidth="0.6" opacity="0.5"/>
+      </g>
     </g>
-    {/* tiny sparkles */}
-    <circle cx="64" cy="84" r="2" fill="#fbf6ec" opacity="0.55" className="float-y"/>
-    <circle cx="300" cy="120" r="2.5" fill="#fbf6ec" opacity="0.45" className="float-y"/>
-    <circle cx="284" cy="278" r="1.6" fill="#fbf6ec" opacity="0.5" className="float-y"/>
+    {/* floating online chip */}
+    <g style={{ transform: `translateY(${r3(drift * 0.7)}px)`, transformOrigin: "76px 277px" }}>
+      <g className="float-y">
+        <rect x="22" y="260" width="108" height="34" rx="17" fill="#fbf6ec" stroke="#122339" strokeWidth="1.2"/>
+        <circle cx="40" cy="277" r="4" fill="#1a7672"/>
+        <text x="52" y="281" fontFamily="JetBrains Mono, monospace" fontSize="9" letterSpacing="1.8" fill="#122339">100% ONLINE</text>
+      </g>
+    </g>
   </svg>
 );
 
@@ -327,63 +345,64 @@ export const Landing = ({ onStart }: { onStart: () => void }) => {
   const drift1 = useDrift(0.08);
   const drift2 = useDrift(-0.06);
   const drift3 = useDrift(0.05);
+  const driftSol = useDrift(0.06);
 
   return (
     <div style={{ background: "var(--bg-page)" }}>
       <SiteHeaderSlim/>
 
-      {/* HERO — dark editorial, single sentence promise */}
-      <section style={{ position: "relative", background: "var(--ink-900)", color: "var(--paper-100)",
-        overflow: "hidden", padding: "96px 56px 104px" }}>
-        {/* ambient halos */}
+      {/* HERO — light, editorial, text-forward (no animated mark) */}
+      <section style={{ position: "relative", background: "var(--paper-100)", color: "var(--fg-1)",
+        overflow: "hidden", padding: "112px 56px 96px", borderBottom: "1px solid var(--border-1)" }}>
         <div aria-hidden style={{ position: "absolute", inset: 0, pointerEvents: "none",
           background:
-            "radial-gradient(900px 600px at 12% 20%, rgba(26,118,114,0.22), transparent 60%)," +
-            "radial-gradient(700px 500px at 92% 80%, rgba(138,58,36,0.18), transparent 60%)" }}/>
-        <div className="row gap-12 wrap" style={{ alignItems: "center", maxWidth: 1240, margin: "0 auto", position: "relative" }}>
-          <div style={{ flex: "1.2 1 460px", minWidth: 0 }}>
-            <span className="mono" style={{ fontSize: 11, letterSpacing: "0.22em",
-              color: "var(--teal-300)", textTransform: "uppercase" }}>
-              Dichiarazione di successione · online
+            "radial-gradient(900px 600px at 50% -10%, rgba(26,118,114,0.10), transparent 60%)," +
+            "radial-gradient(700px 500px at 90% 110%, rgba(138,58,36,0.07), transparent 60%)" }}/>
+        <div ref={heroDrift.ref} style={{ position: "relative", maxWidth: 1100, margin: "0 auto", textAlign: "center" }}>
+          <span className="mono" style={{ fontSize: 11, letterSpacing: "0.22em",
+            color: "var(--teal-700)", textTransform: "uppercase" }}>
+            Dichiarazione di successione · 100% online
+          </span>
+          <h1 className="display" style={{ fontSize: "clamp(48px, 7.4vw, 104px)", lineHeight: 0.98,
+            marginTop: 22, fontWeight: 700, letterSpacing: "-0.04em", color: "var(--fg-1)" }}>
+            La tua successione,<br/>
+            <em style={{ color: "var(--teal-700)", fontWeight: 700, fontStyle: "italic" }}>
+              davvero in regola?
+            </em>
+          </h1>
+          <p style={{ marginTop: 28, fontSize: 20, lineHeight: 1.55, maxWidth: 680, margin: "28px auto 0",
+            color: "var(--fg-2)", fontFamily: "var(--font-display)", fontStyle: "italic" }}>
+            Cinque domande, due minuti. Ti diciamo cosa serve, quanto costa e quando è pronta —
+            prima ancora di iniziare. Senza carta, senza appuntamenti, senza sorprese.
+          </p>
+
+          <div className="row gap-3 wrap" style={{ alignItems: "center", justifyContent: "center", marginTop: 36 }}>
+            <button className="btn primary lg" onClick={onStart}>
+              Inizia il quiz · 2 minuti <Icon name="arrow-right" size={16}/>
+            </button>
+            <span style={{ fontSize: 12, color: "var(--fg-3)" }}>
+              Gratis · senza carta · risposta immediata
             </span>
-            <h1 className="serif" style={{ fontSize: "clamp(42px, 6.4vw, 80px)", lineHeight: 1.02,
-              marginTop: 18, fontWeight: 600, letterSpacing: "-0.032em", color: "var(--paper-50)" }}>
-              La tua successione,<br/>
-              <em style={{ color: "var(--teal-300)", fontWeight: 600 }}>davvero in regola?</em>
-            </h1>
-            <p style={{ marginTop: 22, fontSize: 18, lineHeight: 1.6, maxWidth: 540,
-              color: "rgba(251,246,236,0.75)", fontFamily: "var(--font-serif)" }}>
-              Cinque domande, due minuti. Ti diciamo cosa serve, quanto costa e quando è pronta — prima ancora di iniziare.
-            </p>
-
-            <div className="row gap-3 wrap" style={{ alignItems: "center", marginTop: 32 }}>
-              <button className="btn primary lg" onClick={onStart}>
-                Inizia il quiz · 2 minuti <Icon name="arrow-right" size={16}/>
-              </button>
-              <span style={{ fontSize: 12, color: "rgba(251,246,236,0.6)" }}>
-                Gratis · senza carta · risposta immediata
-              </span>
-            </div>
-
-            {/* trust row */}
-            <div className="row gap-6 wrap" style={{ marginTop: 36, alignItems: "center" }}>
-              <div className="row gap-2" style={{ alignItems: "center" }}>
-                <span style={{ color: "var(--seal-500)", letterSpacing: 2, fontSize: 14 }}>★★★★★</span>
-                <span style={{ fontSize: 13, color: "var(--paper-100)", fontWeight: 600 }}>4,9 / 5</span>
-                <span style={{ fontSize: 12, color: "rgba(251,246,236,0.6)" }}>· 1.200+ recensioni</span>
-              </div>
-              <span style={{ width: 1, height: 18, background: "rgba(251,246,236,0.18)" }}/>
-              <div className="row gap-2" style={{ alignItems: "center" }}>
-                <span style={{ fontFamily: "var(--font-serif)", fontWeight: 600, fontSize: 18, color: "var(--paper-50)" }}>
-                  1.247
-                </span>
-                <span style={{ fontSize: 12, color: "rgba(251,246,236,0.6)" }}>successioni concluse</span>
-              </div>
-            </div>
           </div>
 
-          <div ref={heroDrift.ref} style={{ flex: "1 1 340px", maxWidth: 460, position: "relative" }}>
-            <HeroMark drift={heroDrift.y}/>
+          <div className="row gap-6 wrap" style={{ marginTop: 44, alignItems: "center", justifyContent: "center" }}>
+            <div className="row gap-2" style={{ alignItems: "center" }}>
+              <span style={{ color: "var(--seal-500)", letterSpacing: 2, fontSize: 14 }}>★★★★★</span>
+              <span style={{ fontSize: 13, color: "var(--fg-1)", fontWeight: 600 }}>4,9 / 5</span>
+              <span style={{ fontSize: 12, color: "var(--fg-3)" }}>· 1.200+ recensioni</span>
+            </div>
+            <span style={{ width: 1, height: 18, background: "var(--border-2)" }}/>
+            <div className="row gap-2" style={{ alignItems: "center" }}>
+              <span className="display" style={{ fontWeight: 700, fontSize: 20, color: "var(--fg-1)" }}>
+                1.247
+              </span>
+              <span style={{ fontSize: 12, color: "var(--fg-3)" }}>successioni concluse</span>
+            </div>
+            <span style={{ width: 1, height: 18, background: "var(--border-2)" }}/>
+            <div className="row gap-2" style={{ alignItems: "center" }}>
+              <span className="display" style={{ fontWeight: 700, fontSize: 20, color: "var(--fg-1)" }}>48h</span>
+              <span style={{ fontSize: 12, color: "var(--fg-3)" }}>tempo medio · 100% online</span>
+            </div>
           </div>
         </div>
       </section>
@@ -424,35 +443,15 @@ export const Landing = ({ onStart }: { onStart: () => void }) => {
             </ul>
           </div>
 
-          <div style={{ flex: "1 1 320px", maxWidth: 460, textAlign: "center" }}>
-            <div style={{ position: "relative", aspectRatio: "1 / 1", maxWidth: 460, margin: "0 auto" }}>
-              <div aria-hidden style={{ position: "absolute", inset: "10%", borderRadius: "50%",
-                background: "radial-gradient(circle, rgba(26,118,114,0.18), transparent 60%)", filter: "blur(28px)" }}/>
-              <svg viewBox="0 0 400 400" className="spin-slow" style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }} aria-hidden>
-                <circle cx="200" cy="200" r="186" fill="none" stroke="var(--ink-900)" strokeOpacity="0.14" strokeWidth="1" strokeDasharray="2 9"/>
-              </svg>
-              <svg viewBox="0 0 400 400" style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }} aria-hidden>
-                <circle cx="200" cy="200" r="170" fill="none" stroke="var(--teal-700)" strokeOpacity="0.25" strokeWidth="1" strokeDasharray="1 14"/>
-              </svg>
-              <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <div style={{ width: 240, height: 240, borderRadius: 999, background: "var(--teal-700)", color: "var(--paper-50)",
-                  display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
-                  boxShadow: "0 30px 80px -30px rgba(26,118,114,0.55)" }}>
-                  <span className="mono" style={{ fontSize: 10, letterSpacing: "0.24em", opacity: 0.7 }}>TARIFFA FISSA</span>
-                  <span className="serif" style={{ fontSize: 56, fontWeight: 600, marginTop: 6, letterSpacing: "-0.03em" }}>€ 0</span>
-                  <span style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", fontSize: 15, marginTop: 6, opacity: 0.9 }}>
-                    per scoprire il tuo caso
-                  </span>
-                </div>
-              </div>
-            </div>
-            <h3 className="serif" style={{ marginTop: 28, fontSize: 22, fontWeight: 600, color: "var(--fg-1)",
+          <div ref={driftSol.ref} style={{ flex: "1 1 320px", maxWidth: 480, textAlign: "center" }}>
+            <FigSolution drift={driftSol.y}/>
+            <h3 className="display" style={{ marginTop: 24, fontSize: 22, fontWeight: 600, color: "var(--fg-1)",
               fontStyle: "italic", letterSpacing: "-0.012em" }}>
               Sicuro che la tua pratica sia davvero a posto?
             </h3>
             <div className="row gap-3 wrap" style={{ marginTop: 22, justifyContent: "center" }}>
               <button className="btn primary" onClick={onStart}>
-                No, voglio verificare <Icon name="arrow-right" size={14}/>
+                Mettici alla prova <Icon name="arrow-right" size={14}/>
               </button>
               <button className="btn" onClick={onStart}>
                 Sì, ma voglio essere sicuro
@@ -574,7 +573,7 @@ export const Landing = ({ onStart }: { onStart: () => void }) => {
 
           <div style={{ textAlign: "center", marginTop: 48 }}>
             <button className="btn primary lg" onClick={onStart}>
-              Verifica idoneità <Icon name="arrow-right" size={16}/>
+              Mettici alla prova <Icon name="arrow-right" size={16}/>
             </button>
           </div>
         </div>
@@ -610,31 +609,31 @@ export const Landing = ({ onStart }: { onStart: () => void }) => {
         </div>
       </section>
 
-      {/* FINAL CTA — appointment ticket */}
-      <section ref={revealCta} className="reveal" style={{ padding: "96px 56px 112px",
-        background: "var(--ink-900)", color: "var(--paper-100)", borderTop: "1px solid var(--ink-900)" }}>
+      {/* FINAL CTA — light, editorial */}
+      <section ref={revealCta} className="reveal" style={{ padding: "112px 56px 128px",
+        background: "var(--paper-100)", color: "var(--fg-1)", borderTop: "1px solid var(--border-2)" }}>
         <div style={{ maxWidth: 920, margin: "0 auto", textAlign: "center" }}>
           <span className="mono" style={{ fontSize: 11, letterSpacing: "0.22em",
-            color: "var(--teal-300)", textTransform: "uppercase" }}>
+            color: "var(--teal-700)", textTransform: "uppercase" }}>
             Pronto? · Prossimo passo
           </span>
-          <h2 className="serif" style={{ marginTop: 16, fontSize: "clamp(36px, 5vw, 60px)", fontWeight: 600,
-            letterSpacing: "-0.03em", lineHeight: 1.02, color: "var(--paper-50)" }}>
+          <h2 className="display" style={{ marginTop: 16, fontSize: "clamp(40px, 5.6vw, 72px)", fontWeight: 700,
+            letterSpacing: "-0.035em", lineHeight: 1.0, color: "var(--fg-1)" }}>
             La serenità che avresti dovuto avere<br/>
-            <em style={{ color: "var(--teal-300)" }}>fin dal primo giorno.</em>
+            <em style={{ color: "var(--teal-700)", fontStyle: "italic", fontWeight: 700 }}>fin dal primo giorno.</em>
           </h2>
-          <p style={{ marginTop: 22, fontFamily: "var(--font-serif)", fontStyle: "italic",
-            fontSize: 18, color: "rgba(251,246,236,0.75)", maxWidth: 560, margin: "22px auto 0" }}>
-            Verifica in 2 minuti se la tua pratica è gestibile online. Senza impegno, senza carta.
+          <p style={{ marginTop: 24, fontFamily: "var(--font-display)", fontStyle: "italic",
+            fontSize: 19, color: "var(--fg-2)", maxWidth: 580, margin: "24px auto 0", lineHeight: 1.55 }}>
+            Verifica in due minuti se la tua pratica è gestibile online. Senza impegno, senza carta.
           </p>
           <button className="btn primary lg" onClick={onStart} style={{ marginTop: 36 }}>
-            Inizia il quiz <Icon name="arrow-right" size={16}/>
+            Mettici alla prova <Icon name="arrow-right" size={16}/>
           </button>
           <div className="row gap-3" style={{ marginTop: 26, justifyContent: "center", alignItems: "center",
-            fontSize: 13, color: "rgba(251,246,236,0.7)" }}>
+            fontSize: 13, color: "var(--fg-3)" }}>
             <span style={{ color: "var(--seal-500)", letterSpacing: 2 }}>★★★★★</span>
-            <span style={{ fontWeight: 600, color: "var(--paper-50)" }}>4,9 / 5</span>
-            <span>· 1.200+ recensioni</span>
+            <span style={{ fontWeight: 600, color: "var(--fg-1)" }}>4,9 / 5</span>
+            <span>· 1.200+ recensioni · 1.247 successioni concluse</span>
           </div>
         </div>
       </section>
