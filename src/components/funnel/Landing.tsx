@@ -419,7 +419,7 @@ export const Landing = ({ onStart, onChatComplete }: {
           </p>
 
           <div className="row gap-3 wrap" style={{ alignItems: "center", justifyContent: "center", marginTop: "clamp(18px, 2.6vh, 30px)" }}>
-            <button className="btn primary lg" onClick={onStart}>
+            <button className="btn primary lg" onClick={focusChat}>
               Inizia il quiz · 30 secondi <Icon name="arrow-right" size={16}/>
             </button>
           </div>
@@ -489,10 +489,10 @@ export const Landing = ({ onStart, onChatComplete }: {
               Sicuro che la tua pratica sia davvero a posto?
             </h3>
             <div className="row gap-3 wrap" style={{ marginTop: 22, justifyContent: "center" }}>
-              <button className="btn primary" onClick={onStart}>
+              <button className="btn primary" onClick={focusChat}>
                 Mettici alla prova <Icon name="arrow-right" size={14}/>
               </button>
-              <button className="btn" onClick={onStart}>
+              <button className="btn" onClick={focusChat}>
                 Sì, ma voglio essere sicuro
               </button>
             </div>
@@ -614,7 +614,7 @@ export const Landing = ({ onStart, onChatComplete }: {
           </div>
 
           <div style={{ textAlign: "center", marginTop: 48 }}>
-            <button className="btn primary lg" onClick={onStart}>
+            <button className="btn primary lg" onClick={focusChat}>
               Mettici alla prova <Icon name="arrow-right" size={16}/>
             </button>
           </div>
@@ -684,7 +684,7 @@ export const Landing = ({ onStart, onChatComplete }: {
           </div>
 
           <div className="col" style={{ alignItems: "center", gap: 12, marginTop: 36 }}>
-            <button className="btn primary lg" onClick={onStart}>
+            <button className="btn primary lg" onClick={focusChat}>
               Mettici alla prova <Icon name="arrow-right" size={16}/>
             </button>
             <span className="mono" style={{ fontSize: 11, letterSpacing: "0.18em",
