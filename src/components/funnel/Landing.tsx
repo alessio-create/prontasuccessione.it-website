@@ -352,41 +352,41 @@ export const Landing = ({ onStart }: { onStart: () => void }) => {
     <div style={{ background: "var(--bg-page)" }}>
       <SiteHeaderSlim/>
 
-      {/* HERO — light, editorial, text-forward (no animated mark) */}
+      {/* HERO — light, editorial, text-forward (fits in viewport) */}
       <section style={{ position: "relative", background: "var(--paper-100)", color: "var(--fg-1)",
-        overflow: "hidden", padding: "112px 56px 96px", borderBottom: "1px solid var(--border-1)" }}>
+        overflow: "hidden", padding: "clamp(24px, 5vh, 64px) clamp(20px, 4vw, 56px) clamp(24px, 4vh, 56px)",
+        borderBottom: "1px solid var(--border-1)",
+        minHeight: "calc(100svh - 56px)", display: "flex", alignItems: "center" }}>
         <div aria-hidden style={{ position: "absolute", inset: 0, pointerEvents: "none",
           background:
             "radial-gradient(900px 600px at 50% -10%, rgba(26,118,114,0.10), transparent 60%)," +
             "radial-gradient(700px 500px at 90% 110%, rgba(138,58,36,0.07), transparent 60%)" }}/>
-        <div ref={heroDrift.ref} style={{ position: "relative", maxWidth: 1100, margin: "0 auto", textAlign: "center" }}>
-          <span className="mono" style={{ fontSize: 11, letterSpacing: "0.22em",
+        <div ref={heroDrift.ref} style={{ position: "relative", maxWidth: 1100, margin: "0 auto", textAlign: "center", width: "100%" }}>
+          <span className="mono" style={{ fontSize: "clamp(10px, 1.1vw, 11px)", letterSpacing: "0.22em",
             color: "var(--teal-700)", textTransform: "uppercase" }}>
             DICHIARAZIONE DI SUCCESSIONE 100% ONLINE
           </span>
-          <h1 className="display" style={{ fontSize: "clamp(48px, 7.4vw, 104px)", lineHeight: 0.98,
-            marginTop: 22, fontWeight: 700, letterSpacing: "-0.04em", color: "var(--fg-1)" }}>
+          <h1 className="display" style={{ fontSize: "clamp(36px, 6.4vw, 88px)", lineHeight: 1.0,
+            marginTop: "clamp(12px, 1.6vh, 18px)", fontWeight: 700, letterSpacing: "-0.04em", color: "var(--fg-1)" }}>
             La tua successione,<br/>
             <em style={{ color: "var(--teal-700)", fontWeight: 700, fontStyle: "italic" }}>
               davvero in regola?
             </em>
           </h1>
-          <p style={{ marginTop: 28, fontSize: 20, lineHeight: 1.55, maxWidth: 680, margin: "28px auto 0",
+          <p style={{ marginTop: "clamp(14px, 2vh, 22px)", fontSize: "clamp(15px, 1.7vw, 19px)", lineHeight: 1.5,
+            maxWidth: 680, marginLeft: "auto", marginRight: "auto",
             color: "var(--fg-2)", fontFamily: "var(--font-display)", fontStyle: "italic" }}>
             In 30 secondi ti diciamo cosa serve, quanto costa e quando è pronta,
             prima ancora di iniziare. Senza carta, senza appuntamenti, senza sorprese.
           </p>
 
-          <div className="row gap-3 wrap" style={{ alignItems: "center", justifyContent: "center", marginTop: 36 }}>
+          <div className="row gap-3 wrap" style={{ alignItems: "center", justifyContent: "center", marginTop: "clamp(18px, 2.6vh, 30px)" }}>
             <button className="btn primary lg" onClick={onStart}>
               Inizia il quiz · 30 secondi <Icon name="arrow-right" size={16}/>
             </button>
-            <span style={{ fontSize: 12, color: "var(--fg-3)" }}>
-              {"\n"}
-            </span>
           </div>
 
-          <div className="row gap-6 wrap" style={{ marginTop: 44, alignItems: "center", justifyContent: "center" }}>
+          <div className="row gap-6 wrap" style={{ marginTop: "clamp(22px, 3vh, 38px)", alignItems: "center", justifyContent: "center" }}>
             <div className="row gap-2" style={{ alignItems: "center" }}>
               <span style={{ color: "var(--seal-500)", letterSpacing: 2, fontSize: 14 }}>★★★★★</span>
               <span style={{ fontSize: 13, color: "var(--fg-1)", fontWeight: 600 }}>4,9 / 5</span>
