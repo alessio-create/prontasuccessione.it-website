@@ -225,8 +225,8 @@ const AUDIENCES = [
 ];
 
 const FAQS: { q: string; a: string; meta?: [string, string]; defaultOpen?: boolean }[] = [
-  { q: "Quanto dura davvero il quiz?", a: "Due minuti, in media. Sono cinque domande chiuse: niente dati personali finché non vedi il risultato.",
-    meta: ["≈ 2 min", "5 domande"], defaultOpen: true },
+  { q: "Quanto dura davvero il quiz?", a: "Pochissimi istanti. In 30 secondi ti diciamo cosa serve, quanto costa e quando è pronta la tua pratica.",
+    meta: ["≈ 30 sec", "5 domande"], defaultOpen: true },
   { q: "È gratis? C'è qualche impegno?", a: "Completamente gratis, nessun pagamento, nessun obbligo, nessuna carta di credito. Ti diamo solo un orientamento iniziale.",
     meta: ["€ 0", "Senza carta"] },
   { q: "Cosa succede dopo le risposte?", a: "A video ricevi subito stima della tariffa, tempistica realistica, lista dei documenti. Se vuoi, prenoti una chiamata gratuita di trenta minuti.",
@@ -372,13 +372,13 @@ export const Landing = ({ onStart }: { onStart: () => void }) => {
           </h1>
           <p style={{ marginTop: 28, fontSize: 20, lineHeight: 1.55, maxWidth: 680, margin: "28px auto 0",
             color: "var(--fg-2)", fontFamily: "var(--font-display)", fontStyle: "italic" }}>
-            Cinque domande, due minuti. Ti diciamo cosa serve, quanto costa e quando è pronta —
+            In 30 secondi ti diciamo cosa serve, quanto costa e quando è pronta,
             prima ancora di iniziare. Senza carta, senza appuntamenti, senza sorprese.
           </p>
 
           <div className="row gap-3 wrap" style={{ alignItems: "center", justifyContent: "center", marginTop: 36 }}>
             <button className="btn primary lg" onClick={onStart}>
-              Inizia il quiz · 2 minuti <Icon name="arrow-right" size={16}/>
+              Inizia il quiz · 30 secondi <Icon name="arrow-right" size={16}/>
             </button>
             <span style={{ fontSize: 12, color: "var(--fg-3)" }}>
               Gratis · senza carta · risposta immediata
@@ -624,7 +624,7 @@ export const Landing = ({ onStart }: { onStart: () => void }) => {
           </h2>
           <p style={{ marginTop: 24, fontFamily: "var(--font-display)", fontStyle: "italic",
             fontSize: 19, color: "var(--fg-2)", maxWidth: 580, margin: "24px auto 0", lineHeight: 1.55 }}>
-            Verifica in due minuti se la tua pratica è gestibile online. Senza impegno, senza carta.
+            Verifica in 30 secondi se la tua pratica è gestibile online. Senza impegno, senza carta.
           </p>
           <button className="btn primary lg" onClick={onStart} style={{ marginTop: 36 }}>
             Mettici alla prova <Icon name="arrow-right" size={16}/>
