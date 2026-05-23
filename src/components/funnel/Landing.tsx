@@ -47,8 +47,8 @@ const SchedaIllustration = () => (
     <g transform="translate(310 286)">
       <circle r="44" fill="#1a7672"/>
       <circle r="37" fill="none" stroke="#fbf6ec" strokeWidth="0.8" opacity="0.55"/>
-      <text textAnchor="middle" y="-2" fontFamily="Source Serif 4, Georgia, serif" fontSize="11" fontStyle="italic" fill="#fbf6ec">spiegata</text>
-      <text textAnchor="middle" y="14" fontFamily="Source Serif 4, Georgia, serif" fontSize="13" fontWeight="600" fill="#fbf6ec">bene</text>
+      <text textAnchor="middle" y="-2" fontFamily="Source Serif 4, Georgia, serif" fontSize="11" fontStyle="italic" fill="#fbf6ec">in 48h</text>
+      <text textAnchor="middle" y="14" fontFamily="Source Serif 4, Georgia, serif" fontSize="13" fontWeight="600" fill="#fbf6ec">online</text>
       <text textAnchor="middle" y="32" fontFamily="JetBrains Mono, monospace" fontSize="6" letterSpacing="1.5" fill="#fbf6ec" opacity="0.7">PS · 2026</text>
     </g>
     <g>
