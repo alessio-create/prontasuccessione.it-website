@@ -291,6 +291,19 @@ export const Quiz = ({ answers, setAnswers, step, setStep, onComplete, onBack }:
           }}>
             <div className="col gap-3" style={{ maxWidth: 640, margin: "0 auto" }}>
               <div className="row gap-2" style={{ alignItems: "center" }}>
+                <button
+                  className="btn ghost"
+                  disabled={step === 0}
+                  onClick={() => step > 0 && setStep(step - 1)}
+                  style={{ width: 44, height: 44, padding: 0, borderRadius: 999, opacity: step === 0 ? 0.4 : 1 }}
+                  aria-label="Domanda precedente"
+                  title="Domanda precedente"
+                >
+                  <span style={{ display: "inline-flex", transform: "rotate(180deg)" }}>
+                    <Icon name="arrow-right" size={16}/>
+                  </span>
+
+                </button>
                 <div style={{
                   flex: 1, height: 44, padding: "0 16px",
                   border: "1.2px solid var(--border-3)", borderRadius: 999,
@@ -306,8 +319,8 @@ export const Quiz = ({ answers, setAnswers, step, setStep, onComplete, onBack }:
                   <Icon name="arrow-right" size={16}/>
                 </button>
               </div>
-              <p className="meta tcenter">La conversazione è privata. Riceverai la trascrizione al termine.</p>
             </div>
+
           </div>
       </div>
 
