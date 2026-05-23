@@ -299,7 +299,10 @@ export const Quiz = ({ answers, setAnswers, step, setStep, onComplete, onBack }:
                   aria-label="Domanda precedente"
                   title="Domanda precedente"
                 >
-                  <Icon name="arrow-right" size={16} style={{ transform: "rotate(180deg)" }}/>
+                  <span style={{ display: "inline-flex", transform: "rotate(180deg)" }}>
+                    <Icon name="arrow-right" size={16}/>
+                  </span>
+
                 </button>
                 <div style={{
                   flex: 1, height: 44, padding: "0 16px",
