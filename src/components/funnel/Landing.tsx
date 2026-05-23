@@ -356,38 +356,64 @@ export const Landing = ({ onStart, onChatComplete }: {
   const row2 = useReveal();
   const row3 = useReveal();
 
-  const focusChat = () => {
-    const el = document.getElementById("ps-chat-rail");
-    if (!el) return;
-    el.scrollIntoView({ behavior: "smooth", block: "start" });
-    // gentle highlight pulse
-    el.animate(
-      [{ boxShadow: "0 0 0 0 rgba(26,118,114,0)" },
-       { boxShadow: "0 0 0 8px rgba(26,118,114,0.25)" },
-       { boxShadow: "0 0 0 0 rgba(26,118,114,0)" }],
-      { duration: 900, easing: "ease-out" }
-    );
+  const [chatOpen, setChatOpen] = useState(false);
+
+  const openChat = () => {
+    setChatOpen(true);
+    requestAnimationFrame(() => {
+      const el = document.getElementById("ps-chat-rail");
+      if (!el) return;
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      el.animate(
+        [{ boxShadow: "0 0 0 0 rgba(26,118,114,0)" },
+         { boxShadow: "0 0 0 10px rgba(26,118,114,0.28)" },
+         { boxShadow: "0 0 0 0 rgba(26,118,114,0)" }],
+        { duration: 900, easing: "ease-out" }
+      );
+    });
   };
+  const focusChat = openChat;
 
   return (
     <div style={{ background: "var(--bg-page)" }}>
       <style>{`
-        .ps-shell { display: grid; grid-template-columns: 1fr; }
-        .ps-rail-wrap { position: relative; }
-        .ps-rail-inner { background: var(--paper-100); border-left: 1px solid var(--border-1); }
-        @media (max-width: 1023px) {
-          .ps-rail-wrap { order: -1; height: calc(100svh - 56px); }
-          .ps-rail-inner { height: 100%; border-left: none; border-bottom: 1px solid var(--border-1); }
-        }
+        .ps-shell { display: grid; grid-template-columns: 1fr; transition: grid-template-columns 0.4s ease; }
+        .ps-rail-wrap { position: relative; overflow: hidden; }
+        .ps-rail-inner { background: var(--paper-100); border-left: 1px solid var(--border-1); height: 100%; }
+        .ps-rail-wrap.closed { width: 0; }
         @media (min-width: 1024px) {
-          .ps-shell { grid-template-columns: minmax(0, 60fr) minmax(360px, 40fr); }
-          .ps-rail-wrap { height: calc(100vh - 56px); position: sticky; top: 56px; }
-          .ps-rail-inner { height: 100%; }
+          .ps-shell.open { grid-template-columns: minmax(0, 60fr) minmax(380px, 40fr); }
+          .ps-shell.open .ps-rail-wrap { height: calc(100vh - 56px); position: sticky; top: 56px; }
+        }
+        @media (max-width: 1023px) {
+          .ps-shell.open .ps-rail-wrap { order: -1; height: calc(100svh - 56px); }
+          .ps-shell.open .ps-rail-inner { border-left: none; border-bottom: 1px solid var(--border-1); }
+        }
+        @keyframes giulia-fab-pulse {
+          0%   { box-shadow: 0 0 0 0 rgba(26,118,114,0.45), 0 12px 28px rgba(18,35,57,0.25); }
+          70%  { box-shadow: 0 0 0 18px rgba(26,118,114,0), 0 12px 28px rgba(18,35,57,0.25); }
+          100% { box-shadow: 0 0 0 0 rgba(26,118,114,0), 0 12px 28px rgba(18,35,57,0.25); }
+        }
+        .giulia-fab {
+          position: fixed; right: 22px; bottom: 22px; z-index: 60;
+          display: inline-flex; align-items: center; gap: 12px;
+          padding: 10px 18px 10px 10px; border-radius: 999px; border: none; cursor: pointer;
+          background: var(--ink-900, #122339); color: #fbf6ec;
+          font-family: var(--font-sans, Inter, system-ui, sans-serif); font-size: 14px; font-weight: 600;
+          animation: giulia-fab-pulse 2.4s infinite;
+        }
+        .giulia-fab .avatar {
+          width: 40px; height: 40px; border-radius: 50%;
+          background: linear-gradient(135deg, #8a4a36, #c25a3e); color: #fbf6ec;
+          display: inline-flex; align-items: center; justify-content: center;
+          font-family: var(--font-display, Fraunces, Georgia, serif); font-weight: 700; font-size: 15px;
+          border: 2px solid #fbf6ec;
         }
       `}</style>
       <SiteHeaderSlim/>
-      <div className="ps-shell">
+      <div className={"ps-shell " + (chatOpen ? "open" : "closed")}>
         <main style={{ minWidth: 0 }}>
+
 
 
       {/* HERO — light, editorial, text-forward (fits in viewport) */}
