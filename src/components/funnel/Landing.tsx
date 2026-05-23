@@ -466,7 +466,7 @@ export const Landing = ({ onStart }: { onStart: () => void }) => {
       </section>
 
       {/* PROBLEM — keeps the figures the user likes */}
-      <section style={{ padding: "120px 56px", position: "relative",
+      <section ref={revealProblem} style={{ padding: "120px 56px", position: "relative",
         overflow: "hidden", background: "var(--paper-200)", borderTop: "1px solid var(--ink-900)" }}>
         <div className="row gap-12 wrap" style={{ maxWidth: 1240, margin: "0 auto", alignItems: "flex-start" }}>
           <div className="reveal" style={{ flex: "1 1 360px", position: "sticky", top: 32 }}>
