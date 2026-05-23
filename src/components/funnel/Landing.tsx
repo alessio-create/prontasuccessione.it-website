@@ -345,63 +345,64 @@ export const Landing = ({ onStart }: { onStart: () => void }) => {
   const drift1 = useDrift(0.08);
   const drift2 = useDrift(-0.06);
   const drift3 = useDrift(0.05);
+  const driftSol = useDrift(0.06);
 
   return (
     <div style={{ background: "var(--bg-page)" }}>
       <SiteHeaderSlim/>
 
-      {/* HERO — dark editorial, single sentence promise */}
-      <section style={{ position: "relative", background: "var(--ink-900)", color: "var(--paper-100)",
-        overflow: "hidden", padding: "96px 56px 104px" }}>
-        {/* ambient halos */}
+      {/* HERO — light, editorial, text-forward (no animated mark) */}
+      <section style={{ position: "relative", background: "var(--paper-100)", color: "var(--fg-1)",
+        overflow: "hidden", padding: "112px 56px 96px", borderBottom: "1px solid var(--border-1)" }}>
         <div aria-hidden style={{ position: "absolute", inset: 0, pointerEvents: "none",
           background:
-            "radial-gradient(900px 600px at 12% 20%, rgba(26,118,114,0.22), transparent 60%)," +
-            "radial-gradient(700px 500px at 92% 80%, rgba(138,58,36,0.18), transparent 60%)" }}/>
-        <div className="row gap-12 wrap" style={{ alignItems: "center", maxWidth: 1240, margin: "0 auto", position: "relative" }}>
-          <div style={{ flex: "1.2 1 460px", minWidth: 0 }}>
-            <span className="mono" style={{ fontSize: 11, letterSpacing: "0.22em",
-              color: "var(--teal-300)", textTransform: "uppercase" }}>
-              Dichiarazione di successione · online
+            "radial-gradient(900px 600px at 50% -10%, rgba(26,118,114,0.10), transparent 60%)," +
+            "radial-gradient(700px 500px at 90% 110%, rgba(138,58,36,0.07), transparent 60%)" }}/>
+        <div ref={heroDrift.ref} style={{ position: "relative", maxWidth: 1100, margin: "0 auto", textAlign: "center" }}>
+          <span className="mono" style={{ fontSize: 11, letterSpacing: "0.22em",
+            color: "var(--teal-700)", textTransform: "uppercase" }}>
+            Dichiarazione di successione · 100% online
+          </span>
+          <h1 className="display" style={{ fontSize: "clamp(48px, 7.4vw, 104px)", lineHeight: 0.98,
+            marginTop: 22, fontWeight: 700, letterSpacing: "-0.04em", color: "var(--fg-1)" }}>
+            La tua successione,<br/>
+            <em style={{ color: "var(--teal-700)", fontWeight: 700, fontStyle: "italic" }}>
+              davvero in regola?
+            </em>
+          </h1>
+          <p style={{ marginTop: 28, fontSize: 20, lineHeight: 1.55, maxWidth: 680, margin: "28px auto 0",
+            color: "var(--fg-2)", fontFamily: "var(--font-display)", fontStyle: "italic" }}>
+            Cinque domande, due minuti. Ti diciamo cosa serve, quanto costa e quando è pronta —
+            prima ancora di iniziare. Senza carta, senza appuntamenti, senza sorprese.
+          </p>
+
+          <div className="row gap-3 wrap" style={{ alignItems: "center", justifyContent: "center", marginTop: 36 }}>
+            <button className="btn primary lg" onClick={onStart}>
+              Inizia il quiz · 2 minuti <Icon name="arrow-right" size={16}/>
+            </button>
+            <span style={{ fontSize: 12, color: "var(--fg-3)" }}>
+              Gratis · senza carta · risposta immediata
             </span>
-            <h1 className="serif" style={{ fontSize: "clamp(42px, 6.4vw, 80px)", lineHeight: 1.02,
-              marginTop: 18, fontWeight: 600, letterSpacing: "-0.032em", color: "var(--paper-50)" }}>
-              La tua successione,<br/>
-              <em style={{ color: "var(--teal-300)", fontWeight: 600 }}>davvero in regola?</em>
-            </h1>
-            <p style={{ marginTop: 22, fontSize: 18, lineHeight: 1.6, maxWidth: 540,
-              color: "rgba(251,246,236,0.75)", fontFamily: "var(--font-serif)" }}>
-              Cinque domande, due minuti. Ti diciamo cosa serve, quanto costa e quando è pronta — prima ancora di iniziare.
-            </p>
-
-            <div className="row gap-3 wrap" style={{ alignItems: "center", marginTop: 32 }}>
-              <button className="btn primary lg" onClick={onStart}>
-                Inizia il quiz · 2 minuti <Icon name="arrow-right" size={16}/>
-              </button>
-              <span style={{ fontSize: 12, color: "rgba(251,246,236,0.6)" }}>
-                Gratis · senza carta · risposta immediata
-              </span>
-            </div>
-
-            {/* trust row */}
-            <div className="row gap-6 wrap" style={{ marginTop: 36, alignItems: "center" }}>
-              <div className="row gap-2" style={{ alignItems: "center" }}>
-                <span style={{ color: "var(--seal-500)", letterSpacing: 2, fontSize: 14 }}>★★★★★</span>
-                <span style={{ fontSize: 13, color: "var(--paper-100)", fontWeight: 600 }}>4,9 / 5</span>
-                <span style={{ fontSize: 12, color: "rgba(251,246,236,0.6)" }}>· 1.200+ recensioni</span>
-              </div>
-              <span style={{ width: 1, height: 18, background: "rgba(251,246,236,0.18)" }}/>
-              <div className="row gap-2" style={{ alignItems: "center" }}>
-                <span style={{ fontFamily: "var(--font-serif)", fontWeight: 600, fontSize: 18, color: "var(--paper-50)" }}>
-                  1.247
-                </span>
-                <span style={{ fontSize: 12, color: "rgba(251,246,236,0.6)" }}>successioni concluse</span>
-              </div>
-            </div>
           </div>
 
-          <div ref={heroDrift.ref} style={{ flex: "1 1 340px", maxWidth: 460, position: "relative" }}>
-            <HeroMark drift={heroDrift.y}/>
+          <div className="row gap-6 wrap" style={{ marginTop: 44, alignItems: "center", justifyContent: "center" }}>
+            <div className="row gap-2" style={{ alignItems: "center" }}>
+              <span style={{ color: "var(--seal-500)", letterSpacing: 2, fontSize: 14 }}>★★★★★</span>
+              <span style={{ fontSize: 13, color: "var(--fg-1)", fontWeight: 600 }}>4,9 / 5</span>
+              <span style={{ fontSize: 12, color: "var(--fg-3)" }}>· 1.200+ recensioni</span>
+            </div>
+            <span style={{ width: 1, height: 18, background: "var(--border-2)" }}/>
+            <div className="row gap-2" style={{ alignItems: "center" }}>
+              <span className="display" style={{ fontWeight: 700, fontSize: 20, color: "var(--fg-1)" }}>
+                1.247
+              </span>
+              <span style={{ fontSize: 12, color: "var(--fg-3)" }}>successioni concluse</span>
+            </div>
+            <span style={{ width: 1, height: 18, background: "var(--border-2)" }}/>
+            <div className="row gap-2" style={{ alignItems: "center" }}>
+              <span className="display" style={{ fontWeight: 700, fontSize: 20, color: "var(--fg-1)" }}>48h</span>
+              <span style={{ fontSize: 12, color: "var(--fg-3)" }}>tempo medio · 100% online</span>
+            </div>
           </div>
         </div>
       </section>
