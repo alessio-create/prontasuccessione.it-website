@@ -347,6 +347,9 @@ export const Landing = ({ onStart }: { onStart: () => void }) => {
   const drift2 = useDrift(-0.06);
   const drift3 = useDrift(0.05);
   const driftSol = useDrift(0.06);
+  const row1 = useReveal();
+  const row2 = useReveal();
+  const row3 = useReveal();
 
   return (
     <div style={{ background: "var(--bg-page)" }}>
