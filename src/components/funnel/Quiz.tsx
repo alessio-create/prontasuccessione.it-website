@@ -309,7 +309,6 @@ export const Quiz = ({ answers, setAnswers, step, setStep, onComplete, onBack }:
               <p className="meta tcenter">La conversazione è privata. Riceverai la trascrizione al termine.</p>
             </div>
           </div>
-        </div>
       </div>
 
       <style>{`
