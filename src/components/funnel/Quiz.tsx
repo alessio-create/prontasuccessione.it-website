@@ -3,7 +3,7 @@ import { Icon, Logo, Avatar } from "./shell";
 
 export type Answers = Record<string, string>;
 
-const QUIZ = [
+export const QUIZ = [
   {
     id: "parentela", label: "Parentela",
     expert: "Per cominciare, qual è il tuo grado di parentela con il defunto?",

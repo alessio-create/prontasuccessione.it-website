@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Icon, SiteHeaderSlim, SiteFooterSlim } from "./shell";
-import { GiuliaChat } from "./GiuliaChat";
+import { ChatRail, type Contact } from "./ChatRail";
+import type { Answers } from "./Quiz";
+
 
 /* ─────────────────────────────────────────── hooks */
 
@@ -336,7 +338,10 @@ const ResultsTicker = () => {
 
 /* ─────────────────────────────────────────── page */
 
-export const Landing = ({ onStart }: { onStart: () => void }) => {
+export const Landing = ({ onStart, onChatComplete }: {
+  onStart: () => void;
+  onChatComplete: (a: Answers, c: Contact) => void;
+}) => {
   const heroDrift = useDrift(0.04);
   const revealProblem = useReveal();
   const revealSolution = useReveal();
@@ -351,9 +356,39 @@ export const Landing = ({ onStart }: { onStart: () => void }) => {
   const row2 = useReveal();
   const row3 = useReveal();
 
+  const focusChat = () => {
+    const el = document.getElementById("ps-chat-rail");
+    if (!el) return;
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+    // gentle highlight pulse
+    el.animate(
+      [{ boxShadow: "0 0 0 0 rgba(26,118,114,0)" },
+       { boxShadow: "0 0 0 8px rgba(26,118,114,0.25)" },
+       { boxShadow: "0 0 0 0 rgba(26,118,114,0)" }],
+      { duration: 900, easing: "ease-out" }
+    );
+  };
+
   return (
     <div style={{ background: "var(--bg-page)" }}>
+      <style>{`
+        .ps-shell { display: grid; grid-template-columns: 1fr; }
+        .ps-rail-wrap { position: relative; }
+        .ps-rail-inner { background: var(--paper-100); border-left: 1px solid var(--border-1); }
+        @media (max-width: 1023px) {
+          .ps-rail-wrap { order: -1; height: calc(100svh - 56px); }
+          .ps-rail-inner { height: 100%; border-left: none; border-bottom: 1px solid var(--border-1); }
+        }
+        @media (min-width: 1024px) {
+          .ps-shell { grid-template-columns: minmax(0, 60fr) minmax(360px, 40fr); }
+          .ps-rail-wrap { height: calc(100vh - 56px); position: sticky; top: 56px; }
+          .ps-rail-inner { height: 100%; }
+        }
+      `}</style>
       <SiteHeaderSlim/>
+      <div className="ps-shell">
+        <main style={{ minWidth: 0 }}>
+
 
       {/* HERO — light, editorial, text-forward (fits in viewport) */}
       <section style={{ position: "relative", background: "var(--paper-100)", color: "var(--fg-1)",
@@ -384,7 +419,7 @@ export const Landing = ({ onStart }: { onStart: () => void }) => {
           </p>
 
           <div className="row gap-3 wrap" style={{ alignItems: "center", justifyContent: "center", marginTop: "clamp(18px, 2.6vh, 30px)" }}>
-            <button className="btn primary lg" onClick={onStart}>
+            <button className="btn primary lg" onClick={focusChat}>
               Inizia il quiz · 30 secondi <Icon name="arrow-right" size={16}/>
             </button>
           </div>
@@ -454,10 +489,10 @@ export const Landing = ({ onStart }: { onStart: () => void }) => {
               Sicuro che la tua pratica sia davvero a posto?
             </h3>
             <div className="row gap-3 wrap" style={{ marginTop: 22, justifyContent: "center" }}>
-              <button className="btn primary" onClick={onStart}>
+              <button className="btn primary" onClick={focusChat}>
                 Mettici alla prova <Icon name="arrow-right" size={14}/>
               </button>
-              <button className="btn" onClick={onStart}>
+              <button className="btn" onClick={focusChat}>
                 Sì, ma voglio essere sicuro
               </button>
             </div>
@@ -579,7 +614,7 @@ export const Landing = ({ onStart }: { onStart: () => void }) => {
           </div>
 
           <div style={{ textAlign: "center", marginTop: 48 }}>
-            <button className="btn primary lg" onClick={onStart}>
+            <button className="btn primary lg" onClick={focusChat}>
               Mettici alla prova <Icon name="arrow-right" size={16}/>
             </button>
           </div>
@@ -649,7 +684,7 @@ export const Landing = ({ onStart }: { onStart: () => void }) => {
           </div>
 
           <div className="col" style={{ alignItems: "center", gap: 12, marginTop: 36 }}>
-            <button className="btn primary lg" onClick={onStart}>
+            <button className="btn primary lg" onClick={focusChat}>
               Mettici alla prova <Icon name="arrow-right" size={16}/>
             </button>
             <span className="mono" style={{ fontSize: 11, letterSpacing: "0.18em",
@@ -674,9 +709,17 @@ export const Landing = ({ onStart }: { onStart: () => void }) => {
           </div>
         </div>
       </section>
+        </main>
+
+        <aside className="ps-rail-wrap" id="ps-chat-rail" aria-label="Conversazione con Giulia">
+          <div className="ps-rail-inner">
+            <ChatRail onComplete={onChatComplete}/>
+          </div>
+        </aside>
+      </div>
 
       <SiteFooterSlim/>
-      <GiuliaChat onStart={onStart}/>
+
     </div>
   );
 };
