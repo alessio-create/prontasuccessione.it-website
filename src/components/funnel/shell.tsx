@@ -4,19 +4,26 @@ const LOGO_INK = "#122339";
 const LOGO_CREAM = "#fbf6ec";
 
 export const Logo = ({ small = false, onDark = false }: { small?: boolean; onDark?: boolean }) => {
-  const h = small ? 14 : 20;
-  const w = (h / 110) * 1100;
   const fg = onDark ? LOGO_CREAM : LOGO_INK;
+  const accent = "#1a7672";
   return (
-    <span style={{ display: "inline-flex", alignItems: "center" }} aria-label="ProntaSuccessione">
-      <svg viewBox="0 0 1100 130" width={w} height={h} style={{ display: "block" }}>
-        <text
-          x="0" y="102"
-          fontFamily="'Archivo Black','Inter',sans-serif"
-          fontWeight={900} fontSize={110} fill={fg}
-          textLength={1100} lengthAdjust="spacingAndGlyphs"
-        >prontasuccessione</text>
-      </svg>
+    <span
+      aria-label="ProntaSuccessione"
+      style={{
+        display: "inline-flex", alignItems: "baseline", gap: 8,
+        fontFamily: "'Source Serif 4', Georgia, serif",
+        fontSize: small ? 18 : 22, fontWeight: 600,
+        letterSpacing: "-0.022em", color: fg, lineHeight: 1,
+      }}
+    >
+      <span
+        aria-hidden
+        style={{
+          width: small ? 8 : 10, height: small ? 8 : 10, borderRadius: 999,
+          background: accent, display: "inline-block", transform: "translateY(-1px)",
+        }}
+      />
+      <span>pronta<span style={{ fontStyle: "italic", color: accent }}>successione</span></span>
     </span>
   );
 };
