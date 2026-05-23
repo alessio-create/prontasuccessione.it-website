@@ -137,35 +137,53 @@ const FigDesk: React.FC<{ drift?: number }> = ({ drift = 0 }) => (
   </svg>
 );
 
-/* ─────────────────────────────────────────── Hero monogram (clean, animated) */
+/* ─────────────────────────────────────────── SOLUTION illustration (custom, drifts) */
 
-const HeroMark: React.FC<{ drift?: number }> = ({ drift = 0 }) => (
-  <svg viewBox="0 0 360 360" style={{ width: "100%", height: "auto", display: "block" }} aria-hidden="true">
-    {/* concentric rings, slow drift */}
-    <g transform={`translate(180 180) translate(0 ${drift * 0.6})`}>
-      <circle r="156" fill="none" stroke="#fbf6ec" strokeOpacity="0.18" strokeWidth="1" strokeDasharray="2 9"/>
-      <g className="spin-slow" style={{ transformOrigin: "center" }}>
-        <circle r="138" fill="none" stroke="#fbf6ec" strokeOpacity="0.22" strokeWidth="1" strokeDasharray="1 14"/>
-      </g>
-      <circle r="118" fill="none" stroke="#fbf6ec" strokeOpacity="0.12" strokeWidth="1"/>
+const FigSolution: React.FC<{ drift?: number }> = ({ drift = 0 }) => (
+  <svg viewBox="0 0 360 380" style={{ width: "100%", height: "auto", display: "block" }} aria-hidden="true">
+    {/* back paper */}
+    <g style={{ transform: `translateY(${r3(drift * 0.4)}px) rotate(-4deg)`, transformOrigin: "180px 200px" }}>
+      <rect x="58" y="56" width="200" height="260" fill="#f4ecdc" stroke="#122339" strokeWidth="1" opacity="0.85"/>
     </g>
-    {/* center seal */}
-    <g transform={`translate(180 180) translate(0 ${drift * -0.4})`} className="tick-pulse">
-      <circle r="92" fill="#1a7672"/>
-      <circle r="84" fill="none" stroke="#fbf6ec" strokeOpacity="0.45" strokeWidth="0.8"/>
-      <g className="spin-slow">
-        <path id="hero-arc-2" d="M -68 0 A 68 68 0 1 1 68 0 A 68 68 0 1 1 -68 0" fill="none"/>
-        <text fontFamily="JetBrains Mono, monospace" fontSize="8" letterSpacing="3.5" fill="#fbf6ec" fillOpacity="0.7">
-          <textPath href="#hero-arc-2" startOffset="0">PRONTASUCCESSIONE · 48H · ONLINE · </textPath>
-        </text>
+    {/* main folder */}
+    <g style={{ transform: `translateY(${r3(drift * -0.5)}px)`, transformOrigin: "180px 200px" }}>
+      <rect x="72" y="44" width="216" height="276" fill="#fbf6ec" stroke="#122339" strokeWidth="1.4"/>
+      <rect x="72" y="44" width="216" height="34" fill="#1a7672"/>
+      <text x="86" y="66" fontFamily="JetBrains Mono, monospace" fontSize="9" letterSpacing="2.2" fill="#fbf6ec">
+        DICHIARAZIONE · SUC · 2026
+      </text>
+      <g transform="translate(244 122) rotate(-12)">
+        <circle r="34" fill="none" stroke="#8a3a24" strokeWidth="1.6" opacity="0.9"/>
+        <circle r="28" fill="none" stroke="#8a3a24" strokeWidth="0.6" opacity="0.7"/>
+        <text textAnchor="middle" y="-4" fontFamily="JetBrains Mono, monospace" fontSize="7" letterSpacing="1.6" fill="#8a3a24">APPROVATA</text>
+        <text textAnchor="middle" y="10" fontFamily="Fraunces, Georgia, serif" fontStyle="italic" fontSize="14" fill="#8a3a24" fontWeight="700">48h</text>
       </g>
-      <text textAnchor="middle" y="-6" fontFamily="Source Serif 4, Georgia, serif" fontStyle="italic" fontSize="18" fill="#fbf6ec">in</text>
-      <text textAnchor="middle" y="28" fontFamily="Source Serif 4, Georgia, serif" fontWeight="600" fontSize="40" fill="#fbf6ec">48h</text>
+      {[110, 138, 166, 194, 222].map((y, i) => (
+        <g key={i}>
+          <rect x="92" y={y} width="14" height="14" fill="none" stroke="#1a7672" strokeWidth="1.4"/>
+          <path className={`draw d${(i % 4) + 1}`} style={{ ["--dl" as any]: 24 }}
+            d={`M 94 ${y + 7} L 99 ${y + 12} L 104 ${y + 3}`}
+            fill="none" stroke="#1a7672" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+          <line x1="116" y1={y + 7} x2={116 + (i % 2 ? 110 : 90)} y2={y + 7} stroke="#122339" strokeWidth="0.6" opacity="0.45"/>
+          <line x1="116" y1={y + 12} x2={116 + (i % 2 ? 70 : 100)} y2={y + 12} stroke="#122339" strokeWidth="0.6" opacity="0.3"/>
+        </g>
+      ))}
+      <g transform="translate(92 258)">
+        <text fontFamily="JetBrains Mono, monospace" fontSize="7" letterSpacing="1.4" fill="#284060" opacity="0.7">FIRMA DIGITALE</text>
+        <path className="draw d3" style={{ ["--dl" as any]: 180 }}
+          d="M0 20 C 14 6, 28 30, 44 14 S 78 26, 96 12 S 130 22, 160 10"
+          fill="none" stroke="#122339" strokeWidth="1.6" strokeLinecap="round"/>
+        <line x1="0" y1="38" x2="184" y2="38" stroke="#122339" strokeWidth="0.6" opacity="0.5"/>
+      </g>
     </g>
-    {/* tiny sparkles */}
-    <circle cx="64" cy="84" r="2" fill="#fbf6ec" opacity="0.55" className="float-y"/>
-    <circle cx="300" cy="120" r="2.5" fill="#fbf6ec" opacity="0.45" className="float-y"/>
-    <circle cx="284" cy="278" r="1.6" fill="#fbf6ec" opacity="0.5" className="float-y"/>
+    {/* floating online chip */}
+    <g style={{ transform: `translateY(${r3(drift * 0.7)}px)`, transformOrigin: "76px 277px" }}>
+      <g className="float-y">
+        <rect x="22" y="260" width="108" height="34" rx="17" fill="#fbf6ec" stroke="#122339" strokeWidth="1.2"/>
+        <circle cx="40" cy="277" r="4" fill="#1a7672"/>
+        <text x="52" y="281" fontFamily="JetBrains Mono, monospace" fontSize="9" letterSpacing="1.8" fill="#122339">100% ONLINE</text>
+      </g>
+    </g>
   </svg>
 );
 
