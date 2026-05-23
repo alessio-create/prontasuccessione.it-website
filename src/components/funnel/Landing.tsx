@@ -338,7 +338,10 @@ const ResultsTicker = () => {
 
 /* ─────────────────────────────────────────── page */
 
-export const Landing = ({ onStart }: { onStart: () => void }) => {
+export const Landing = ({ onStart, onChatComplete }: {
+  onStart: () => void;
+  onChatComplete: (a: Answers, c: Contact) => void;
+}) => {
   const heroDrift = useDrift(0.04);
   const revealProblem = useReveal();
   const revealSolution = useReveal();
@@ -353,9 +356,39 @@ export const Landing = ({ onStart }: { onStart: () => void }) => {
   const row2 = useReveal();
   const row3 = useReveal();
 
+  const focusChat = () => {
+    const el = document.getElementById("ps-chat-rail");
+    if (!el) return;
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+    // gentle highlight pulse
+    el.animate(
+      [{ boxShadow: "0 0 0 0 rgba(26,118,114,0)" },
+       { boxShadow: "0 0 0 8px rgba(26,118,114,0.25)" },
+       { boxShadow: "0 0 0 0 rgba(26,118,114,0)" }],
+      { duration: 900, easing: "ease-out" }
+    );
+  };
+
   return (
     <div style={{ background: "var(--bg-page)" }}>
+      <style>{`
+        .ps-shell { display: grid; grid-template-columns: 1fr; }
+        .ps-rail-wrap { position: relative; }
+        .ps-rail-inner { background: var(--paper-100); border-left: 1px solid var(--border-1); }
+        @media (max-width: 1023px) {
+          .ps-rail-wrap { order: -1; height: calc(100svh - 56px); }
+          .ps-rail-inner { height: 100%; border-left: none; border-bottom: 1px solid var(--border-1); }
+        }
+        @media (min-width: 1024px) {
+          .ps-shell { grid-template-columns: minmax(0, 60fr) minmax(360px, 40fr); }
+          .ps-rail-wrap { height: calc(100vh - 56px); position: sticky; top: 56px; }
+          .ps-rail-inner { height: 100%; }
+        }
+      `}</style>
       <SiteHeaderSlim/>
+      <div className="ps-shell">
+        <main style={{ minWidth: 0 }}>
+
 
       {/* HERO — light, editorial, text-forward (fits in viewport) */}
       <section style={{ position: "relative", background: "var(--paper-100)", color: "var(--fg-1)",
