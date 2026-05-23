@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Icon, SiteHeaderSlim, SiteFooterSlim } from "./shell";
-import { GiuliaChat } from "./GiuliaChat";
+import { ChatRail, type Contact } from "./ChatRail";
+import type { Answers } from "./Quiz";
+
 
 /* ─────────────────────────────────────────── hooks */
 
