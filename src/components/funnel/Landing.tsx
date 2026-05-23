@@ -609,31 +609,31 @@ export const Landing = ({ onStart }: { onStart: () => void }) => {
         </div>
       </section>
 
-      {/* FINAL CTA — appointment ticket */}
-      <section ref={revealCta} className="reveal" style={{ padding: "96px 56px 112px",
-        background: "var(--ink-900)", color: "var(--paper-100)", borderTop: "1px solid var(--ink-900)" }}>
+      {/* FINAL CTA — light, editorial */}
+      <section ref={revealCta} className="reveal" style={{ padding: "112px 56px 128px",
+        background: "var(--paper-100)", color: "var(--fg-1)", borderTop: "1px solid var(--border-2)" }}>
         <div style={{ maxWidth: 920, margin: "0 auto", textAlign: "center" }}>
           <span className="mono" style={{ fontSize: 11, letterSpacing: "0.22em",
-            color: "var(--teal-300)", textTransform: "uppercase" }}>
+            color: "var(--teal-700)", textTransform: "uppercase" }}>
             Pronto? · Prossimo passo
           </span>
-          <h2 className="serif" style={{ marginTop: 16, fontSize: "clamp(36px, 5vw, 60px)", fontWeight: 600,
-            letterSpacing: "-0.03em", lineHeight: 1.02, color: "var(--paper-50)" }}>
+          <h2 className="display" style={{ marginTop: 16, fontSize: "clamp(40px, 5.6vw, 72px)", fontWeight: 700,
+            letterSpacing: "-0.035em", lineHeight: 1.0, color: "var(--fg-1)" }}>
             La serenità che avresti dovuto avere<br/>
-            <em style={{ color: "var(--teal-300)" }}>fin dal primo giorno.</em>
+            <em style={{ color: "var(--teal-700)", fontStyle: "italic", fontWeight: 700 }}>fin dal primo giorno.</em>
           </h2>
-          <p style={{ marginTop: 22, fontFamily: "var(--font-serif)", fontStyle: "italic",
-            fontSize: 18, color: "rgba(251,246,236,0.75)", maxWidth: 560, margin: "22px auto 0" }}>
-            Verifica in 2 minuti se la tua pratica è gestibile online. Senza impegno, senza carta.
+          <p style={{ marginTop: 24, fontFamily: "var(--font-display)", fontStyle: "italic",
+            fontSize: 19, color: "var(--fg-2)", maxWidth: 580, margin: "24px auto 0", lineHeight: 1.55 }}>
+            Verifica in due minuti se la tua pratica è gestibile online. Senza impegno, senza carta.
           </p>
           <button className="btn primary lg" onClick={onStart} style={{ marginTop: 36 }}>
-            Inizia il quiz <Icon name="arrow-right" size={16}/>
+            Mettici alla prova <Icon name="arrow-right" size={16}/>
           </button>
           <div className="row gap-3" style={{ marginTop: 26, justifyContent: "center", alignItems: "center",
-            fontSize: 13, color: "rgba(251,246,236,0.7)" }}>
+            fontSize: 13, color: "var(--fg-3)" }}>
             <span style={{ color: "var(--seal-500)", letterSpacing: 2 }}>★★★★★</span>
-            <span style={{ fontWeight: 600, color: "var(--paper-50)" }}>4,9 / 5</span>
-            <span>· 1.200+ recensioni</span>
+            <span style={{ fontWeight: 600, color: "var(--fg-1)" }}>4,9 / 5</span>
+            <span>· 1.200+ recensioni · 1.247 successioni concluse</span>
           </div>
         </div>
       </section>
