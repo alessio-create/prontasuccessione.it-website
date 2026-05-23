@@ -218,15 +218,16 @@ const TICKER_RESULTS = [
 
 const AUDIENCES = [
   { label: "Erede unico", tag: "Coniuge o figlio/a",
-    body: "Stai gestendo tutto da solo. Vuoi un riferimento umano che ti guidi, senza chiamare cinque uffici diversi.",
+    body: "Gestisci tutto da solo. Vuoi un riferimento umano, non cinque uffici.",
     ill: <Portrait1/> },
   { label: "Più eredi coinvolti", tag: "Famiglia allargata",
-    body: "Fratelli, coniuge, nipoti. Servono deleghe, firme, accordi. Coordiniamo noi la raccolta dei documenti.",
+    body: "Deleghe, firme, accordi. La raccolta dei documenti la coordiniamo noi.",
     ill: <Portrait2/> },
   { label: "Patrimonio con immobili", tag: "Case · terreni · quote",
-    body: "Più immobili, nuda proprietà, volture catastali. Ricostruiamo la storia di ogni bene dagli archivi.",
+    body: "Volture catastali e nuda proprietà. Ricostruiamo ogni bene dagli archivi.",
     ill: <Portrait3/> },
 ];
+
 
 const FAQS: { q: string; a: string; meta?: [string, string]; defaultOpen?: boolean }[] = [
   { q: "Quanto dura davvero il quiz?", a: "Pochissimi istanti. In 30 secondi ti diciamo cosa serve, quanto costa e quando è pronta la tua pratica.",
