@@ -24,7 +24,7 @@ export const Logo = ({ small = false, onDark = false }: { small?: boolean; onDar
 type IconName =
   | "check" | "check-circle" | "arrow-right" | "arrow-left"
   | "chevron-down" | "chevron-right" | "chevron-left"
-  | "shield" | "lock" | "calendar" | "help";
+  | "shield" | "lock" | "calendar" | "help" | "plus";
 
 export const Icon = ({ name, size = 18, stroke = 1.5 }: { name: IconName; size?: number; stroke?: number }) => {
   const p = {
