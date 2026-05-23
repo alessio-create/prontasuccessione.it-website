@@ -1,10 +1,18 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { Landing } from "@/components/funnel/Landing";
-import { clearAnswers } from "@/components/funnel/answersStore";
+import { clearAnswers, saveAnswers } from "@/components/funnel/answersStore";
 
 function LandingRoute() {
   const navigate = useNavigate();
-  return <Landing onStart={() => { clearAnswers(); navigate({ to: "/quiz" }); }} />;
+  return (
+    <Landing
+      onStart={() => { clearAnswers(); navigate({ to: "/quiz" }); }}
+      onChatComplete={(answers) => {
+        saveAnswers(answers);
+        navigate({ to: "/result" });
+      }}
+    />
+  );
 }
 
 export const Route = createFileRoute("/")({
