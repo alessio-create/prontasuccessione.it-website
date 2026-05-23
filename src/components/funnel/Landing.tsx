@@ -640,6 +640,7 @@ export const Landing = ({ onStart }: { onStart: () => void }) => {
       </section>
 
       <SiteFooterSlim/>
+      <GiuliaChat onStart={onStart}/>
     </div>
   );
 };
