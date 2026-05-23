@@ -347,46 +347,49 @@ export const Landing = ({ onStart }: { onStart: () => void }) => {
   const drift2 = useDrift(-0.06);
   const drift3 = useDrift(0.05);
   const driftSol = useDrift(0.06);
+  const row1 = useReveal();
+  const row2 = useReveal();
+  const row3 = useReveal();
 
   return (
     <div style={{ background: "var(--bg-page)" }}>
       <SiteHeaderSlim/>
 
-      {/* HERO — light, editorial, text-forward (no animated mark) */}
+      {/* HERO — light, editorial, text-forward (fits in viewport) */}
       <section style={{ position: "relative", background: "var(--paper-100)", color: "var(--fg-1)",
-        overflow: "hidden", padding: "112px 56px 96px", borderBottom: "1px solid var(--border-1)" }}>
+        overflow: "hidden", padding: "clamp(24px, 5vh, 64px) clamp(20px, 4vw, 56px) clamp(24px, 4vh, 56px)",
+        borderBottom: "1px solid var(--border-1)",
+        minHeight: "calc(100svh - 56px)", display: "flex", alignItems: "center" }}>
         <div aria-hidden style={{ position: "absolute", inset: 0, pointerEvents: "none",
           background:
             "radial-gradient(900px 600px at 50% -10%, rgba(26,118,114,0.10), transparent 60%)," +
             "radial-gradient(700px 500px at 90% 110%, rgba(138,58,36,0.07), transparent 60%)" }}/>
-        <div ref={heroDrift.ref} style={{ position: "relative", maxWidth: 1100, margin: "0 auto", textAlign: "center" }}>
-          <span className="mono" style={{ fontSize: 11, letterSpacing: "0.22em",
+        <div ref={heroDrift.ref} style={{ position: "relative", maxWidth: 1100, margin: "0 auto", textAlign: "center", width: "100%" }}>
+          <span className="mono" style={{ fontSize: "clamp(10px, 1.1vw, 11px)", letterSpacing: "0.22em",
             color: "var(--teal-700)", textTransform: "uppercase" }}>
             DICHIARAZIONE DI SUCCESSIONE 100% ONLINE
           </span>
-          <h1 className="display" style={{ fontSize: "clamp(48px, 7.4vw, 104px)", lineHeight: 0.98,
-            marginTop: 22, fontWeight: 700, letterSpacing: "-0.04em", color: "var(--fg-1)" }}>
+          <h1 className="display" style={{ fontSize: "clamp(36px, 6.4vw, 88px)", lineHeight: 1.0,
+            marginTop: "clamp(12px, 1.6vh, 18px)", fontWeight: 700, letterSpacing: "-0.04em", color: "var(--fg-1)" }}>
             La tua successione,<br/>
             <em style={{ color: "var(--teal-700)", fontWeight: 700, fontStyle: "italic" }}>
               davvero in regola?
             </em>
           </h1>
-          <p style={{ marginTop: 28, fontSize: 20, lineHeight: 1.55, maxWidth: 680, margin: "28px auto 0",
+          <p style={{ marginTop: "clamp(14px, 2vh, 22px)", fontSize: "clamp(15px, 1.7vw, 19px)", lineHeight: 1.5,
+            maxWidth: 680, marginLeft: "auto", marginRight: "auto",
             color: "var(--fg-2)", fontFamily: "var(--font-display)", fontStyle: "italic" }}>
             In 30 secondi ti diciamo cosa serve, quanto costa e quando è pronta,
             prima ancora di iniziare. Senza carta, senza appuntamenti, senza sorprese.
           </p>
 
-          <div className="row gap-3 wrap" style={{ alignItems: "center", justifyContent: "center", marginTop: 36 }}>
+          <div className="row gap-3 wrap" style={{ alignItems: "center", justifyContent: "center", marginTop: "clamp(18px, 2.6vh, 30px)" }}>
             <button className="btn primary lg" onClick={onStart}>
               Inizia il quiz · 30 secondi <Icon name="arrow-right" size={16}/>
             </button>
-            <span style={{ fontSize: 12, color: "var(--fg-3)" }}>
-              {"\n"}
-            </span>
           </div>
 
-          <div className="row gap-6 wrap" style={{ marginTop: 44, alignItems: "center", justifyContent: "center" }}>
+          <div className="row gap-6 wrap" style={{ marginTop: "clamp(22px, 3vh, 38px)", alignItems: "center", justifyContent: "center" }}>
             <div className="row gap-2" style={{ alignItems: "center" }}>
               <span style={{ color: "var(--seal-500)", letterSpacing: 2, fontSize: 14 }}>★★★★★</span>
               <span style={{ fontSize: 13, color: "var(--fg-1)", fontWeight: 600 }}>4,9 / 5</span>
@@ -463,7 +466,7 @@ export const Landing = ({ onStart }: { onStart: () => void }) => {
       </section>
 
       {/* PROBLEM — keeps the figures the user likes */}
-      <section ref={revealProblem} className="reveal" style={{ padding: "120px 56px", position: "relative",
+      <section style={{ padding: "120px 56px", position: "relative",
         overflow: "hidden", background: "var(--paper-200)", borderTop: "1px solid var(--ink-900)" }}>
         <div className="row gap-12 wrap" style={{ maxWidth: 1240, margin: "0 auto", alignItems: "flex-start" }}>
           <div className="reveal" style={{ flex: "1 1 360px", position: "sticky", top: 32 }}>
@@ -488,7 +491,8 @@ export const Landing = ({ onStart }: { onStart: () => void }) => {
           </div>
 
           <div style={{ flex: "1.1 1 360px", display: "flex", flexDirection: "column", gap: 96 }}>
-            <div ref={drift1.ref} className="row gap-8 wrap" style={{ alignItems: "center" }}>
+            <div ref={(el) => { (drift1.ref as any).current = el; (row1 as any).current = el; }}
+                 className="row gap-8 wrap" style={{ alignItems: "center" }}>
               <div className="reveal slide-l" style={{ flex: "0 0 200px", maxWidth: 220 }}><FigStack drift={drift1.y}/></div>
               <div className="reveal slide-r reveal-d1" style={{ flex: "1 1 240px" }}>
                 <span className="mono" style={{ fontSize: 11, letterSpacing: "0.22em", color: "var(--seal-600)" }}>FIG. 01</span>
@@ -502,7 +506,8 @@ export const Landing = ({ onStart }: { onStart: () => void }) => {
               </div>
             </div>
 
-            <div ref={drift2.ref} className="row gap-8 wrap" style={{ alignItems: "center", flexDirection: "row-reverse" }}>
+            <div ref={(el) => { (drift2.ref as any).current = el; (row2 as any).current = el; }}
+                 className="row gap-8 wrap" style={{ alignItems: "center", flexDirection: "row-reverse" }}>
               <div className="reveal slide-r" style={{ flex: "0 0 200px", maxWidth: 220 }}><FigClock drift={drift2.y}/></div>
               <div className="reveal slide-l reveal-d1" style={{ flex: "1 1 240px" }}>
                 <span className="mono" style={{ fontSize: 11, letterSpacing: "0.22em", color: "var(--seal-600)" }}>FIG. 02</span>
@@ -516,7 +521,8 @@ export const Landing = ({ onStart }: { onStart: () => void }) => {
               </div>
             </div>
 
-            <div ref={drift3.ref} className="row gap-8 wrap" style={{ alignItems: "center" }}>
+            <div ref={(el) => { (drift3.ref as any).current = el; (row3 as any).current = el; }}
+                 className="row gap-8 wrap" style={{ alignItems: "center" }}>
               <div className="reveal slide-l" style={{ flex: "0 0 200px", maxWidth: 220 }}><FigDesk drift={drift3.y}/></div>
               <div className="reveal slide-r reveal-d1" style={{ flex: "1 1 240px" }}>
                 <span className="mono" style={{ fontSize: 11, letterSpacing: "0.22em", color: "var(--seal-600)" }}>FIG. 03</span>
@@ -618,18 +624,12 @@ export const Landing = ({ onStart }: { onStart: () => void }) => {
           background:
             "radial-gradient(800px 500px at 15% 0%, rgba(26,118,114,0.10), transparent 60%)," +
             "radial-gradient(700px 500px at 100% 100%, rgba(138,58,36,0.08), transparent 60%)" }}/>
-        <div className="cta-card" style={{ maxWidth: 980, margin: "0 auto", padding: "72px 56px 64px",
-          position: "relative" }}>
+        <div className="cta-card" style={{ maxWidth: 880, margin: "0 auto", padding: "72px 56px 64px",
+          position: "relative", textAlign: "center" }}>
           <div className="perf top"/>
           <div className="perf bot"/>
 
-          {/* Stamp top-right */}
-          <div style={{ position: "absolute", top: 28, right: 28, display: "flex", flexDirection: "column",
-            alignItems: "center", gap: 6 }}>
-            <div className="stamp">In regola<br/>in 48h</div>
-          </div>
-
-          <div style={{ maxWidth: 640 }}>
+          <div style={{ maxWidth: 680, margin: "0 auto" }}>
             <span className="mono" style={{ fontSize: 11, letterSpacing: "0.22em",
               color: "var(--teal-700)", textTransform: "uppercase" }}>
               ✦ Prossimo passo · senza impegno
@@ -642,36 +642,34 @@ export const Landing = ({ onStart }: { onStart: () => void }) => {
               </em>
             </h2>
             <p style={{ marginTop: 22, fontFamily: "var(--font-display)", fontStyle: "italic",
-              fontSize: 19, color: "var(--fg-2)", maxWidth: 560, lineHeight: 1.55 }}>
+              fontSize: 19, color: "var(--fg-2)", maxWidth: 560, margin: "22px auto 0", lineHeight: 1.55 }}>
               Verifica in 30 secondi se la tua pratica è gestibile online.
               Tariffa, tempi e documenti — prima ancora di iniziare.
             </p>
           </div>
 
-          <div className="divider" style={{ margin: "36px 0 28px", height: 1,
-            background: "var(--border-2)" }}/>
+          <div className="col" style={{ alignItems: "center", gap: 12, marginTop: 36 }}>
+            <button className="btn primary lg" onClick={onStart}>
+              Mettici alla prova <Icon name="arrow-right" size={16}/>
+            </button>
+            <span className="mono" style={{ fontSize: 11, letterSpacing: "0.18em",
+              color: "var(--fg-3)", textTransform: "uppercase" }}>
+              € 0 · senza carta · 30 sec
+            </span>
+          </div>
 
-          <div className="row gap-6 wrap" style={{ alignItems: "center", justifyContent: "space-between" }}>
-            <div className="row gap-3 wrap" style={{ alignItems: "center" }}>
-              <button className="btn primary lg" onClick={onStart}>
-                Mettici alla prova <Icon name="arrow-right" size={16}/>
-              </button>
-              <span className="mono" style={{ fontSize: 11, letterSpacing: "0.18em",
-                color: "var(--fg-3)", textTransform: "uppercase" }}>
-                € 0 · senza carta · 30 sec
-              </span>
+          <div className="divider" style={{ margin: "40px auto 28px", height: 1,
+            background: "var(--border-2)", maxWidth: 320 }}/>
+
+          <div className="row gap-5 wrap" style={{ alignItems: "center", justifyContent: "center" }}>
+            <div className="col" style={{ gap: 2, alignItems: "center" }}>
+              <span style={{ color: "var(--seal-500)", letterSpacing: 2, fontSize: 13 }}>★★★★★</span>
+              <span style={{ fontSize: 11, color: "var(--fg-3)" }}>4,9 / 5 · 1.200+ recensioni</span>
             </div>
-
-            <div className="row gap-4 wrap" style={{ alignItems: "center" }}>
-              <div className="col" style={{ gap: 2 }}>
-                <span style={{ color: "var(--seal-500)", letterSpacing: 2, fontSize: 13 }}>★★★★★</span>
-                <span style={{ fontSize: 11, color: "var(--fg-3)" }}>4,9 / 5 · 1.200+ recensioni</span>
-              </div>
-              <span style={{ width: 1, height: 28, background: "var(--border-2)" }}/>
-              <div className="col" style={{ gap: 2 }}>
-                <span className="display" style={{ fontWeight: 700, fontSize: 18, color: "var(--fg-1)" }}>1.247</span>
-                <span style={{ fontSize: 11, color: "var(--fg-3)" }}>successioni concluse</span>
-              </div>
+            <span style={{ width: 1, height: 28, background: "var(--border-2)" }}/>
+            <div className="col" style={{ gap: 2, alignItems: "center" }}>
+              <span className="display" style={{ fontWeight: 700, fontSize: 18, color: "var(--fg-1)" }}>1.247</span>
+              <span style={{ fontSize: 11, color: "var(--fg-3)" }}>successioni concluse</span>
             </div>
           </div>
         </div>
