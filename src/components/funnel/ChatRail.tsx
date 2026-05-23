@@ -79,11 +79,13 @@ export const ChatRail: React.FC<{ onComplete: (a: Answers, c: Contact) => void; 
     setBusy(false);
   };
 
-  // Auto-scroll
+  // Auto-scroll to the bottom (chips included) whenever content changes
   useEffect(() => {
     const el = scrollRef.current;
-    if (el) el.scrollTop = el.scrollHeight;
-  }, [log]);
+    if (!el) return;
+    requestAnimationFrame(() => { el.scrollTop = el.scrollHeight; });
+  }, [log, phase, step, busy]);
+
 
   // Intro
   useEffect(() => {
