@@ -372,7 +372,7 @@ export const Landing = ({ onStart }: { onStart: () => void }) => {
           </h1>
           <p style={{ marginTop: 28, fontSize: 20, lineHeight: 1.55, maxWidth: 680, margin: "28px auto 0",
             color: "var(--fg-2)", fontFamily: "var(--font-display)", fontStyle: "italic" }}>
-            Cinque domande, due minuti. Ti diciamo cosa serve, quanto costa e quando è pronta —
+            In 30 secondi ti diciamo cosa serve, quanto costa e quando è pronta,
             prima ancora di iniziare. Senza carta, senza appuntamenti, senza sorprese.
           </p>
 
