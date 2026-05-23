@@ -193,68 +193,10 @@ export const Quiz = ({ answers, setAnswers, step, setStep, onComplete, onBack }:
         padding: "14px 32px", borderBottom: "1px solid var(--border-1)", background: "var(--bg-page)",
       }}>
         <Logo/>
-        <div className="row gap-3 center">
-          <span className="meta">Domanda {step + 1} di {total}</span>
-          <div style={{ width: 200, height: 5, background: "var(--paper-300)", borderRadius: 999, overflow: "hidden" }}>
-            <i style={{
-              display: "block", height: "100%", background: "var(--teal-700)",
-              width: ((step + (selected ? 1 : 0.4)) / total * 100) + "%",
-              transition: "width 320ms var(--ease-emphasis)",
-            }}/>
-          </div>
-        </div>
         <button className="btn ghost sm" onClick={onBack}>Salva e esci</button>
       </div>
 
-      <div className="row" style={{ flex: 1, minHeight: 0 }}>
-        {/* Sidebar */}
-        <div className="sidebar-progress" style={{
-          width: 280, flexShrink: 0,
-          borderRight: "1px solid var(--border-1)",
-          background: "var(--paper-50)", padding: 28,
-          display: "flex", flexDirection: "column",
-        }}>
-          {(() => {
-            const completed = QUIZ.filter(s => !!answers[s.id]).length;
-            const pct = Math.round((completed / total) * 100);
-            const R = 52;
-            const C = 2 * Math.PI * R;
-            const dash = C * (pct / 100);
-            return (
-              <div className="col" style={{ alignItems: "center" }}>
-                <span className="eyebrow" style={{ alignSelf: "flex-start" }}>Progresso</span>
-                <div style={{ position: "relative", width: 128, height: 128, marginTop: 12 }}>
-                  <svg viewBox="0 0 128 128" style={{ width: "100%", height: "100%", transform: "rotate(-90deg)" }}>
-                    <circle cx="64" cy="64" r={R} fill="none" stroke="var(--paper-300)" strokeWidth="6"/>
-                    <circle cx="64" cy="64" r={R} fill="none" stroke="var(--teal-700)" strokeWidth="6" strokeLinecap="round"
-                      strokeDasharray={`${dash} ${C}`} style={{ transition: "stroke-dasharray 480ms var(--ease-emphasis)" }}/>
-                  </svg>
-                  <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-                    <span className="serif" style={{ fontSize: 30, fontWeight: 600, lineHeight: 1, letterSpacing: "-0.02em", color: "var(--ink-900)" }}>
-                      {pct}<span style={{ fontSize: 16, color: "var(--fg-2)" }}>%</span>
-                    </span>
-                    <span className="meta" style={{ marginTop: 4 }}>{completed} di {total}</span>
-                  </div>
-                </div>
-                <p className="italic-serif tcenter" style={{ fontSize: 13, marginTop: 14, color: "var(--fg-2)" }}>
-                  {pct === 0 && "Iniziamo insieme."}
-                  {pct > 0 && pct < 100 && "Stai andando bene."}
-                  {pct === 100 && "Ci siamo — ti preparo il piano."}
-                </p>
-              </div>
-            );
-          })()}
-          <div className="divider mt-6 mb-5"/>
-          <p className="italic-serif" style={{ fontSize: 13, lineHeight: 1.55 }}>
-            "Non ci sono domande sbagliate. Se qualcosa non torna, dimmelo e lo guardiamo insieme."
-          </p>
-          <div style={{ marginTop: "auto" }}>
-            <button className="btn ghost sm" onClick={onBack} style={{ padding: 0 }}>← Salva e esci</button>
-          </div>
-        </div>
-
-        {/* Conversation column */}
-        <div className="col flex-1" style={{ minWidth: 0 }}>
+      <div className="col" style={{ flex: 1, minHeight: 0 }}>
           <div ref={scrollRef} style={{ flex: 1, overflowY: "auto", background: "var(--paper-200)" }}>
             <div style={{
               position: "sticky", top: 0, zIndex: 2,
