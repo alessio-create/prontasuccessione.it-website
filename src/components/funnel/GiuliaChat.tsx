@@ -47,6 +47,8 @@ export const GiuliaChat: React.FC<{ onStart: () => void }> = ({ onStart }) => {
   const [shown, setShown] = useState<Msg[]>([]);
   const [typing, setTyping] = useState(false);
   const [pulse, setPulse] = useState(true);
+  const [showTip, setShowTip] = useState(false);
+  const [tipDismissed, setTipDismissed] = useState(false);
   const scrollRef = useRef<HTMLDivElement | null>(null);
 
   // play script when first opened
@@ -72,8 +74,21 @@ export const GiuliaChat: React.FC<{ onStart: () => void }> = ({ onStart }) => {
   }, [shown, typing]);
 
   useEffect(() => {
-    if (open) setPulse(false);
+    if (open) { setPulse(false); setShowTip(false); }
   }, [open]);
+
+  // show tooltip after first meaningful scroll
+  useEffect(() => {
+    if (tipDismissed || open) return;
+    const onScroll = () => {
+      if (window.scrollY > 320) {
+        setShowTip(true);
+        window.removeEventListener("scroll", onScroll);
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [tipDismissed, open]);
 
   return (
     <>
