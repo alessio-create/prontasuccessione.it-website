@@ -737,15 +737,34 @@ export const Landing = ({ onStart, onChatComplete }: {
       </section>
         </main>
 
-        <aside className="ps-rail-wrap" id="ps-chat-rail" aria-label="Conversazione con Giulia">
-          <div className="ps-rail-inner">
-            <ChatRail onComplete={onChatComplete}/>
-          </div>
-        </aside>
+        {chatOpen && (
+          <aside className="ps-rail-wrap" id="ps-chat-rail" aria-label="Conversazione con Giulia">
+            <div className="ps-rail-inner" style={{ position: "relative" }}>
+              <button
+                onClick={() => setChatOpen(false)}
+                aria-label="Chiudi chat"
+                style={{
+                  position: "absolute", top: 10, right: 10, zIndex: 2,
+                  background: "transparent", border: "none", cursor: "pointer",
+                  color: "var(--fg-2)", fontSize: 22, lineHeight: 1, padding: 6, borderRadius: 8,
+                }}
+              >×</button>
+              <ChatRail onComplete={onChatComplete}/>
+            </div>
+          </aside>
+        )}
       </div>
+
+      {!chatOpen && (
+        <button className="giulia-fab" onClick={openChat} aria-label="Apri chat con Giulia">
+          <span className="avatar">GS</span>
+          <span>Chatta con Giulia →</span>
+        </button>
+      )}
 
       <SiteFooterSlim/>
 
     </div>
   );
 };
+
