@@ -72,14 +72,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "ProntaSuccessione — Dichiarazione di successione in 48 ore, online" },
+      { name: "description", content: "Dichiarazione di successione in 48 ore, completamente online. Stima gratuita in 2 minuti. Tariffa fissa, esperto dedicato." },
+      { name: "author", content: "ProntaSuccessione" },
+      { property: "og:title", content: "ProntaSuccessione — Dichiarazione di successione in 48 ore, online" },
+      { property: "og:description", content: "Dichiarazione di successione in 48 ore, completamente online. Stima gratuita in 2 minuti. Tariffa fissa, esperto dedicato." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:site", content: "@ProntaSuccessione" },
     ],
     links: [
       {
