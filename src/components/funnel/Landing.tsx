@@ -443,35 +443,15 @@ export const Landing = ({ onStart }: { onStart: () => void }) => {
             </ul>
           </div>
 
-          <div style={{ flex: "1 1 320px", maxWidth: 460, textAlign: "center" }}>
-            <div style={{ position: "relative", aspectRatio: "1 / 1", maxWidth: 460, margin: "0 auto" }}>
-              <div aria-hidden style={{ position: "absolute", inset: "10%", borderRadius: "50%",
-                background: "radial-gradient(circle, rgba(26,118,114,0.18), transparent 60%)", filter: "blur(28px)" }}/>
-              <svg viewBox="0 0 400 400" className="spin-slow" style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }} aria-hidden>
-                <circle cx="200" cy="200" r="186" fill="none" stroke="var(--ink-900)" strokeOpacity="0.14" strokeWidth="1" strokeDasharray="2 9"/>
-              </svg>
-              <svg viewBox="0 0 400 400" style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }} aria-hidden>
-                <circle cx="200" cy="200" r="170" fill="none" stroke="var(--teal-700)" strokeOpacity="0.25" strokeWidth="1" strokeDasharray="1 14"/>
-              </svg>
-              <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <div style={{ width: 240, height: 240, borderRadius: 999, background: "var(--teal-700)", color: "var(--paper-50)",
-                  display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
-                  boxShadow: "0 30px 80px -30px rgba(26,118,114,0.55)" }}>
-                  <span className="mono" style={{ fontSize: 10, letterSpacing: "0.24em", opacity: 0.7 }}>TARIFFA FISSA</span>
-                  <span className="serif" style={{ fontSize: 56, fontWeight: 600, marginTop: 6, letterSpacing: "-0.03em" }}>€ 0</span>
-                  <span style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", fontSize: 15, marginTop: 6, opacity: 0.9 }}>
-                    per scoprire il tuo caso
-                  </span>
-                </div>
-              </div>
-            </div>
-            <h3 className="serif" style={{ marginTop: 28, fontSize: 22, fontWeight: 600, color: "var(--fg-1)",
+          <div ref={driftSol.ref} style={{ flex: "1 1 320px", maxWidth: 480, textAlign: "center" }}>
+            <FigSolution drift={driftSol.y}/>
+            <h3 className="display" style={{ marginTop: 24, fontSize: 22, fontWeight: 600, color: "var(--fg-1)",
               fontStyle: "italic", letterSpacing: "-0.012em" }}>
               Sicuro che la tua pratica sia davvero a posto?
             </h3>
             <div className="row gap-3 wrap" style={{ marginTop: 22, justifyContent: "center" }}>
               <button className="btn primary" onClick={onStart}>
-                No, voglio verificare <Icon name="arrow-right" size={14}/>
+                Mettici alla prova <Icon name="arrow-right" size={14}/>
               </button>
               <button className="btn" onClick={onStart}>
                 Sì, ma voglio essere sicuro
