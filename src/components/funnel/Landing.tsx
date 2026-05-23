@@ -624,7 +624,7 @@ export const Landing = ({ onStart }: { onStart: () => void }) => {
           </h2>
           <p style={{ marginTop: 24, fontFamily: "var(--font-display)", fontStyle: "italic",
             fontSize: 19, color: "var(--fg-2)", maxWidth: 580, margin: "24px auto 0", lineHeight: 1.55 }}>
-            Verifica in due minuti se la tua pratica è gestibile online. Senza impegno, senza carta.
+            Verifica in 30 secondi se la tua pratica è gestibile online. Senza impegno, senza carta.
           </p>
           <button className="btn primary lg" onClick={onStart} style={{ marginTop: 36 }}>
             Mettici alla prova <Icon name="arrow-right" size={16}/>
