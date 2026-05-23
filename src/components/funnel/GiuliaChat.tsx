@@ -216,7 +216,7 @@ export const GiuliaChat: React.FC<{ onStart: () => void }> = ({ onStart }) => {
               Inizia il quiz con Giulia <Icon name="arrow-right" size={14}/>
             </button>
             <div style={{ fontSize: 11, color: "var(--fg-3, #4a5a72)", textAlign: "center" }}>
-              Gratis · senza carta · risposta immediata
+              {"\n"}
             </div>
           </div>
         </div>
