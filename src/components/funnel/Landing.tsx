@@ -579,7 +579,7 @@ export const Landing = ({ onStart, onChatComplete }: {
                   Il termine corre, in silenzio.
                 </p>
                 <p className="italic-serif mt-3" style={{ fontSize: 16, lineHeight: 1.65, color: "var(--fg-2)" }}>
-                  Dodici mesi dalla data del decesso. Sembrano tanti, finché non ti accorgi che metà se ne sono andati ad aspettare appuntamenti, certificati, risposte.
+                  Dodici mesi dal decesso. Metà se ne vanno in attese e appuntamenti.
                 </p>
               </div>
             </div>
