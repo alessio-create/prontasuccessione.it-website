@@ -382,7 +382,7 @@ export const Landing = ({ onStart }: { onStart: () => void }) => {
               Inizia il quiz · 30 secondi <Icon name="arrow-right" size={16}/>
             </button>
             <span style={{ fontSize: 12, color: "var(--fg-3)" }}>
-              Gratis · senza carta · risposta immediata
+              {"\n"}
             </span>
           </div>
 
