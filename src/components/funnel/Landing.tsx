@@ -358,39 +358,21 @@ export const Landing = ({ onStart, onChatComplete }: {
   const row2 = useReveal();
   const row3 = useReveal();
 
-  const [chatOpen, setChatOpen] = useState(false);
-
-  const openChat = () => {
-    setChatOpen(true);
-    requestAnimationFrame(() => {
-      const el = document.getElementById("ps-chat-rail");
-      if (!el) return;
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
-      el.animate(
-        [{ boxShadow: "0 0 0 0 rgba(26,118,114,0)" },
-         { boxShadow: "0 0 0 10px rgba(26,118,114,0.28)" },
-         { boxShadow: "0 0 0 0 rgba(26,118,114,0)" }],
-        { duration: 900, easing: "ease-out" }
-      );
-    });
+  const focusChat = () => {
+    const el = document.getElementById("chat-section");
+    if (!el) return;
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+    el.animate(
+      [{ boxShadow: "0 0 0 0 rgba(26,118,114,0)" },
+       { boxShadow: "0 0 0 10px rgba(26,118,114,0.28)" },
+       { boxShadow: "0 0 0 0 rgba(26,118,114,0)" }],
+      { duration: 900, easing: "ease-out" }
+    );
   };
-  const focusChat = openChat;
 
   return (
     <div style={{ background: "var(--bg-page)" }}>
       <style>{`
-        .ps-shell { display: grid; grid-template-columns: 1fr; transition: grid-template-columns 0.4s ease; }
-        .ps-rail-wrap { position: relative; overflow: hidden; }
-        .ps-rail-inner { background: var(--paper-100); border-left: 1px solid var(--border-1); height: 100%; }
-        .ps-rail-wrap.closed { width: 0; }
-        @media (min-width: 1024px) {
-          .ps-shell.open { grid-template-columns: minmax(0, 60fr) minmax(380px, 40fr); }
-          .ps-shell.open .ps-rail-wrap { height: calc(100vh - 56px); position: sticky; top: 56px; }
-        }
-        @media (max-width: 1023px) {
-          .ps-shell.open .ps-rail-wrap { order: -1; height: calc(100svh - 56px); }
-          .ps-shell.open .ps-rail-inner { border-left: none; border-bottom: 1px solid var(--border-1); }
-        }
         @keyframes giulia-fab-pulse {
           0%   { box-shadow: 0 0 0 0 rgba(26,118,114,0.45), 0 12px 28px rgba(18,35,57,0.25); }
           70%  { box-shadow: 0 0 0 18px rgba(26,118,114,0), 0 12px 28px rgba(18,35,57,0.25); }
@@ -413,8 +395,8 @@ export const Landing = ({ onStart, onChatComplete }: {
         }
       `}</style>
       <SiteHeaderSlim/>
-      <div className={"ps-shell " + (chatOpen ? "open" : "closed")}>
-        <main style={{ minWidth: 0 }}>
+      <main style={{ minWidth: 0 }}>
+
 
 
 
