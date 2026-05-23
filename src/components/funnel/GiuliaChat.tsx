@@ -47,6 +47,8 @@ export const GiuliaChat: React.FC<{ onStart: () => void }> = ({ onStart }) => {
   const [shown, setShown] = useState<Msg[]>([]);
   const [typing, setTyping] = useState(false);
   const [pulse, setPulse] = useState(true);
+  const [showTip, setShowTip] = useState(false);
+  const [tipDismissed, setTipDismissed] = useState(false);
   const scrollRef = useRef<HTMLDivElement | null>(null);
 
   // play script when first opened
@@ -72,8 +74,21 @@ export const GiuliaChat: React.FC<{ onStart: () => void }> = ({ onStart }) => {
   }, [shown, typing]);
 
   useEffect(() => {
-    if (open) setPulse(false);
+    if (open) { setPulse(false); setShowTip(false); }
   }, [open]);
+
+  // show tooltip after first meaningful scroll
+  useEffect(() => {
+    if (tipDismissed || open) return;
+    const onScroll = () => {
+      if (window.scrollY > 320) {
+        setShowTip(true);
+        window.removeEventListener("scroll", onScroll);
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [tipDismissed, open]);
 
   return (
     <>
@@ -92,6 +107,25 @@ export const GiuliaChat: React.FC<{ onStart: () => void }> = ({ onStart }) => {
           to   { opacity: 1; transform: translateY(0) scale(1); }
         }
       `}</style>
+
+      {/* Tooltip after first scroll */}
+      {!open && showTip && (
+        <div
+          className="chat-tip"
+          role="button"
+          tabIndex={0}
+          onClick={() => { setOpen(true); setTipDismissed(true); }}
+          onKeyDown={(e) => { if (e.key === "Enter") { setOpen(true); setTipDismissed(true); } }}
+        >
+          <button
+            type="button"
+            className="close"
+            aria-label="Chiudi"
+            onClick={(e) => { e.stopPropagation(); setShowTip(false); setTipDismissed(true); }}
+          >×</button>
+          Hai bisogno di aiuto? Inizia subito il quiz con Giulia →
+        </div>
+      )}
 
       {/* Floating bubble */}
       {!open && (
