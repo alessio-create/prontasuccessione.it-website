@@ -113,10 +113,10 @@ export const Landing = ({ onStart }: { onStart: () => void }) => {
           <div style={{ flex: "1 1 440px", minWidth: 0 }}>
             <span className="eyebrow">Scheda informativa · v.2026</span>
             <h1 className="serif" style={{ fontSize: "clamp(32px, 5vw, 56px)", lineHeight: 1.05, marginTop: 18, fontWeight: 600, letterSpacing: "-0.025em", maxWidth: 880 }}>
-              La tua dichiarazione di successione, spiegata bene.
+              La tua dichiarazione di successione, fatta in 48 ore. Tutto online.
             </h1>
             <p className="italic-serif mt-4" style={{ fontSize: 18, lineHeight: 1.55, maxWidth: 620 }}>
-              Comincia rispondendo a cinque domande. In due minuti ti diciamo cosa serve, quanto costa, e quanto tempo ci vuole.
+              Comincia rispondendo a cinque domande. In due minuti ti diciamo cosa serve, quanto costa, e quando è pronta.
             </p>
             <div className="row gap-3 mt-6 wrap" style={{ alignItems: "center" }}>
               <button className="btn primary lg" onClick={onStart}>
