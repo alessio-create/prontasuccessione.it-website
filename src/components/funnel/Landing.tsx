@@ -201,11 +201,12 @@ const REVIEWS = [
 ];
 
 const SOLUTION_BULLETS = [
-  { t: "Cosa stai pagando senza saperlo", b: "Commercialisti a parcella, code in CAF, allegati ripetuti tre volte. Costa più del servizio stesso." },
-  { t: "Un esperto sempre raggiungibile", b: "Un commercialista dedicato, chat e telefono. Risposte in giornata, anche di sabato." },
-  { t: "Il modello \"tutto online\"", b: "SPID, firma digitale, F24, protocollo Agenzia delle Entrate. Niente carta, niente appuntamenti." },
-  { t: "Tariffa fissa, dichiarata in anticipo", b: "Sai quanto spendi prima di iniziare. Nessun extra, mai." },
+  { t: "Tariffa fissa, dichiarata prima", b: "Sai quanto spendi prima di iniziare. Zero sorprese." },
+  { t: "Un commercialista dedicato", b: "Chat e telefono. Risposte in giornata, anche sabato." },
+  { t: "Tutto online, davvero", b: "SPID, firma digitale, F24. Niente carta, niente uffici." },
+  { t: "Pratica conclusa in 48 ore", b: "Protocollo Agenzia delle Entrate. Senza muoverti da casa." },
 ];
+
 
 const TICKER_RESULTS = [
   "Famiglia 3 eredi · pratica conclusa in 41 ore",
