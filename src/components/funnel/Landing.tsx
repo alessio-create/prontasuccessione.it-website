@@ -361,7 +361,7 @@ export const Landing = ({ onStart }: { onStart: () => void }) => {
         <div ref={heroDrift.ref} style={{ position: "relative", maxWidth: 1100, margin: "0 auto", textAlign: "center" }}>
           <span className="mono" style={{ fontSize: 11, letterSpacing: "0.22em",
             color: "var(--teal-700)", textTransform: "uppercase" }}>
-            Dichiarazione di successione · 100% online
+            DICHIARAZIONE DI SUCCESSIONE 100% ONLINE
           </span>
           <h1 className="display" style={{ fontSize: "clamp(48px, 7.4vw, 104px)", lineHeight: 0.98,
             marginTop: 22, fontWeight: 700, letterSpacing: "-0.04em", color: "var(--fg-1)" }}>
