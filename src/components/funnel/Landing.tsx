@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Icon, SiteHeaderSlim, SiteFooterSlim } from "./shell";
+import { GiuliaChat } from "./GiuliaChat";
 
 /* ─────────────────────────────────────────── hooks */
 
