@@ -594,7 +594,7 @@ export const Landing = ({ onStart, onChatComplete }: {
                   La testa è già da un'altra parte.
                 </p>
                 <p className="italic-serif mt-3" style={{ fontSize: 16, lineHeight: 1.65, color: "var(--fg-2)" }}>
-                  Ti chiedono precisione mentre stai imparando a vivere senza qualcuno. Non dovrebbe essere così — non per chi sta vivendo un lutto.
+                  Ti chiedono precisione mentre stai imparando a vivere senza qualcuno.
                 </p>
               </div>
             </div>
