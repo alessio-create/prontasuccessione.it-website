@@ -624,18 +624,12 @@ export const Landing = ({ onStart }: { onStart: () => void }) => {
           background:
             "radial-gradient(800px 500px at 15% 0%, rgba(26,118,114,0.10), transparent 60%)," +
             "radial-gradient(700px 500px at 100% 100%, rgba(138,58,36,0.08), transparent 60%)" }}/>
-        <div className="cta-card" style={{ maxWidth: 980, margin: "0 auto", padding: "72px 56px 64px",
-          position: "relative" }}>
+        <div className="cta-card" style={{ maxWidth: 880, margin: "0 auto", padding: "72px 56px 64px",
+          position: "relative", textAlign: "center" }}>
           <div className="perf top"/>
           <div className="perf bot"/>
 
-          {/* Stamp top-right */}
-          <div style={{ position: "absolute", top: 28, right: 28, display: "flex", flexDirection: "column",
-            alignItems: "center", gap: 6 }}>
-            <div className="stamp">In regola<br/>in 48h</div>
-          </div>
-
-          <div style={{ maxWidth: 640 }}>
+          <div style={{ maxWidth: 680, margin: "0 auto" }}>
             <span className="mono" style={{ fontSize: 11, letterSpacing: "0.22em",
               color: "var(--teal-700)", textTransform: "uppercase" }}>
               ✦ Prossimo passo · senza impegno
@@ -648,36 +642,34 @@ export const Landing = ({ onStart }: { onStart: () => void }) => {
               </em>
             </h2>
             <p style={{ marginTop: 22, fontFamily: "var(--font-display)", fontStyle: "italic",
-              fontSize: 19, color: "var(--fg-2)", maxWidth: 560, lineHeight: 1.55 }}>
+              fontSize: 19, color: "var(--fg-2)", maxWidth: 560, margin: "22px auto 0", lineHeight: 1.55 }}>
               Verifica in 30 secondi se la tua pratica è gestibile online.
               Tariffa, tempi e documenti — prima ancora di iniziare.
             </p>
           </div>
 
-          <div className="divider" style={{ margin: "36px 0 28px", height: 1,
-            background: "var(--border-2)" }}/>
+          <div className="col" style={{ alignItems: "center", gap: 12, marginTop: 36 }}>
+            <button className="btn primary lg" onClick={onStart}>
+              Mettici alla prova <Icon name="arrow-right" size={16}/>
+            </button>
+            <span className="mono" style={{ fontSize: 11, letterSpacing: "0.18em",
+              color: "var(--fg-3)", textTransform: "uppercase" }}>
+              € 0 · senza carta · 30 sec
+            </span>
+          </div>
 
-          <div className="row gap-6 wrap" style={{ alignItems: "center", justifyContent: "space-between" }}>
-            <div className="row gap-3 wrap" style={{ alignItems: "center" }}>
-              <button className="btn primary lg" onClick={onStart}>
-                Mettici alla prova <Icon name="arrow-right" size={16}/>
-              </button>
-              <span className="mono" style={{ fontSize: 11, letterSpacing: "0.18em",
-                color: "var(--fg-3)", textTransform: "uppercase" }}>
-                € 0 · senza carta · 30 sec
-              </span>
+          <div className="divider" style={{ margin: "40px auto 28px", height: 1,
+            background: "var(--border-2)", maxWidth: 320 }}/>
+
+          <div className="row gap-5 wrap" style={{ alignItems: "center", justifyContent: "center" }}>
+            <div className="col" style={{ gap: 2, alignItems: "center" }}>
+              <span style={{ color: "var(--seal-500)", letterSpacing: 2, fontSize: 13 }}>★★★★★</span>
+              <span style={{ fontSize: 11, color: "var(--fg-3)" }}>4,9 / 5 · 1.200+ recensioni</span>
             </div>
-
-            <div className="row gap-4 wrap" style={{ alignItems: "center" }}>
-              <div className="col" style={{ gap: 2 }}>
-                <span style={{ color: "var(--seal-500)", letterSpacing: 2, fontSize: 13 }}>★★★★★</span>
-                <span style={{ fontSize: 11, color: "var(--fg-3)" }}>4,9 / 5 · 1.200+ recensioni</span>
-              </div>
-              <span style={{ width: 1, height: 28, background: "var(--border-2)" }}/>
-              <div className="col" style={{ gap: 2 }}>
-                <span className="display" style={{ fontWeight: 700, fontSize: 18, color: "var(--fg-1)" }}>1.247</span>
-                <span style={{ fontSize: 11, color: "var(--fg-3)" }}>successioni concluse</span>
-              </div>
+            <span style={{ width: 1, height: 28, background: "var(--border-2)" }}/>
+            <div className="col" style={{ gap: 2, alignItems: "center" }}>
+              <span className="display" style={{ fontWeight: 700, fontSize: 18, color: "var(--fg-1)" }}>1.247</span>
+              <span style={{ fontSize: 11, color: "var(--fg-3)" }}>successioni concluse</span>
             </div>
           </div>
         </div>
