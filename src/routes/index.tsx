@@ -9,7 +9,7 @@ function LandingRoute() {
       onStart={() => { clearAnswers(); navigate({ to: "/quiz" }); }}
       onChatComplete={(answers) => {
         saveAnswers(answers);
-        navigate({ to: "/result" });
+        navigate({ to: "/opt-in" });
       }}
     />
   );
