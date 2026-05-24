@@ -19,7 +19,7 @@ const buildMonth = (selectedDay: number) => {
   return cells;
 };
 
-export const Booking = ({ onConfirm, onBack }: { onConfirm: () => void; onBack: () => void }) => {
+export const BookingPanel = ({ onConfirm }: { onConfirm: () => void }) => {
   const [selectedDay, setSelectedDay] = useState(13);
   const [selectedTime, setSelectedTime] = useState("11:00");
   const [duration, setDuration] = useState("30");
