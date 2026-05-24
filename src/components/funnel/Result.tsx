@@ -33,9 +33,9 @@ export const Processing = ({ onDone }: { onDone: () => void }) => {
                 <span>{s}</span>
               </div>
             ))}
-          </div>
         </div>
       </div>
+      <SiteFooterSlim/>
     </div>
   );
 };
