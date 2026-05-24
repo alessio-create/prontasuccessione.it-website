@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Icon, Logo, Avatar } from "./shell";
+import { Icon, Logo, Avatar, SiteFooterSlim } from "./shell";
 
 export type Answers = Record<string, string>;
 
