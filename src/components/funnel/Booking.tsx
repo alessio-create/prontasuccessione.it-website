@@ -230,7 +230,7 @@ export const Confirmed = ({ onRestart }: { onRestart: () => void }) => {
           <div style={{ flex: "1 1 280px", minWidth: 280 }}>{Aside}</div>
         </div>
       </div>
-      <SiteFooter/>
+      <SiteFooterSlim/>
     </div>
   );
 };
