@@ -112,7 +112,7 @@ export const Result = ({ answers, onConfirm, onBack }: { answers: Answers; onCon
               </p>
             </div>
           </div>
-          <div style={{ flex: "1 1 320px", minWidth: 280 }}>{Form}</div>
+          <div style={{ flex: "1 1 320px", minWidth: 280 }}><BookingPanel onConfirm={onConfirm}/></div>
         </div>
       </div>
       <SiteFooter/>
