@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Landing } from "./Landing";
 import { Quiz, type Answers } from "./Quiz";
 import { Processing, Result } from "./Result";
-import { Booking, Confirmed } from "./Booking";
+import { Confirmed } from "./Booking";
 import type { Contact } from "./ChatRail";
 
 type Screen = "landing" | "quiz" | "processing" | "result" | "booking" | "confirmed";
