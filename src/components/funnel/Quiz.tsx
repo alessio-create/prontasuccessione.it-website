@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Icon, Logo, Avatar } from "./shell";
+import { Icon, Logo, Avatar, SiteFooterSlim } from "./shell";
 
 export type Answers = Record<string, string>;
 
@@ -327,6 +327,7 @@ export const Quiz = ({ answers, setAnswers, step, setStep, onComplete, onBack }:
       <style>{`
         @media (max-width: 720px) { .sidebar-progress { display: none; } }
       `}</style>
+      <SiteFooterSlim/>
     </div>
   );
 };

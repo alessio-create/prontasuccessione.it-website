@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Logo, Icon, SiteFooter } from "./shell";
+import { Logo, Icon, SiteFooterSlim } from "./shell";
 
 const MONTH_NAME = "Maggio 2026";
 const WEEKDAYS = ["LUN", "MAR", "MER", "GIO", "VEN", "SAB", "DOM"];
@@ -230,7 +230,7 @@ export const Confirmed = ({ onRestart }: { onRestart: () => void }) => {
           <div style={{ flex: "1 1 280px", minWidth: 280 }}>{Aside}</div>
         </div>
       </div>
-      <SiteFooter/>
+      <SiteFooterSlim/>
     </div>
   );
 };

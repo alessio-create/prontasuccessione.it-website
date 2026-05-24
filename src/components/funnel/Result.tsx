@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Logo, Icon, SiteFooter } from "./shell";
+import { Logo, Icon, SiteFooterSlim } from "./shell";
 import { BookingPanel } from "./Booking";
 import type { Answers } from "./Quiz";
 
@@ -36,6 +36,7 @@ export const Processing = ({ onDone }: { onDone: () => void }) => {
           </div>
         </div>
       </div>
+      <SiteFooterSlim/>
     </div>
   );
 };
@@ -115,7 +116,7 @@ export const Result = ({ answers, onConfirm, onBack }: { answers: Answers; onCon
           <div style={{ flex: "1 1 320px", minWidth: 280 }}><BookingPanel onConfirm={onConfirm}/></div>
         </div>
       </div>
-      <SiteFooter/>
+      <SiteFooterSlim/>
     </div>
   );
 };
