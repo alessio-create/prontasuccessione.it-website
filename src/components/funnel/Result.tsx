@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Logo, Icon, SiteFooter } from "./shell";
+import { Logo, Icon, SiteFooterSlim } from "./shell";
 import { BookingPanel } from "./Booking";
 import type { Answers } from "./Quiz";
 
