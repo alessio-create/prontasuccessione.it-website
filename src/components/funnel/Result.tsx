@@ -47,14 +47,14 @@ const buildFindings = (a: Answers) => {
   else if (a.immobili === "quote") out.push({ t: "Quote o nuda proprietà", b: "Le quote richiedono ricostruire la storia di ogni bene. Possiamo farlo dagli archivi, ma serve una mezz'ora di chiacchierata per capire cosa c'è." });
   else if (a.immobili === "nonso") out.push({ t: "Patrimonio immobiliare da accertare", b: "Possiamo verificare gratuitamente se esistono immobili a nome del defunto, prima di iniziare." });
   if (a.testamento === "olografo") out.push({ t: "Testamento olografo da pubblicare", b: "Un testamento scritto a mano va prima portato dal notaio per la pubblicazione, prima dell'invio della dichiarazione." });
-  else if (a.testamento === "nonso") out.push({ t: "Verifica esistenza testamento", b: "Possiamo interrogare il Registro Generale dei Testamenti — pochi giorni e ti toglie ogni dubbio." });
+  else if (a.testamento === "nonso") out.push({ t: "Verifica esistenza testamento", b: "Possiamo interrogare il Registro Generale dei Testamenti - pochi giorni e ti toglie ogni dubbio." });
   if (a.tempistica === "avanzato") out.push({ t: "Termine di legge ravvicinato", b: "Mancano poche settimane al limite di dodici mesi. Si può fare in tempo, ma è il momento di partire." });
   else if (a.tempistica === "oltre") out.push({ t: "Dichiarazione tardiva", b: "Sei oltre i dodici mesi. Si può ancora presentare con ravvedimento operoso, e le sanzioni si riducono." });
   if (a.regione === "estero") out.push({ t: "Defunto residente all'estero", b: "L'ufficio competente è la Direzione Provinciale II di Roma. Cambiano alcuni adempimenti AIRE." });
   if (a.parentela === "fratello" || a.parentela === "altro") out.push({ t: "Aliquote diverse dalla franchigia base", b: "Per fratelli e parenti diversi da coniuge/figli si applicano aliquote del 6% con franchigia ridotta o nulla." });
   const padding = [
     { t: "Quadro fiscale da confermare", b: "Le imposte di successione, ipotecaria e catastale dipendono dal valore catastale. Le calcoliamo insieme prima di iniziare." },
-    { t: "Documentazione bancaria", b: "Ti aiuteremo a richiedere i saldi alla data del decesso a tutte le banche. È una pratica gratuita ma noiosa — la facciamo noi." },
+    { t: "Documentazione bancaria", b: "Ti aiuteremo a richiedere i saldi alla data del decesso a tutte le banche. È una pratica gratuita ma noiosa - la facciamo noi." },
     { t: "Volture catastali successive", b: "Una volta presentata la dichiarazione, vanno aggiornati i registri catastali. Lo includiamo nella tariffa." },
   ];
   for (const p of padding) { if (out.length >= 3) break; out.push(p); }
@@ -106,7 +106,7 @@ export const Result = ({ answers, onConfirm, onBack }: { answers: Answers; onCon
             <div className="card-warm mt-4" style={{ padding: 22 }}>
               <span className="eyebrow">Cosa NON sappiamo ancora</span>
               <p className="italic-serif mt-2" style={{ fontSize: 15, lineHeight: 1.55 }}>
-                Una stima precisa di tariffa e tempi richiede capire alcuni dettagli — il valore catastale degli immobili, la composizione del nucleo ereditario, eventuali debiti tributari pendenti.
+                Una stima precisa di tariffa e tempi richiede capire alcuni dettagli - il valore catastale degli immobili, la composizione del nucleo ereditario, eventuali debiti tributari pendenti.
               </p>
               <p className="italic-serif mt-3" style={{ fontSize: 15, lineHeight: 1.55 }}>
                 Per questo preferiamo parlarci prima di chiederti un euro.
