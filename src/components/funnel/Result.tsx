@@ -33,6 +33,7 @@ export const Processing = ({ onDone }: { onDone: () => void }) => {
                 <span>{s}</span>
               </div>
             ))}
+          </div>
         </div>
       </div>
       <SiteFooterSlim/>
@@ -115,7 +116,7 @@ export const Result = ({ answers, onConfirm, onBack }: { answers: Answers; onCon
           <div style={{ flex: "1 1 320px", minWidth: 280 }}><BookingPanel onConfirm={onConfirm}/></div>
         </div>
       </div>
-      <SiteFooter/>
+      <SiteFooterSlim/>
     </div>
   );
 };
