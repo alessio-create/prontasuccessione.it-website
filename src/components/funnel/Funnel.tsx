@@ -5,7 +5,7 @@ import { Processing, Result } from "./Result";
 import { Confirmed } from "./Booking";
 import type { Contact } from "./ChatRail";
 
-type Screen = "landing" | "quiz" | "processing" | "result" | "booking" | "confirmed";
+type Screen = "landing" | "quiz" | "processing" | "result" | "confirmed";
 
 export const Funnel = () => {
   const [screen, setScreen] = useState<Screen>("landing");
@@ -25,9 +25,8 @@ export const Funnel = () => {
     case "quiz": return <Quiz answers={answers} setAnswers={setAnswers} step={step} setStep={setStep}
       onComplete={() => setScreen("processing")} onBack={() => setScreen("landing")}/>;
     case "processing": return <Processing onDone={() => setScreen("result")}/>;
-    case "result": return <Result answers={answers} onContinue={() => setScreen("booking")}
+    case "result": return <Result answers={answers} onConfirm={() => setScreen("confirmed")}
       onBack={() => { setStep(0); setScreen("quiz"); }}/>;
-    case "booking": return <Booking onConfirm={() => setScreen("confirmed")} onBack={() => setScreen("result")}/>;
     case "confirmed": return <Confirmed onRestart={() => { reset(); setScreen("landing"); }}/>;
   }
 };
