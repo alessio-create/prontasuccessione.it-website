@@ -11,7 +11,6 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as QuizRouteImport } from './routes/quiz'
 import { Route as OptInRouteImport } from './routes/opt-in'
-import { Route as BookingRouteImport } from './routes/booking'
 import { Route as IndexRouteImport } from './routes/index'
 
 const QuizRoute = QuizRouteImport.update({
@@ -24,11 +23,6 @@ const OptInRoute = OptInRouteImport.update({
   path: '/opt-in',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BookingRoute = BookingRouteImport.update({
-  id: '/booking',
-  path: '/booking',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -37,34 +31,30 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/booking': typeof BookingRoute
   '/opt-in': typeof OptInRoute
   '/quiz': typeof QuizRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/booking': typeof BookingRoute
   '/opt-in': typeof OptInRoute
   '/quiz': typeof QuizRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/booking': typeof BookingRoute
   '/opt-in': typeof OptInRoute
   '/quiz': typeof QuizRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/booking' | '/opt-in' | '/quiz'
+  fullPaths: '/' | '/opt-in' | '/quiz'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/booking' | '/opt-in' | '/quiz'
-  id: '__root__' | '/' | '/booking' | '/opt-in' | '/quiz'
+  to: '/' | '/opt-in' | '/quiz'
+  id: '__root__' | '/' | '/opt-in' | '/quiz'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  BookingRoute: typeof BookingRoute
   OptInRoute: typeof OptInRoute
   QuizRoute: typeof QuizRoute
 }
@@ -85,13 +75,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof OptInRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/booking': {
-      id: '/booking'
-      path: '/booking'
-      fullPath: '/booking'
-      preLoaderRoute: typeof BookingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/': {
       id: '/'
       path: '/'
@@ -104,7 +87,6 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  BookingRoute: BookingRoute,
   OptInRoute: OptInRoute,
   QuizRoute: QuizRoute,
 }
