@@ -25,40 +25,6 @@ export const BookingPanel = ({ onConfirm }: { onConfirm: () => void }) => {
   const [duration, setDuration] = useState("30");
   const slots = ["09:30", "10:00", "10:30", "11:00", "11:30", "14:00", "14:30", "15:00", "15:30", "16:30"];
 
-  const Persona = (
-    <div className="col gap-4">
-      <span className="eyebrow">Concierge</span>
-      <div className="row gap-3 center">
-        <span style={{
-          width: 64, height: 64, borderRadius: 999,
-          background: "linear-gradient(155deg, var(--paper-500) 0%, var(--seal-600) 60%, var(--seal-700) 100%)",
-          flexShrink: 0, fontSize: 20, color: "#fbf6ec",
-          fontFamily: "var(--font-serif)", fontWeight: 600,
-          display: "inline-flex", alignItems: "center", justifyContent: "center",
-        }}>GS</span>
-        <div>
-          <p className="serif" style={{ fontSize: 22, fontWeight: 600, letterSpacing: "-0.01em", color: "var(--fg-1)" }}>Giulia Sartori</p>
-          <p className="meta">Esperta successioni · Ord. Milano</p>
-        </div>
-      </div>
-      <p className="italic-serif" style={{ fontSize: 15, lineHeight: 1.55 }}>
-        "Ho letto le tue risposte. Mezz'ora basta per chiarire i punti aperti e darti una stima precisa — senza vincoli."
-      </p>
-      <div className="divider"/>
-      <div className="col gap-2">
-        <span className="eyebrow">Cosa copriamo</span>
-        <ul style={{ listStyle: "none", padding: 0, margin: "8px 0 0", display: "flex", flexDirection: "column", gap: 8 }}>
-          {["Verifica del patrimonio e degli eredi","Calcolo preliminare delle imposte","Lista dei documenti necessari","Tariffa e tempistica precise"].map((t, i) => (
-            <li key={i} className="row gap-3" style={{ alignItems: "flex-start" }}>
-              <span style={{ marginTop: 4, width: 5, height: 5, borderRadius: 999, background: "var(--teal-700)", flexShrink: 0 }}/>
-              <span style={{ fontSize: 13, color: "var(--fg-2)", lineHeight: 1.5 }}>{t}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  );
-
   const Calendar = (
     <div>
       <div className="row between center">
@@ -109,7 +75,7 @@ export const BookingPanel = ({ onConfirm }: { onConfirm: () => void }) => {
   );
 
   const Summary = (
-    <div className="card-warm" style={{ padding: 22, borderColor: "var(--ink-900)", borderWidth: 1.5 }}>
+    <div className="card-warm mt-6" style={{ padding: 22, borderColor: "var(--ink-900)", borderWidth: 1.5 }}>
       <div className="row between center">
         <span className="eyebrow">Riepilogo</span>
         <span className="mono" style={{ fontSize: 11, color: "var(--fg-3)" }}>gratuita</span>
@@ -126,34 +92,14 @@ export const BookingPanel = ({ onConfirm }: { onConfirm: () => void }) => {
   );
 
   return (
-    <div style={{ background: "var(--bg-page)" }}>
-      <div className="funnel-header">
-        <Logo/>
-        <span className="meta">Ultimo passo · prenota la consulenza</span>
-        <button className="btn ghost sm" onClick={onBack}>← Indietro</button>
-      </div>
-      <div className="row wrap" style={{ alignItems: "stretch" }}>
-        <div style={{ width: 360, flexShrink: 0, background: "var(--paper-200)",
-          borderRight: "1px solid var(--border-1)", padding: "48px 36px",
-          display: "flex", flexDirection: "column",
-        }}>{Persona}</div>
-        <div className="col flex-1" style={{ padding: "48px 56px", minWidth: 280, background: "var(--bg-page)" }}>
-          <span className="eyebrow">Step 4 di 4</span>
-          <h2 className="serif mt-3" style={{ fontSize: 36, fontWeight: 600, letterSpacing: "-0.025em", lineHeight: 1.05, maxWidth: 540 }}>
-            Quando preferisci che Giulia ti chiami?
-          </h2>
-          <p className="italic-serif mt-3" style={{ fontSize: 16 }}>
-            Trenta minuti, gratuita, al telefono. Tutti gli orari sono Europa/Roma.
-          </p>
-          <div className="mt-8">{Calendar}</div>
-          <div className="mt-7">{TimePicker}</div>
-          <div className="mt-7" style={{ maxWidth: 460 }}>{Summary}</div>
-        </div>
-      </div>
-      <SiteFooter/>
+    <div style={{ background: "var(--paper-50)", border: "1.5px solid var(--ink-900)", borderRadius: 4, padding: 26 }}>
+      {Calendar}
+      <div className="mt-6">{TimePicker}</div>
+      {Summary}
     </div>
   );
 };
+
 
 export const Confirmed = ({ onRestart }: { onRestart: () => void }) => {
   const Roadmap = [
