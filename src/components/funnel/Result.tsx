@@ -60,7 +60,7 @@ const buildFindings = (a: Answers) => {
   return out.slice(0, 3);
 };
 
-export const Result = ({ answers, onContinue, onBack }: { answers: Answers; onContinue: () => void; onBack: () => void }) => {
+export const Result = ({ answers, onConfirm, onBack }: { answers: Answers; onConfirm: () => void; onBack: () => void }) => {
   const findings = buildFindings(answers);
   const FindingCard = ({ t, b }: { t: string; b: string }) => (
     <div className="card" style={{ padding: 22, borderColor: "var(--warn-500)", borderWidth: 1.2, background: "var(--paper-50)" }}>
@@ -79,33 +79,6 @@ export const Result = ({ answers, onContinue, onBack }: { answers: Answers; onCo
     </div>
   );
 
-  const Form = (
-    <div style={{ background: "var(--paper-50)", border: "1.5px solid var(--ink-900)", borderRadius: 4, padding: 26 }}>
-      <span className="eyebrow">Ti consigliamo</span>
-      <p className="serif mt-2" style={{ fontSize: 26, fontWeight: 600, letterSpacing: "-0.01em", lineHeight: 1.18, color: "var(--fg-1)" }}>
-        Una consulenza gratuita di 30 minuti, prima di iniziare.
-      </p>
-      <p className="italic-serif mt-3" style={{ fontSize: 15, lineHeight: 1.55 }}>
-        Prima di darti una stima preferiamo capirci meglio. Senza impegno, senza pagamento.
-      </p>
-      <div className="col gap-3 mt-5">
-        <div className="field"><label className="field-label">Nome e cognome</label><input className="input" defaultValue="Anna Bianchi"/></div>
-        <div className="field"><label className="field-label">Email</label><input className="input" type="email" defaultValue="anna.bianchi@example.it"/></div>
-        <div className="field"><label className="field-label">Telefono</label><input className="input" type="tel" placeholder="+39 ..."/></div>
-      </div>
-      <label className="checkbox-row mt-4">
-        <input type="checkbox" defaultChecked/>
-        <span>Acconsento al trattamento dei dati ai sensi del GDPR. Leggi la <a href="#">privacy</a>.</span>
-      </label>
-      <button className="btn primary lg block mt-5" onClick={onContinue}>
-        Prenota la consulenza <Icon name="arrow-right" size={16}/>
-      </button>
-      <div className="divider mt-5 mb-4"/>
-      <p className="meta" style={{ lineHeight: 1.5 }}>
-        Preferisci ricevere prima un riepilogo per email? <a href="#" onClick={e => { e.preventDefault(); onContinue(); }}>Invialo senza prenotare.</a>
-      </p>
-    </div>
-  );
 
   return (
     <div style={{ background: "var(--bg-page)" }}>
