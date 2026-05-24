@@ -185,7 +185,7 @@ export const Confirmed = ({ onRestart }: { onRestart: () => void }) => {
     <div className="card" style={{ padding: 22 }}>
       <span className="eyebrow">Nel frattempo, se puoi</span>
       <p className="italic-serif mt-2" style={{ fontSize: 14, lineHeight: 1.55 }}>
-        Niente di urgente — ma se ti capita sotto mano, fai un cenno qui sotto.
+        Niente di urgente - ma se ti capita sotto mano, fai un cenno qui sotto.
       </p>
       <div className="col gap-2 mt-4">
         {["Codice fiscale del defunto","Visura catastale degli immobili","Estratti conto degli ultimi 6 mesi","Eventuale testamento (anche solo foto)"].map((t, i) => (

@@ -176,7 +176,7 @@ p { margin: 0; color: var(--fg-2); text-wrap: pretty; }
 .proc-row.done .ic { background:var(--teal-700); border-color:var(--teal-700); color:var(--paper-50); }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* FAQ — premium */
+/* FAQ - premium */
 .faq-premium { border-top:1px solid var(--ink-900); }
 .faq-premium .faq-item { border-bottom:1px solid var(--border-2); padding:0;
   position:relative; transition: background var(--dur-2) var(--ease-standard); }
@@ -341,7 +341,7 @@ p { margin: 0; color: var(--fg-2); text-wrap: pretty; }
 .aud-card:hover { border-color: var(--ink-900); transform: translateY(-2px); }
 .aud-card .ill { width:64px; height:64px; margin-bottom: 18px; color: var(--teal-700); }
 
-/* Final CTA — appointment card */
+/* Final CTA - appointment card */
 .cta-card { background: var(--paper-50); border: 1.5px solid var(--ink-900); border-radius: 8px;
   position:relative; overflow:hidden; box-shadow: 0 30px 80px -40px rgba(18,35,57,0.35); }
 .cta-card .perf { position:absolute; left:0; right:0; height:18px;

@@ -311,7 +311,7 @@ const ReviewsTicker = () => {
           <span className="ticker-item" key={i}>
             <span className="stars">★★★★★</span>
             <span>"{r.q}"</span>
-            <span className="who">{r.a} — {r.who}</span>
+            <span className="who">{r.a} - {r.who}</span>
             <span className="ticker-dot"/>
           </span>
         ))}
@@ -400,7 +400,7 @@ export const Landing = ({ onStart, onChatComplete }: {
 
 
 
-      {/* HERO — light, editorial, text-forward (fits in viewport) */}
+      {/* HERO - light, editorial, text-forward (fits in viewport) */}
       <section style={{ position: "relative", background: "var(--paper-100)", color: "var(--fg-1)",
         overflow: "hidden", padding: "clamp(24px, 5vh, 64px) clamp(20px, 4vw, 56px) clamp(24px, 4vh, 56px)",
         borderBottom: "1px solid var(--border-1)",
@@ -510,7 +510,7 @@ export const Landing = ({ onStart, onChatComplete }: {
         </div>
       </section>
 
-      {/* PROBLEM — keeps the figures the user likes */}
+      {/* PROBLEM - keeps the figures the user likes */}
       <section ref={revealProblem} style={{ padding: "120px 56px", position: "relative",
         overflow: "hidden", background: "var(--paper-200)", borderTop: "1px solid var(--ink-900)" }}>
         <div className="row gap-12 wrap" style={{ maxWidth: 1240, margin: "0 auto", alignItems: "flex-start" }}>
@@ -662,7 +662,7 @@ export const Landing = ({ onStart, onChatComplete }: {
         </div>
       </section>
 
-      {/* FINAL CTA — appointment card */}
+      {/* FINAL CTA - appointment card */}
       <section ref={revealCta} className="reveal" style={{ padding: "120px 56px 140px",
         background: "var(--paper-200)", color: "var(--fg-1)", borderTop: "1px solid var(--border-2)",
         position: "relative", overflow: "hidden" }}>
@@ -689,7 +689,7 @@ export const Landing = ({ onStart, onChatComplete }: {
             </h2>
             <p style={{ marginTop: 22, fontFamily: "var(--font-display)", fontStyle: "italic",
               fontSize: 19, color: "var(--fg-2)", maxWidth: 560, margin: "22px auto 0", lineHeight: 1.55 }}>
-              Tariffa, tempi e documenti — prima ancora di iniziare.
+              Tariffa, tempi e documenti - prima ancora di iniziare.
 
             </p>
           </div>
@@ -721,7 +721,7 @@ export const Landing = ({ onStart, onChatComplete }: {
         </div>
       </section>
 
-      {/* CHAT SECTION — Giulia at the bottom */}
+      {/* CHAT SECTION - Giulia at the bottom */}
       <section id="chat-section" style={{ padding: "80px 24px 120px", background: "var(--paper-100)",
         borderTop: "1px solid var(--border-1)" }}>
         <div style={{ maxWidth: 720, margin: "0 auto", textAlign: "center", marginBottom: 28 }}>

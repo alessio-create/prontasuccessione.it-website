@@ -33,13 +33,13 @@ export const QUIZ = [
     ack: (v: string) => {
       if (v === "recente") return "Hai tutto il tempo per organizzarti con calma.";
       if (v === "medio") return "È un buon momento per iniziare. Niente fretta.";
-      if (v === "avanzato") return "Va bene — abbiamo ancora margine, ma conviene partire ora.";
+      if (v === "avanzato") return "Va bene - abbiamo ancora margine, ma conviene partire ora.";
       return "Possiamo gestire anche dichiarazioni tardive. Te lo spiego al telefono.";
     },
   },
   {
     id: "immobili", label: "Patrimonio",
-    expert: "Il defunto possedeva immobili — case, terreni, anche solo quote?",
+    expert: "Il defunto possedeva immobili - case, terreni, anche solo quote?",
     options: [
       { v: "uno", t: "Sì, un solo immobile" },
       { v: "piu", t: "Sì, più immobili" },
@@ -66,7 +66,7 @@ export const QUIZ = [
     ],
     ack: (v: string) => {
       if (v === "olografo") return "Va bene. Andrà pubblicato dal notaio prima della successione.";
-      if (v === "pubblico") return "Comodo — il notaio ne ha già copia.";
+      if (v === "pubblico") return "Comodo - il notaio ne ha già copia.";
       if (v === "no") return "Procediamo per successione legittima, allora.";
       return "Va bene, lo verificheremo insieme.";
     },
@@ -228,7 +228,7 @@ export const Quiz = ({ answers, setAnswers, step, setStep, onComplete, onBack }:
                   {revealPhase === 1 && <TypingBubble/>}
                   {revealPhase >= 2 && <Bubble from="us" showAvatar style={{ animation: "fade-up var(--dur-2) var(--ease-standard) both" }}>Ciao, sono Giulia. Ti accompagno io in questo percorso.</Bubble>}
                   {revealPhase === 3 && <TypingBubble/>}
-                  {revealPhase >= 4 && <Bubble from="us" style={{ animation: "fade-up var(--dur-2) var(--ease-standard) both" }}>Ti farò qualche domanda — niente di tecnico, solo per capire come aiutarti meglio.</Bubble>}
+                  {revealPhase >= 4 && <Bubble from="us" style={{ animation: "fade-up var(--dur-2) var(--ease-standard) both" }}>Ti farò qualche domanda - niente di tecnico, solo per capire come aiutarti meglio.</Bubble>}
                 </>
               )}
 

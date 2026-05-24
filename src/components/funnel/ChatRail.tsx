@@ -131,7 +131,7 @@ export const ChatRail: React.FC<{ onComplete: (a: Answers, c: Contact) => void; 
       setContact(c => ({ ...c, name: val }));
       setInput("");
       push({ kind: "u", text: val });
-      await sayG(`Piacere, ${val.split(" ")[0]}. Ora la tua email — è dove ti mando il riepilogo.`, false, 600);
+      await sayG(`Piacere, ${val.split(" ")[0]}. Ora la tua email - è dove ti mando il riepilogo.`, false, 600);
       setPhase("email");
     } else if (phase === "email") {
       if (!validEmail(val)) return;
