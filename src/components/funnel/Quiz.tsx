@@ -327,6 +327,7 @@ export const Quiz = ({ answers, setAnswers, step, setStep, onComplete, onBack }:
       <style>{`
         @media (max-width: 720px) { .sidebar-progress { display: none; } }
       `}</style>
+      <SiteFooterSlim/>
     </div>
   );
 };
