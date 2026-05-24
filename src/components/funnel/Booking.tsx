@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Logo, Icon, SiteFooter } from "./shell";
+import { Logo, Icon, SiteFooterSlim } from "./shell";
 
 const MONTH_NAME = "Maggio 2026";
 const WEEKDAYS = ["LUN", "MAR", "MER", "GIO", "VEN", "SAB", "DOM"];
