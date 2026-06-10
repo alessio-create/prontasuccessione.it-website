@@ -421,9 +421,11 @@ export const Landing = ({ onStart, onChatComplete }: {
             flex-direction: column !important; }
           .problem-section .row.gap-8 > div { margin-left: auto; margin-right: auto; max-width: 100%; }
           .problem-section .row.gap-8 > div:first-child { max-width: 200px !important; flex: 0 0 auto !important; }
-          .problem-section .ledger-row { grid-template-columns: 96px 1fr !important;
+          .problem-section .ledger-row { grid-template-columns: 110px 1fr !important;
             gap: 16px !important; padding: 22px 0 !important; }
-          .problem-section .ledger-row .serif:not(p) { font-size: 52px !important; }
+          .problem-section .ledger-row > div:first-child > div { flex-wrap: wrap !important; row-gap: 2px !important; }
+          .problem-section .ledger-row .serif:not(p) { font-size: 48px !important; }
+          .problem-section .ledger-row .serif[style*="italic"] { font-size: 18px !important; }
           .problem-section .ledger-row p { font-size: 16px !important; padding-top: 4px !important; }
 
           /* ── PER CHI È / Audience ─────────────────────────────────── */
