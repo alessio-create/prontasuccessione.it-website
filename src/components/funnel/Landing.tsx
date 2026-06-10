@@ -401,6 +401,52 @@ export const Landing = ({ onStart, onChatComplete }: {
           .problem-section .problem-intro { position: static !important; top: auto !important; }
           .problem-section .row.gap-12 { gap: 32px !important; }
           .problem-section .row.gap-8 { gap: 18px !important; }
+
+          /* FAQ section: kill sticky, tighten paddings, smaller type */
+          .faq-section { padding: 64px 20px !important; }
+          .faq-section .faq-intro { position: static !important; top: auto !important; }
+          .faq-section .row.gap-12 { gap: 28px !important; }
+          .faq-section h2 { font-size: clamp(30px, 8vw, 40px) !important; }
+          .faq-premium .faq-item .q {
+            padding: 20px 14px 20px 16px !important;
+            gap: 12px !important;
+            font-size: 16px !important;
+            line-height: 1.3 !important;
+            align-items: flex-start !important;
+          }
+          .faq-premium .faq-item .q .num {
+            font-size: 12px !important; width: 18px !important;
+          }
+          .faq-premium .faq-item .q .chev {
+            width: 28px !important; height: 28px !important;
+          }
+          .faq-premium .faq-item .a-inner {
+            padding: 0 16px 20px 46px !important; font-size: 15px !important;
+          }
+          .faq-premium .faq-item .a-meta {
+            padding: 0 16px 18px 46px !important; flex-wrap: wrap;
+          }
+
+          /* Final CTA: shrink to readable mobile card */
+          .cta-section { padding: 64px 16px 88px !important; }
+          .cta-card { padding: 40px 22px 36px !important; border-radius: 6px !important; }
+          .cta-card h2 {
+            font-size: clamp(28px, 8.4vw, 38px) !important;
+            line-height: 1.05 !important;
+            letter-spacing: -0.02em !important;
+          }
+          .cta-card h2 br { display: none; }
+          .cta-card .cta-sub { font-size: 16px !important; margin-top: 16px !important; }
+          .cta-card .btn.lg { width: 100%; justify-content: center; }
+
+          /* Floating Giulia FAB: bigger portrait, clearer label */
+          .giulia-fab { right: 14px !important; bottom: 14px !important;
+            padding: 8px 16px 8px 8px !important; font-size: 13px !important; }
+          .giulia-fab .avatar { width: 44px !important; height: 44px !important; }
+
+          /* Hero stats: stack neatly */
+          .hero-stats { gap: 14px !important; }
+          .hero-stats > span:nth-child(even) { display: none; }
         }
       `}</style>
       <SiteHeaderSlim/>
