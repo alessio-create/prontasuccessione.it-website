@@ -398,56 +398,131 @@ export const Landing = ({ onStart, onChatComplete }: {
         }
 
         @media (max-width: 760px) {
-          .problem-section .problem-intro { position: static !important; top: auto !important; }
-          .problem-section .row.gap-12 { gap: 32px !important; }
-          .problem-section .row.gap-8 { gap: 18px !important; justify-content: center !important; text-align: center; }
-          .problem-section .row.gap-8 > div { margin-left: auto; margin-right: auto; }
+          /* ── Global mobile rhythm ────────────────────────────────── */
+          main { padding-bottom: 96px; }
+          .btn.lg { width: 100%; justify-content: center; padding: 16px 22px !important;
+            font-size: 16px !important; border-radius: 14px !important; }
+          .btn.primary { box-shadow: 0 10px 24px -10px rgba(26,118,114,0.45); }
 
-          /* FAQ section: kill sticky, tighten paddings, smaller type */
-          .faq-section { padding: 64px 20px !important; }
+          /* ── HERO ─────────────────────────────────────────────────── */
+          section:first-of-type { min-height: auto !important;
+            padding: 28px 22px 56px !important; }
+          .hero-stats { gap: 10px !important; margin-top: 22px !important; }
+
+          /* ── SOLUTION ─────────────────────────────────────────────── */
+          section.reveal { padding: 72px 22px !important; }
+
+          /* ── PROBLEM ─────────────────────────────────────────────── */
+          .problem-section { padding: 72px 22px !important; }
+          .problem-section .problem-intro { position: static !important; top: auto !important; }
+          .problem-section .row.gap-12 { gap: 56px !important; }
+          .problem-section .row.gap-8 { gap: 22px !important;
+            justify-content: center !important; text-align: center;
+            flex-direction: column !important; }
+          .problem-section .row.gap-8 > div { margin-left: auto; margin-right: auto; max-width: 100%; }
+          .problem-section .row.gap-8 > div:first-child { max-width: 200px !important; flex: 0 0 auto !important; }
+          .problem-section .ledger-row { grid-template-columns: 96px 1fr !important;
+            gap: 16px !important; padding: 22px 0 !important; }
+          .problem-section .ledger-row .serif:not(p) { font-size: 52px !important; }
+          .problem-section .ledger-row p { font-size: 16px !important; padding-top: 4px !important; }
+
+          /* ── PER CHI È / Audience ─────────────────────────────────── */
+          .aud-card { padding: 24px 22px !important; border-radius: 16px !important;
+            background: var(--paper-100) !important;
+            box-shadow: 0 1px 0 var(--border-1), 0 12px 28px -22px rgba(18,35,57,0.18) !important; }
+
+          /* ── FAQ ──────────────────────────────────────────────────── */
+          .faq-section { padding: 72px 22px !important; }
           .faq-section .faq-intro { position: static !important; top: auto !important; }
-          .faq-section .row.gap-12 { gap: 28px !important; }
-          .faq-section h2 { font-size: clamp(30px, 8vw, 40px) !important; }
+          .faq-section .row.gap-12 { gap: 32px !important; }
+          .faq-section h2 { font-size: clamp(32px, 9vw, 44px) !important; line-height: 1 !important; }
+          .faq-premium { border-top: 1px solid var(--border-1); }
+          .faq-premium .faq-item { border-bottom: 1px solid var(--border-1); }
           .faq-premium .faq-item .q {
-            padding: 20px 14px 20px 16px !important;
-            gap: 12px !important;
-            font-size: 16px !important;
-            line-height: 1.3 !important;
-            align-items: flex-start !important;
+            padding: 22px 4px !important;
+            gap: 14px !important;
+            font-size: 16.5px !important;
+            line-height: 1.35 !important;
+            align-items: center !important;
+            font-weight: 600 !important;
           }
           .faq-premium .faq-item .q .num {
-            font-size: 12px !important; width: 18px !important;
+            font-size: 11px !important; width: 22px !important;
+            color: var(--teal-700) !important; opacity: 0.7;
           }
           .faq-premium .faq-item .q .chev {
-            width: 28px !important; height: 28px !important;
+            width: 32px !important; height: 32px !important;
+            background: var(--paper-200) !important;
+            border-radius: 999px !important; flex-shrink: 0;
           }
           .faq-premium .faq-item .a-inner {
-            padding: 0 16px 20px 46px !important; font-size: 15px !important;
+            padding: 0 4px 22px 36px !important; font-size: 15.5px !important;
+            line-height: 1.65 !important; color: var(--fg-2) !important;
           }
           .faq-premium .faq-item .a-meta {
-            padding: 0 16px 18px 46px !important; flex-wrap: wrap;
+            padding: 0 4px 20px 36px !important; flex-wrap: wrap; gap: 8px !important;
           }
 
-          /* Final CTA: shrink to readable mobile card */
-          .cta-section { padding: 64px 16px 88px !important; }
-          .cta-card { padding: 40px 22px 36px !important; border-radius: 6px !important; }
+          /* ── FINAL CTA — premium dark editorial card ─────────────── */
+          .cta-section { padding: 64px 18px 96px !important; }
+          .cta-card {
+            padding: 44px 26px 38px !important;
+            border-radius: 24px !important;
+            background: var(--ink-900) !important;
+            color: var(--paper-100) !important;
+            box-shadow: 0 30px 60px -30px rgba(18,35,57,0.55) !important;
+            overflow: hidden;
+          }
+          .cta-card .perf { display: none !important; }
+          .cta-card .mono { color: rgba(251,246,236,0.7) !important; }
           .cta-card h2 {
-            font-size: clamp(28px, 8.4vw, 38px) !important;
-            line-height: 1.05 !important;
-            letter-spacing: -0.02em !important;
+            font-size: clamp(30px, 9vw, 40px) !important;
+            line-height: 1.02 !important;
+            letter-spacing: -0.025em !important;
+            color: var(--paper-100) !important;
           }
           .cta-card h2 br { display: none; }
-          .cta-card .cta-sub { font-size: 16px !important; margin-top: 16px !important; }
-          .cta-card .btn.lg { width: 100%; justify-content: center; }
+          .cta-card h2 em { color: var(--seal-500) !important; }
+          .cta-card .cta-sub {
+            font-size: 16px !important; margin-top: 14px !important;
+            color: rgba(251,246,236,0.75) !important;
+          }
+          .cta-card .btn.primary {
+            background: var(--paper-100) !important; color: var(--ink-900) !important;
+            box-shadow: 0 14px 30px -12px rgba(0,0,0,0.4) !important;
+          }
+          .cta-card .divider { background: rgba(251,246,236,0.18) !important; }
+          .cta-card .col span,
+          .cta-card .display { color: var(--paper-100) !important; }
+          .cta-card .col span[style*="fg-3"],
+          .cta-card .col > span:last-child { color: rgba(251,246,236,0.6) !important; }
+          .cta-card > div:last-child span[style*="border-2"] { background: rgba(251,246,236,0.2) !important; }
 
-          /* Floating Giulia FAB: bigger portrait, clearer label */
-          .giulia-fab { right: 14px !important; bottom: 14px !important;
-            padding: 8px 16px 8px 8px !important; font-size: 13px !important; }
-          .giulia-fab .avatar { width: 44px !important; height: 44px !important; }
+          /* ── CHAT section ─────────────────────────────────────────── */
+          #chat-section { padding: 64px 18px 100px !important; }
+          #chat-section > div:last-child { border-radius: 22px !important; }
 
-          /* Hero stats: stack neatly */
-          .hero-stats { gap: 14px !important; }
-          .hero-stats > span:nth-child(even) { display: none; }
+          /* ── Floating Giulia FAB — glass pill ─────────────────────── */
+          .giulia-fab {
+            right: 12px !important; bottom: 14px !important;
+            padding: 6px 18px 6px 6px !important; font-size: 13px !important;
+            background: color-mix(in oklab, var(--ink-900) 90%, transparent) !important;
+            backdrop-filter: blur(14px) saturate(140%);
+            -webkit-backdrop-filter: blur(14px) saturate(140%);
+            border: 1px solid rgba(251,246,236,0.18) !important;
+            box-shadow: 0 18px 40px -14px rgba(18,35,57,0.55),
+                        0 0 0 4px rgba(18,35,57,0.06) !important;
+            animation: none !important;
+          }
+          .giulia-fab .avatar {
+            width: 38px !important; height: 38px !important;
+            border-width: 1px !important;
+            border-color: rgba(251,246,236,0.4) !important;
+          }
+        }
+        @media (max-width: 760px) and (max-width: 400px) {
+          .problem-section .ledger-row { grid-template-columns: 78px 1fr !important; }
+          .problem-section .ledger-row .serif:not(p) { font-size: 44px !important; }
         }
       `}</style>
       <SiteHeaderSlim/>
