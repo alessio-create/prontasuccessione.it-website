@@ -179,14 +179,16 @@ const FigSolution: React.FC<{ drift?: number }> = ({ drift = 0 }) => (
         <line x1="0" y1="38" x2="184" y2="38" stroke="#122339" strokeWidth="0.6" opacity="0.5"/>
       </g>
     </g>
-    {/* floating online chip */}
+    {/* floating 48h chip */}
     <g style={{ transform: `translateY(${r3(drift * 0.7)}px)`, transformOrigin: "76px 277px" }}>
       <g className="float-y">
-        <rect x="22" y="260" width="108" height="34" rx="17" fill="#fbf6ec" stroke="#122339" strokeWidth="1.2"/>
-        <circle cx="40" cy="277" r="4" fill="#1a7672"/>
-        <text x="52" y="281" fontFamily="JetBrains Mono, monospace" fontSize="9" letterSpacing="1.8" fill="#122339">100% ONLINE</text>
+        <rect x="14" y="256" width="132" height="42" rx="10" fill="#122339" stroke="#122339" strokeWidth="1.2"/>
+        <text x="28" y="273" fontFamily="JetBrains Mono, monospace" fontSize="8" letterSpacing="2" fill="#1a7672">PRONTA IN</text>
+        <text x="28" y="291" fontFamily="Fraunces, Georgia, serif" fontSize="16" fontStyle="italic" fontWeight="700" fill="#fbf6ec">48 ore · online</text>
+        <circle cx="132" cy="277" r="4" fill="#c25a3e"/>
       </g>
     </g>
+
   </svg>
 );
 
