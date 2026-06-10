@@ -400,7 +400,8 @@ export const Landing = ({ onStart, onChatComplete }: {
         @media (max-width: 760px) {
           .problem-section .problem-intro { position: static !important; top: auto !important; }
           .problem-section .row.gap-12 { gap: 32px !important; }
-          .problem-section .row.gap-8 { gap: 18px !important; }
+          .problem-section .row.gap-8 { gap: 18px !important; justify-content: center !important; text-align: center; }
+          .problem-section .row.gap-8 > div { margin-left: auto; margin-right: auto; }
 
           /* FAQ section: kill sticky, tighten paddings, smaller type */
           .faq-section { padding: 64px 20px !important; }
