@@ -393,11 +393,10 @@ export const Landing = ({ onStart, onChatComplete }: {
         }
         .giulia-fab .avatar {
           width: 40px; height: 40px; border-radius: 50%;
-          background: linear-gradient(135deg, #8a4a36, #c25a3e); color: #fbf6ec;
-          display: inline-flex; align-items: center; justify-content: center;
-          font-family: var(--font-display, Fraunces, Georgia, serif); font-weight: 700; font-size: 15px;
+          object-fit: cover; display: block;
           border: 2px solid #fbf6ec;
         }
+
         @media (max-width: 760px) {
           .problem-section .problem-intro { position: static !important; top: auto !important; }
           .problem-section .row.gap-12 { gap: 32px !important; }
