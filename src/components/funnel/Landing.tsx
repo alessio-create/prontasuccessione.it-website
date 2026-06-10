@@ -395,6 +395,11 @@ export const Landing = ({ onStart, onChatComplete }: {
           font-family: var(--font-display, Fraunces, Georgia, serif); font-weight: 700; font-size: 15px;
           border: 2px solid #fbf6ec;
         }
+        @media (max-width: 760px) {
+          .problem-section .problem-intro { position: static !important; top: auto !important; }
+          .problem-section .row.gap-12 { gap: 32px !important; }
+          .problem-section .row.gap-8 { gap: 18px !important; }
+        }
       `}</style>
       <SiteHeaderSlim/>
       <main style={{ minWidth: 0 }}>
