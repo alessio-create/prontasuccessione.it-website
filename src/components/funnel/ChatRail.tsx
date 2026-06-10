@@ -207,7 +207,7 @@ export const ChatRail: React.FC<{ onComplete: (a: Answers, c: Contact) => void; 
           <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 12, color: "var(--fg-3)" }}>
             <span style={{ width: 7, height: 7, borderRadius: "50%", background: "var(--success-500)",
               boxShadow: "0 0 0 3px rgba(74,153,99,0.18)" }}/>
-            Assistente AI · esperta successioni
+            Assistente - Esperta in Successioni
           </div>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 6, fontFamily: "var(--font-mono)",

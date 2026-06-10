@@ -217,7 +217,7 @@ export const Quiz = ({ answers, setAnswers, step, setStep, onComplete, onBack }:
                   <p style={{ fontSize: 14, fontWeight: 600, color: "var(--fg-1)" }}>Giulia Sartori</p>
                   <div className="row gap-2 center">
                     <span style={{ width: 6, height: 6, borderRadius: 999, background: "var(--success-500)", boxShadow: "0 0 0 3px rgba(74,153,99,0.18)" }}/>
-                    <span className="meta">Assistente AI · esperta successioni</span>
+                    <span className="meta">Assistente - Esperta in Successioni</span>
                   </div>
                 </div>
               </div>
