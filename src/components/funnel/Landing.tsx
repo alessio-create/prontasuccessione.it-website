@@ -421,7 +421,7 @@ export const Landing = ({ onStart, onChatComplete }: {
         <div ref={heroDrift.ref} style={{ position: "relative", maxWidth: 1100, margin: "0 auto", textAlign: "center", width: "100%" }}>
           <span className="mono" style={{ fontSize: "clamp(10px, 1.1vw, 11px)", letterSpacing: "0.22em",
             color: "var(--teal-700)", textTransform: "uppercase" }}>
-            AVVIA 100% ONLINE
+            100% ONLINE - IN 24/48H
           </span>
           <h1 className="display" style={{ fontSize: "clamp(36px, 6.4vw, 88px)", lineHeight: 1.0,
             marginTop: "clamp(12px, 1.6vh, 18px)", fontWeight: 700, letterSpacing: "-0.04em", color: "var(--fg-1)" }}>
@@ -434,8 +434,8 @@ export const Landing = ({ onStart, onChatComplete }: {
           <p style={{ marginTop: "clamp(14px, 2vh, 22px)", fontSize: "clamp(15px, 1.7vw, 19px)", lineHeight: 1.5,
             maxWidth: 680, marginLeft: "auto", marginRight: "auto",
             color: "var(--fg-2)", fontFamily: "var(--font-display)", fontStyle: "italic" }}>
-            In 30 secondi ti diciamo cosa serve, quanto costa e quando è pronta,
-            prima ancora di iniziare. Senza carta, senza appuntamenti, senza sorprese.
+            In 30 secondi ti diciamo cosa serve, quanto costa e quando è pronta. 
+            Se arrivi fino alla fine ottieni una consulenza gratuita. Fai La Dichiarazione di Successione.
           </p>
 
           <div className="row gap-3 wrap" style={{ alignItems: "center", justifyContent: "center", marginTop: "clamp(18px, 2.6vh, 30px)" }}>
