@@ -421,13 +421,13 @@ export const Landing = ({ onStart, onChatComplete }: {
         <div ref={heroDrift.ref} style={{ position: "relative", maxWidth: 1100, margin: "0 auto", textAlign: "center", width: "100%" }}>
           <span className="mono" style={{ fontSize: "clamp(10px, 1.1vw, 11px)", letterSpacing: "0.22em",
             color: "var(--teal-700)", textTransform: "uppercase" }}>
-            DICHIARAZIONE DI SUCCESSIONE · ONLINE · 48 ORE
+            AVVIA 100% ONLINE
           </span>
           <h1 className="display" style={{ fontSize: "clamp(36px, 6.4vw, 88px)", lineHeight: 1.0,
             marginTop: "clamp(12px, 1.6vh, 18px)", fontWeight: 700, letterSpacing: "-0.04em", color: "var(--fg-1)" }}>
-            La dichiarazione di successione,<br/>
+            Vuoi Inviare La Tua<br/>
             <em style={{ color: "var(--teal-700)", fontWeight: 700, fontStyle: "italic" }}>
-              online e pronta in 48 ore.
+              Dischiarazione di Successione?
             </em>
           </h1>
 
