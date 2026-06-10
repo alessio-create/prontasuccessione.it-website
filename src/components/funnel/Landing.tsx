@@ -2,6 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import { Icon, SiteHeaderSlim, SiteFooterSlim } from "./shell";
 import { ChatRail, type Contact } from "./ChatRail";
 import type { Answers } from "./Quiz";
+import giuliaPortrait from "@/assets/giulia-portrait.jpg";
+
+
 
 
 /* ─────────────────────────────────────────── hooks */
