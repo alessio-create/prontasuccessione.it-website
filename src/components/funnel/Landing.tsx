@@ -738,9 +738,9 @@ export const Landing = ({ onStart, onChatComplete }: {
       </section>
 
       {/* FAQ */}
-      <section ref={revealFaq} className="reveal" style={{ padding: "112px 56px", background: "var(--bg-page)" }}>
+      <section ref={revealFaq} className="reveal faq-section" style={{ padding: "112px 56px", background: "var(--bg-page)" }}>
         <div className="row gap-12 wrap" style={{ maxWidth: 1240, margin: "0 auto", alignItems: "flex-start" }}>
-          <div style={{ flex: "0.85 1 280px", position: "sticky", top: 32 }}>
+          <div className="faq-intro" style={{ flex: "0.85 1 280px", position: "sticky", top: 32 }}>
             <span className="mono" style={{ fontSize: 11, letterSpacing: "0.22em",
               color: "var(--teal-700)", textTransform: "uppercase" }}>
               F.A.Q.
