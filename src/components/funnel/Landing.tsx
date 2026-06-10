@@ -496,18 +496,6 @@ export const Landing = ({ onStart, onChatComplete }: {
               <span style={{ fontSize: 13, color: "var(--fg-1)", fontWeight: 600 }}>4,9 / 5</span>
               <span style={{ fontSize: 12, color: "var(--fg-3)" }}>· 1.200+ recensioni</span>
             </div>
-            <span style={{ width: 1, height: 18, background: "var(--border-2)" }}/>
-            <div className="row gap-2" style={{ alignItems: "center" }}>
-              <span className="display" style={{ fontWeight: 700, fontSize: 20, color: "var(--fg-1)" }}>
-                1.247
-              </span>
-              <span style={{ fontSize: 12, color: "var(--fg-3)" }}>successioni concluse</span>
-            </div>
-            <span style={{ width: 1, height: 18, background: "var(--border-2)" }}/>
-            <div className="row gap-2" style={{ alignItems: "center" }}>
-              <span className="display" style={{ fontWeight: 700, fontSize: 20, color: "var(--fg-1)" }}>48h</span>
-              <span style={{ fontSize: 12, color: "var(--fg-3)" }}>tempo medio · 100% online</span>
-            </div>
           </div>
         </div>
       </section>
