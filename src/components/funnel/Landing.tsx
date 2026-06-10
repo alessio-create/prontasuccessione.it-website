@@ -529,6 +529,22 @@ export const Landing = ({ onStart, onChatComplete }: {
             <p className="italic-serif mt-5" style={{ fontSize: 17, lineHeight: 1.65, maxWidth: 460, color: "var(--fg-2)" }}>
               Tre figure, una storia che riconosci.
             </p>
+
+            <ul style={{ listStyle: "none", padding: 0, margin: "28px 0 0", display: "grid", gap: 14, maxWidth: 460 }}>
+              {[
+                ["7", "uffici diversi, in media, prima di arrivare al protocollo"],
+                ["12 mesi", "il termine di legge - e ogni rinvio costa interessi"],
+                ["1", "errore basta per far ripartire tutto da capo"],
+              ].map(([k, v], i) => (
+                <li key={i} style={{ display: "flex", gap: 14, alignItems: "baseline",
+                  paddingBottom: 12, borderBottom: "1px solid var(--border-1)" }}>
+                  <span className="display" style={{ flex: "0 0 88px", fontSize: 26, fontWeight: 700,
+                    color: "var(--seal-600)", letterSpacing: "-0.02em", fontStyle: "italic" }}>{k}</span>
+                  <span style={{ fontSize: 14.5, color: "var(--fg-2)", lineHeight: 1.5 }}>{v}</span>
+                </li>
+              ))}
+            </ul>
+
             <div className="divider mt-8 mb-6"/>
             <blockquote style={{ borderLeft: "3px solid var(--teal-700)", paddingLeft: 22, maxWidth: 460, margin: 0 }}>
               <p className="serif" style={{ fontSize: 22, fontWeight: 600, letterSpacing: "-0.015em",
@@ -537,6 +553,7 @@ export const Landing = ({ onStart, onChatComplete }: {
               </p>
             </blockquote>
           </div>
+
 
           <div style={{ flex: "1.1 1 360px", display: "flex", flexDirection: "column", gap: 96 }}>
             <div ref={(el) => { (drift1.ref as any).current = el; (row1 as any).current = el; }}
