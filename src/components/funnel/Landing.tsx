@@ -490,7 +490,7 @@ export const Landing = ({ onStart, onChatComplete }: {
             </button>
           </div>
 
-          <div className="row gap-6 wrap" style={{ marginTop: "clamp(22px, 3vh, 38px)", alignItems: "center", justifyContent: "center" }}>
+          <div className="row gap-6 wrap hero-stats" style={{ marginTop: "clamp(22px, 3vh, 38px)", alignItems: "center", justifyContent: "center" }}>
             <div className="row gap-2" style={{ alignItems: "center" }}>
               <span style={{ color: "var(--seal-500)", letterSpacing: 2, fontSize: 14 }}>★★★★★</span>
               <span style={{ fontSize: 13, color: "var(--fg-1)", fontWeight: 600 }}>4,9 / 5</span>
