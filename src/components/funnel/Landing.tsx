@@ -768,7 +768,7 @@ export const Landing = ({ onStart, onChatComplete }: {
       </section>
 
       {/* FINAL CTA - appointment card */}
-      <section ref={revealCta} className="reveal" style={{ padding: "120px 56px 140px",
+      <section ref={revealCta} className="reveal cta-section" style={{ padding: "120px 56px 140px",
         background: "var(--paper-200)", color: "var(--fg-1)", borderTop: "1px solid var(--border-2)",
         position: "relative", overflow: "hidden" }}>
         <div aria-hidden style={{ position: "absolute", inset: 0, pointerEvents: "none",
