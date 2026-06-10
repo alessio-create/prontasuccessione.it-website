@@ -401,6 +401,52 @@ export const Landing = ({ onStart, onChatComplete }: {
           .problem-section .problem-intro { position: static !important; top: auto !important; }
           .problem-section .row.gap-12 { gap: 32px !important; }
           .problem-section .row.gap-8 { gap: 18px !important; }
+
+          /* FAQ section: kill sticky, tighten paddings, smaller type */
+          .faq-section { padding: 64px 20px !important; }
+          .faq-section .faq-intro { position: static !important; top: auto !important; }
+          .faq-section .row.gap-12 { gap: 28px !important; }
+          .faq-section h2 { font-size: clamp(30px, 8vw, 40px) !important; }
+          .faq-premium .faq-item .q {
+            padding: 20px 14px 20px 16px !important;
+            gap: 12px !important;
+            font-size: 16px !important;
+            line-height: 1.3 !important;
+            align-items: flex-start !important;
+          }
+          .faq-premium .faq-item .q .num {
+            font-size: 12px !important; width: 18px !important;
+          }
+          .faq-premium .faq-item .q .chev {
+            width: 28px !important; height: 28px !important;
+          }
+          .faq-premium .faq-item .a-inner {
+            padding: 0 16px 20px 46px !important; font-size: 15px !important;
+          }
+          .faq-premium .faq-item .a-meta {
+            padding: 0 16px 18px 46px !important; flex-wrap: wrap;
+          }
+
+          /* Final CTA: shrink to readable mobile card */
+          .cta-section { padding: 64px 16px 88px !important; }
+          .cta-card { padding: 40px 22px 36px !important; border-radius: 6px !important; }
+          .cta-card h2 {
+            font-size: clamp(28px, 8.4vw, 38px) !important;
+            line-height: 1.05 !important;
+            letter-spacing: -0.02em !important;
+          }
+          .cta-card h2 br { display: none; }
+          .cta-card .cta-sub { font-size: 16px !important; margin-top: 16px !important; }
+          .cta-card .btn.lg { width: 100%; justify-content: center; }
+
+          /* Floating Giulia FAB: bigger portrait, clearer label */
+          .giulia-fab { right: 14px !important; bottom: 14px !important;
+            padding: 8px 16px 8px 8px !important; font-size: 13px !important; }
+          .giulia-fab .avatar { width: 44px !important; height: 44px !important; }
+
+          /* Hero stats: stack neatly */
+          .hero-stats { gap: 14px !important; }
+          .hero-stats > span:nth-child(even) { display: none; }
         }
       `}</style>
       <SiteHeaderSlim/>
@@ -444,7 +490,7 @@ export const Landing = ({ onStart, onChatComplete }: {
             </button>
           </div>
 
-          <div className="row gap-6 wrap" style={{ marginTop: "clamp(22px, 3vh, 38px)", alignItems: "center", justifyContent: "center" }}>
+          <div className="row gap-6 wrap hero-stats" style={{ marginTop: "clamp(22px, 3vh, 38px)", alignItems: "center", justifyContent: "center" }}>
             <div className="row gap-2" style={{ alignItems: "center" }}>
               <span style={{ color: "var(--seal-500)", letterSpacing: 2, fontSize: 14 }}>★★★★★</span>
               <span style={{ fontSize: 13, color: "var(--fg-1)", fontWeight: 600 }}>4,9 / 5</span>
@@ -692,9 +738,9 @@ export const Landing = ({ onStart, onChatComplete }: {
       </section>
 
       {/* FAQ */}
-      <section ref={revealFaq} className="reveal" style={{ padding: "112px 56px", background: "var(--bg-page)" }}>
+      <section ref={revealFaq} className="reveal faq-section" style={{ padding: "112px 56px", background: "var(--bg-page)" }}>
         <div className="row gap-12 wrap" style={{ maxWidth: 1240, margin: "0 auto", alignItems: "flex-start" }}>
-          <div style={{ flex: "0.85 1 280px", position: "sticky", top: 32 }}>
+          <div className="faq-intro" style={{ flex: "0.85 1 280px", position: "sticky", top: 32 }}>
             <span className="mono" style={{ fontSize: 11, letterSpacing: "0.22em",
               color: "var(--teal-700)", textTransform: "uppercase" }}>
               F.A.Q.
@@ -722,7 +768,7 @@ export const Landing = ({ onStart, onChatComplete }: {
       </section>
 
       {/* FINAL CTA - appointment card */}
-      <section ref={revealCta} className="reveal" style={{ padding: "120px 56px 140px",
+      <section ref={revealCta} className="reveal cta-section" style={{ padding: "120px 56px 140px",
         background: "var(--paper-200)", color: "var(--fg-1)", borderTop: "1px solid var(--border-2)",
         position: "relative", overflow: "hidden" }}>
         <div aria-hidden style={{ position: "absolute", inset: 0, pointerEvents: "none",
@@ -746,7 +792,7 @@ export const Landing = ({ onStart, onChatComplete }: {
                 fin dal primo giorno.
               </em>
             </h2>
-            <p style={{ marginTop: 22, fontFamily: "var(--font-display)", fontStyle: "italic",
+            <p className="cta-sub" style={{ marginTop: 22, fontFamily: "var(--font-display)", fontStyle: "italic",
               fontSize: 19, color: "var(--fg-2)", maxWidth: 560, margin: "22px auto 0", lineHeight: 1.55 }}>
               Tariffa, tempi e documenti - prima ancora di iniziare.
 
@@ -784,14 +830,30 @@ export const Landing = ({ onStart, onChatComplete }: {
       <section id="chat-section" style={{ padding: "80px 24px 120px", background: "var(--paper-100)",
         borderTop: "1px solid var(--border-1)" }}>
         <div style={{ maxWidth: 720, margin: "0 auto", textAlign: "center", marginBottom: 28 }}>
-          <span className="mono" style={{ fontSize: 11, letterSpacing: "0.22em",
-            color: "var(--teal-700)", textTransform: "uppercase" }}>
-            ✦ Parla con Giulia
-          </span>
-          <h2 className="serif mt-3" style={{ fontSize: "clamp(28px, 3.6vw, 42px)", fontWeight: 600,
-            letterSpacing: "-0.025em", lineHeight: 1.1 }}>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 14 }}>
+            <span style={{ position: "relative", display: "inline-block" }}>
+              <img src={giuliaPortrait} alt="Giulia Sartori" width={84} height={84}
+                style={{ width: 84, height: 84, borderRadius: "50%", objectFit: "cover",
+                  border: "3px solid var(--paper-100)", boxShadow: "0 8px 24px rgba(18,35,57,0.18)" }}/>
+              <span style={{ position: "absolute", right: -4, bottom: -2,
+                background: "var(--teal-700)", color: "var(--paper-100)",
+                fontFamily: "var(--font-mono)", fontSize: 9, fontWeight: 700,
+                padding: "2px 6px", borderRadius: 5, border: "2px solid var(--paper-100)",
+                letterSpacing: "0.1em" }}>AI</span>
+            </span>
+            <span className="mono" style={{ fontSize: 11, letterSpacing: "0.22em",
+              color: "var(--teal-700)", textTransform: "uppercase" }}>
+              ✦ Parla con Giulia
+            </span>
+          </div>
+          <h2 className="serif mt-3" style={{ fontSize: "clamp(26px, 3.6vw, 42px)", fontWeight: 600,
+            letterSpacing: "-0.025em", lineHeight: 1.15, marginTop: 14 }}>
             Cinque domande, <em style={{ color: "var(--teal-700)" }}>il tuo piano personalizzato.</em>
           </h2>
+          <p className="italic-serif" style={{ marginTop: 10, fontSize: 15, color: "var(--fg-2)",
+            maxWidth: 460, marginLeft: "auto", marginRight: "auto", lineHeight: 1.55 }}>
+            Sono Giulia, commercialista. Ti rispondo in chat, in italiano, in giornata.
+          </p>
         </div>
         <div style={{ maxWidth: 560, margin: "0 auto", height: "min(680px, 80vh)",
           boxShadow: "0 24px 60px rgba(18,35,57,0.12)", borderRadius: 18, overflow: "hidden",
