@@ -162,7 +162,7 @@ const FigSolution: React.FC<{ drift?: number }> = ({ drift = 0 }) => (
         <circle r="34" fill="none" stroke="#8a3a24" strokeWidth="1.6" opacity="0.9"/>
         <circle r="28" fill="none" stroke="#8a3a24" strokeWidth="0.6" opacity="0.7"/>
         <text textAnchor="middle" y="-4" fontFamily="JetBrains Mono, monospace" fontSize="7" letterSpacing="1.6" fill="#8a3a24">APPROVATA</text>
-        <text textAnchor="middle" y="10" fontFamily="Fraunces, Georgia, serif" fontStyle="italic" fontSize="14" fill="#8a3a24" fontWeight="700">48h</text>
+        <text textAnchor="middle" y="10" fontFamily="Fraunces, Georgia, serif" fontStyle="italic" fontSize="14" fill="#8a3a24" fontWeight="700">24-48h</text>
       </g>
       {[110, 138, 166, 194, 222].map((y, i) => (
         <g key={i}>
@@ -187,7 +187,7 @@ const FigSolution: React.FC<{ drift?: number }> = ({ drift = 0 }) => (
       <g className="float-y">
         <rect x="14" y="256" width="132" height="42" rx="10" fill="#122339" stroke="#122339" strokeWidth="1.2"/>
         <text x="28" y="273" fontFamily="JetBrains Mono, monospace" fontSize="8" letterSpacing="2" fill="#1a7672">PRONTA IN</text>
-        <text x="28" y="291" fontFamily="Fraunces, Georgia, serif" fontSize="16" fontStyle="italic" fontWeight="700" fill="#fbf6ec">48 ore · online</text>
+        <text x="28" y="291" fontFamily="Fraunces, Georgia, serif" fontSize="16" fontStyle="italic" fontWeight="700" fill="#fbf6ec">24 ore · online</text>
         <circle cx="132" cy="277" r="4" fill="#c25a3e"/>
       </g>
     </g>
@@ -421,7 +421,7 @@ export const Landing = ({ onStart, onChatComplete }: {
         <div ref={heroDrift.ref} style={{ position: "relative", maxWidth: 1100, margin: "0 auto", textAlign: "center", width: "100%" }}>
           <span className="mono" style={{ fontSize: "clamp(10px, 1.1vw, 11px)", letterSpacing: "0.22em",
             color: "var(--teal-700)", textTransform: "uppercase" }}>
-            100% ONLINE - IN 24/48H
+            100% ONLINE IN 24H
           </span>
           <h1 className="display" style={{ fontSize: "clamp(36px, 6.4vw, 88px)", lineHeight: 1.0,
             marginTop: "clamp(12px, 1.6vh, 18px)", fontWeight: 700, letterSpacing: "-0.04em", color: "var(--fg-1)" }}>
@@ -440,7 +440,7 @@ export const Landing = ({ onStart, onChatComplete }: {
 
           <div className="row gap-3 wrap" style={{ alignItems: "center", justifyContent: "center", marginTop: "clamp(18px, 2.6vh, 30px)" }}>
             <button className="btn primary lg" onClick={focusChat}>
-              Inizia il quiz · 30 secondi <Icon name="arrow-right" size={16}/>
+              Inviaorainsoli30secondi <Icon name="arrow-right" size={16}/>
             </button>
           </div>
 
