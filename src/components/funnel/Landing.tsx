@@ -772,7 +772,7 @@ export const Landing = ({ onStart, onChatComplete }: {
       </main>
 
       <button className="giulia-fab" onClick={focusChat} aria-label="Apri chat con Giulia">
-        <span className="avatar">GS</span>
+        <img src={giuliaPortrait} alt="Giulia" className="avatar" width={40} height={40} loading="lazy"/>
         <span>Chatta con Giulia →</span>
       </button>
 
