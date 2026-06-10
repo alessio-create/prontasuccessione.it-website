@@ -526,9 +526,9 @@ export const Landing = ({ onStart, onChatComplete }: {
         <div className="row gap-12 wrap" style={{ maxWidth: 1240, margin: "0 auto", alignItems: "flex-start" }}>
           <div className="reveal problem-intro" style={{ flex: "1 1 360px", position: "sticky", top: 32 }}>
 
-            <span className="mono" style={{ fontSize: 11, letterSpacing: "0.22em",
-              color: "var(--seal-600)", textTransform: "uppercase" }}>
-              Il problema · da soli
+            <span className="mono" style={{ fontSize: 10, letterSpacing: "0.22em",
+              color: "var(--teal-700)", textTransform: "uppercase", fontWeight: 500 }}>
+              Analisi del Percorso
             </span>
             <h2 className="serif mt-3" style={{ fontSize: "clamp(38px, 5vw, 60px)", fontWeight: 600,
               letterSpacing: "-0.03em", lineHeight: 1.0 }}>
@@ -538,28 +538,59 @@ export const Landing = ({ onStart, onChatComplete }: {
               Tre figure, una storia che riconosci.
             </p>
 
-            <ul style={{ listStyle: "none", padding: 0, margin: "28px 0 0", display: "grid", gap: 14, maxWidth: 460 }}>
+            <div style={{ marginTop: 36, borderTop: "1px solid var(--border-1)" }}>
               {[
-                ["7", "uffici diversi, in media, prima di arrivare al protocollo"],
-                ["12 mesi", "il termine di legge - e ogni rinvio costa interessi"],
-                ["1", "errore basta per far ripartire tutto da capo"],
-              ].map(([k, v], i) => (
-                <li key={i} style={{ display: "flex", gap: 14, alignItems: "baseline",
-                  paddingBottom: 12, borderBottom: "1px solid var(--border-1)" }}>
-                  <span className="display" style={{ flex: "0 0 88px", fontSize: 26, fontWeight: 700,
-                    color: "var(--seal-600)", letterSpacing: "-0.02em", fontStyle: "italic" }}>{k}</span>
-                  <span style={{ fontSize: 14.5, color: "var(--fg-2)", lineHeight: 1.5 }}>{v}</span>
-                </li>
+                { idx: "01. uffici", num: "7", suffix: null, body: "uffici diversi, in media, prima di arrivare al ", hl: "protocollo" },
+                { idx: "02. tempo", num: "12", suffix: "mesi", body: "il termine di legge — e ogni rinvio costa ", hl: "interessi" },
+                { idx: "03. criticità", num: "1", suffix: null, body: "errore basta per far ripartire ", hl: "tutto da capo" },
+              ].map((s, i) => (
+                <div key={i} className="ledger-row" style={{ display: "grid",
+                  gridTemplateColumns: "minmax(120px, 160px) 1fr", gap: 24, padding: "32px 0",
+                  borderBottom: "1px solid var(--border-1)", alignItems: "start" }}>
+                  <div style={{ display: "flex", flexDirection: "column" }}>
+                    <span className="mono" style={{ color: "color-mix(in oklab, var(--fg-1) 40%, transparent)",
+                      fontSize: 11, marginBottom: 8 }}>{s.idx}</span>
+                    <div style={{ display: "flex", alignItems: "baseline", gap: 8 }}>
+                      <span className="serif" style={{ fontSize: "clamp(56px, 7vw, 88px)", fontWeight: 700,
+                        lineHeight: 1, color: "var(--seal-500)", marginLeft: -2 }}>{s.num}</span>
+                      {s.suffix && (
+                        <span className="serif" style={{ fontSize: 22, fontStyle: "italic", fontWeight: 600,
+                          color: "var(--seal-500)" }}>{s.suffix}</span>
+                      )}
+                    </div>
+                  </div>
+                  <p className="serif" style={{ fontSize: "clamp(18px, 1.6vw, 22px)", lineHeight: 1.55,
+                    color: "var(--fg-1)", paddingTop: 8, margin: 0 }}>
+                    {s.body}
+                    <span style={{ fontStyle: "italic", fontWeight: 500,
+                      textDecoration: "underline", textDecorationColor: "color-mix(in oklab, var(--seal-500) 35%, transparent)",
+                      textUnderlineOffset: 6 }}>{s.hl}</span>
+                  </p>
+                </div>
               ))}
-            </ul>
+            </div>
 
-            <div className="divider mt-8 mb-6"/>
-            <blockquote style={{ borderLeft: "3px solid var(--teal-700)", paddingLeft: 22, maxWidth: 460, margin: 0 }}>
-              <p className="serif" style={{ fontSize: 22, fontWeight: 600, letterSpacing: "-0.015em",
-                lineHeight: 1.3, color: "var(--fg-1)" }}>
-                Noi prendiamo in mano la parte burocratica. Tu pensi al resto.
-              </p>
-            </blockquote>
+            <div style={{ position: "relative", marginTop: 40, padding: "clamp(28px, 4vw, 48px)",
+              background: "var(--ink-900)", overflow: "hidden", borderRadius: 2 }}>
+              <div aria-hidden style={{ position: "absolute", top: 0, right: 0, width: 160, height: 160,
+                background: "color-mix(in oklab, var(--teal-700) 30%, transparent)",
+                filter: "blur(60px)", borderRadius: "50%" }}/>
+              <div style={{ position: "relative", display: "flex", flexDirection: "column", gap: 20 }}>
+                <div style={{ width: 48, height: 1, background: "var(--seal-500)" }}/>
+                <p className="serif" style={{ fontSize: "clamp(24px, 3vw, 34px)", lineHeight: 1.15,
+                  color: "var(--paper-100)", fontWeight: 300, margin: 0 }}>
+                  Noi prendiamo in mano la parte burocratica.{" "}
+                  <em style={{ fontStyle: "italic", color: "var(--seal-500)", fontWeight: 500 }}>
+                    Tu pensi al resto.
+                  </em>
+                </p>
+                <div className="mono" style={{ fontSize: 10, letterSpacing: "0.2em", textTransform: "uppercase",
+                  color: "color-mix(in oklab, var(--paper-100) 40%, transparent)" }}>
+                  Impegno Garantito · Gestione Pratiche
+                </div>
+              </div>
+            </div>
+
           </div>
 
 
