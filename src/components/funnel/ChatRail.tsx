@@ -1,18 +1,24 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Icon } from "./shell";
 import { QUIZ, type Answers } from "./Quiz";
+import giuliaPortrait from "@/assets/giulia-portrait.jpg";
 
 export type Contact = { name: string; email: string; phone: string };
 
 const Avatar: React.FC<{ size?: number }> = ({ size = 28 }) => (
   <span style={{ position: "relative", display: "inline-flex", width: size, height: size, flex: "0 0 auto" }}>
-    <span style={{
-      width: size, height: size, borderRadius: "50%",
-      background: "linear-gradient(135deg, #8a4a36, #c25a3e)",
-      color: "#fbf6ec", fontFamily: "var(--font-display)", fontWeight: 700,
-      fontSize: size * 0.38, display: "inline-flex", alignItems: "center", justifyContent: "center",
-      letterSpacing: "0.04em",
-    }}>GS</span>
+    <img
+      src={giuliaPortrait}
+      alt="Giulia Sartori"
+      width={size}
+      height={size}
+      loading="lazy"
+      style={{
+        width: size, height: size, borderRadius: "50%", objectFit: "cover",
+        display: "block", border: "1.5px solid var(--paper-100)",
+        boxShadow: "0 1px 4px rgba(18,35,57,0.12)",
+      }}
+    />
     <span style={{
       position: "absolute", right: -3, bottom: -3,
       background: "#1a7672", color: "#fbf6ec",
@@ -22,6 +28,7 @@ const Avatar: React.FC<{ size?: number }> = ({ size = 28 }) => (
     }}>AI</span>
   </span>
 );
+
 
 const Dots = () => (
   <span style={{ display: "inline-flex", gap: 4, padding: "10px 14px",

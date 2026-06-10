@@ -2,6 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import { Icon, SiteHeaderSlim, SiteFooterSlim } from "./shell";
 import { ChatRail, type Contact } from "./ChatRail";
 import type { Answers } from "./Quiz";
+import giuliaPortrait from "@/assets/giulia-portrait.jpg";
+
+
 
 
 /* ─────────────────────────────────────────── hooks */
@@ -179,14 +182,16 @@ const FigSolution: React.FC<{ drift?: number }> = ({ drift = 0 }) => (
         <line x1="0" y1="38" x2="184" y2="38" stroke="#122339" strokeWidth="0.6" opacity="0.5"/>
       </g>
     </g>
-    {/* floating online chip */}
+    {/* floating 48h chip */}
     <g style={{ transform: `translateY(${r3(drift * 0.7)}px)`, transformOrigin: "76px 277px" }}>
       <g className="float-y">
-        <rect x="22" y="260" width="108" height="34" rx="17" fill="#fbf6ec" stroke="#122339" strokeWidth="1.2"/>
-        <circle cx="40" cy="277" r="4" fill="#1a7672"/>
-        <text x="52" y="281" fontFamily="JetBrains Mono, monospace" fontSize="9" letterSpacing="1.8" fill="#122339">100% ONLINE</text>
+        <rect x="14" y="256" width="132" height="42" rx="10" fill="#122339" stroke="#122339" strokeWidth="1.2"/>
+        <text x="28" y="273" fontFamily="JetBrains Mono, monospace" fontSize="8" letterSpacing="2" fill="#1a7672">PRONTA IN</text>
+        <text x="28" y="291" fontFamily="Fraunces, Georgia, serif" fontSize="16" fontStyle="italic" fontWeight="700" fill="#fbf6ec">48 ore · online</text>
+        <circle cx="132" cy="277" r="4" fill="#c25a3e"/>
       </g>
     </g>
+
   </svg>
 );
 
@@ -388,10 +393,14 @@ export const Landing = ({ onStart, onChatComplete }: {
         }
         .giulia-fab .avatar {
           width: 40px; height: 40px; border-radius: 50%;
-          background: linear-gradient(135deg, #8a4a36, #c25a3e); color: #fbf6ec;
-          display: inline-flex; align-items: center; justify-content: center;
-          font-family: var(--font-display, Fraunces, Georgia, serif); font-weight: 700; font-size: 15px;
+          object-fit: cover; display: block;
           border: 2px solid #fbf6ec;
+        }
+
+        @media (max-width: 760px) {
+          .problem-section .problem-intro { position: static !important; top: auto !important; }
+          .problem-section .row.gap-12 { gap: 32px !important; }
+          .problem-section .row.gap-8 { gap: 18px !important; }
         }
       `}</style>
       <SiteHeaderSlim/>
@@ -412,15 +421,16 @@ export const Landing = ({ onStart, onChatComplete }: {
         <div ref={heroDrift.ref} style={{ position: "relative", maxWidth: 1100, margin: "0 auto", textAlign: "center", width: "100%" }}>
           <span className="mono" style={{ fontSize: "clamp(10px, 1.1vw, 11px)", letterSpacing: "0.22em",
             color: "var(--teal-700)", textTransform: "uppercase" }}>
-            DICHIARAZIONE DI SUCCESSIONE 100% ONLINE
+            DICHIARAZIONE DI SUCCESSIONE · ONLINE · 48 ORE
           </span>
           <h1 className="display" style={{ fontSize: "clamp(36px, 6.4vw, 88px)", lineHeight: 1.0,
             marginTop: "clamp(12px, 1.6vh, 18px)", fontWeight: 700, letterSpacing: "-0.04em", color: "var(--fg-1)" }}>
-            La tua successione,<br/>
+            La dichiarazione di successione,<br/>
             <em style={{ color: "var(--teal-700)", fontWeight: 700, fontStyle: "italic" }}>
-              davvero in regola?
+              online e pronta in 48 ore.
             </em>
           </h1>
+
           <p style={{ marginTop: "clamp(14px, 2vh, 22px)", fontSize: "clamp(15px, 1.7vw, 19px)", lineHeight: 1.5,
             maxWidth: 680, marginLeft: "auto", marginRight: "auto",
             color: "var(--fg-2)", fontFamily: "var(--font-display)", fontStyle: "italic" }}>
@@ -511,10 +521,11 @@ export const Landing = ({ onStart, onChatComplete }: {
       </section>
 
       {/* PROBLEM - keeps the figures the user likes */}
-      <section ref={revealProblem} style={{ padding: "120px 56px", position: "relative",
+      <section ref={revealProblem} className="problem-section" style={{ padding: "clamp(56px, 10vw, 120px) clamp(20px, 4vw, 56px)", position: "relative",
         overflow: "hidden", background: "var(--paper-200)", borderTop: "1px solid var(--ink-900)" }}>
         <div className="row gap-12 wrap" style={{ maxWidth: 1240, margin: "0 auto", alignItems: "flex-start" }}>
-          <div className="reveal" style={{ flex: "1 1 360px", position: "sticky", top: 32 }}>
+          <div className="reveal problem-intro" style={{ flex: "1 1 360px", position: "sticky", top: 32 }}>
+
             <span className="mono" style={{ fontSize: 11, letterSpacing: "0.22em",
               color: "var(--seal-600)", textTransform: "uppercase" }}>
               Il problema · da soli
@@ -526,6 +537,22 @@ export const Landing = ({ onStart, onChatComplete }: {
             <p className="italic-serif mt-5" style={{ fontSize: 17, lineHeight: 1.65, maxWidth: 460, color: "var(--fg-2)" }}>
               Tre figure, una storia che riconosci.
             </p>
+
+            <ul style={{ listStyle: "none", padding: 0, margin: "28px 0 0", display: "grid", gap: 14, maxWidth: 460 }}>
+              {[
+                ["7", "uffici diversi, in media, prima di arrivare al protocollo"],
+                ["12 mesi", "il termine di legge - e ogni rinvio costa interessi"],
+                ["1", "errore basta per far ripartire tutto da capo"],
+              ].map(([k, v], i) => (
+                <li key={i} style={{ display: "flex", gap: 14, alignItems: "baseline",
+                  paddingBottom: 12, borderBottom: "1px solid var(--border-1)" }}>
+                  <span className="display" style={{ flex: "0 0 88px", fontSize: 26, fontWeight: 700,
+                    color: "var(--seal-600)", letterSpacing: "-0.02em", fontStyle: "italic" }}>{k}</span>
+                  <span style={{ fontSize: 14.5, color: "var(--fg-2)", lineHeight: 1.5 }}>{v}</span>
+                </li>
+              ))}
+            </ul>
+
             <div className="divider mt-8 mb-6"/>
             <blockquote style={{ borderLeft: "3px solid var(--teal-700)", paddingLeft: 22, maxWidth: 460, margin: 0 }}>
               <p className="serif" style={{ fontSize: 22, fontWeight: 600, letterSpacing: "-0.015em",
@@ -534,6 +561,7 @@ export const Landing = ({ onStart, onChatComplete }: {
               </p>
             </blockquote>
           </div>
+
 
           <div style={{ flex: "1.1 1 360px", display: "flex", flexDirection: "column", gap: 96 }}>
             <div ref={(el) => { (drift1.ref as any).current = el; (row1 as any).current = el; }}
@@ -743,7 +771,7 @@ export const Landing = ({ onStart, onChatComplete }: {
       </main>
 
       <button className="giulia-fab" onClick={focusChat} aria-label="Apri chat con Giulia">
-        <span className="avatar">GS</span>
+        <img src={giuliaPortrait} alt="Giulia" className="avatar" width={40} height={40} loading="lazy"/>
         <span>Chatta con Giulia →</span>
       </button>
 
