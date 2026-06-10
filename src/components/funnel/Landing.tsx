@@ -830,14 +830,30 @@ export const Landing = ({ onStart, onChatComplete }: {
       <section id="chat-section" style={{ padding: "80px 24px 120px", background: "var(--paper-100)",
         borderTop: "1px solid var(--border-1)" }}>
         <div style={{ maxWidth: 720, margin: "0 auto", textAlign: "center", marginBottom: 28 }}>
-          <span className="mono" style={{ fontSize: 11, letterSpacing: "0.22em",
-            color: "var(--teal-700)", textTransform: "uppercase" }}>
-            ✦ Parla con Giulia
-          </span>
-          <h2 className="serif mt-3" style={{ fontSize: "clamp(28px, 3.6vw, 42px)", fontWeight: 600,
-            letterSpacing: "-0.025em", lineHeight: 1.1 }}>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 14 }}>
+            <span style={{ position: "relative", display: "inline-block" }}>
+              <img src={giuliaPortrait} alt="Giulia Sartori" width={84} height={84}
+                style={{ width: 84, height: 84, borderRadius: "50%", objectFit: "cover",
+                  border: "3px solid var(--paper-100)", boxShadow: "0 8px 24px rgba(18,35,57,0.18)" }}/>
+              <span style={{ position: "absolute", right: -4, bottom: -2,
+                background: "var(--teal-700)", color: "var(--paper-100)",
+                fontFamily: "var(--font-mono)", fontSize: 9, fontWeight: 700,
+                padding: "2px 6px", borderRadius: 5, border: "2px solid var(--paper-100)",
+                letterSpacing: "0.1em" }}>AI</span>
+            </span>
+            <span className="mono" style={{ fontSize: 11, letterSpacing: "0.22em",
+              color: "var(--teal-700)", textTransform: "uppercase" }}>
+              ✦ Parla con Giulia
+            </span>
+          </div>
+          <h2 className="serif mt-3" style={{ fontSize: "clamp(26px, 3.6vw, 42px)", fontWeight: 600,
+            letterSpacing: "-0.025em", lineHeight: 1.15, marginTop: 14 }}>
             Cinque domande, <em style={{ color: "var(--teal-700)" }}>il tuo piano personalizzato.</em>
           </h2>
+          <p className="italic-serif" style={{ marginTop: 10, fontSize: 15, color: "var(--fg-2)",
+            maxWidth: 460, marginLeft: "auto", marginRight: "auto", lineHeight: 1.55 }}>
+            Sono Giulia, commercialista. Ti rispondo in chat, in italiano, in giornata.
+          </p>
         </div>
         <div style={{ maxWidth: 560, margin: "0 auto", height: "min(680px, 80vh)",
           boxShadow: "0 24px 60px rgba(18,35,57,0.12)", borderRadius: 18, overflow: "hidden",
