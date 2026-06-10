@@ -440,7 +440,7 @@ export const Landing = ({ onStart, onChatComplete }: {
 
           <div className="row gap-3 wrap" style={{ alignItems: "center", justifyContent: "center", marginTop: "clamp(18px, 2.6vh, 30px)" }}>
             <button className="btn primary lg" onClick={focusChat}>
-              Invia ora in soli 30 secondi <Icon name="arrow-right" size={16}/>
+              Fai Il Quiz <Icon name="arrow-right" size={16}/>
             </button>
           </div>
 
