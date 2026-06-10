@@ -792,7 +792,7 @@ export const Landing = ({ onStart, onChatComplete }: {
                 fin dal primo giorno.
               </em>
             </h2>
-            <p style={{ marginTop: 22, fontFamily: "var(--font-display)", fontStyle: "italic",
+            <p className="cta-sub" style={{ marginTop: 22, fontFamily: "var(--font-display)", fontStyle: "italic",
               fontSize: 19, color: "var(--fg-2)", maxWidth: 560, margin: "22px auto 0", lineHeight: 1.55 }}>
               Tariffa, tempi e documenti - prima ancora di iniziare.
 
